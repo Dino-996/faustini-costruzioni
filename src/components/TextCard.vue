@@ -11,7 +11,7 @@
         <v-divider :thickness="5" color="black" class="w-25"></v-divider>
       </v-card-title>
 
-      <v-card-text class="text-black">
+      <v-card-text class="text-black w-75">
         {{ props.text }}
       </v-card-text>
 

@@ -7,7 +7,7 @@
 
     <template v-slot:append>
       <v-btn icon="mdi-facebook" color="blue-darken-2"></v-btn>
-      <v-btn icon="mdi-map" color="orange" class="mr-3"></v-btn>
+      <v-btn icon="mdi-map" color="blue-darken-2" class="mr-3"></v-btn>
       <v-btn prepend-icon="mdi-cellphone text-button" variant="tonal" color="blue-darken-2">Telefono</v-btn>
     </template>
   </v-app-bar>

@@ -1,95 +1,83 @@
 <template>
-  <v-parallax :src="current" height="700" class="background-gradienty">
-    <div class="ml-5 mr-5 d-flex flex-row flex-wrap fill-height justify-space-evenly align-center">
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="/src/assets/faustini.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-text">
+      <v-container class="fill-height" fluid>
+        <v-row align="center" justify="center">
+          <div class="ml-5 mr-5 d-flex flex-row flex-wrap fill-height justify-space-evenly align-center">
 
-      <div>
-        <v-img width="auto" max-width="250" src="../assets/logo.png" alt="logo"></v-img>
-      </div>
+            <div>
+              <v-img width="auto" max-width="200" src="../assets/logo.png" alt="logo"></v-img>
+            </div>
 
-      <div>
-        <v-card elevation="0" color="transparent">
-          <v-card-title class="ml-10 mr-10">
-            <h1 :class="{ 'smTitle': mobile, 'dkTitle': true }">Faustini Costruzioni</h1>
-          </v-card-title>
-          <v-card-text class="ml-10 mr-10">
-            <p :class="{ 'smText': mobile, 'dkText': true }">
-              Qualità e avanguardia, i pilastri su cui costruiamo il tuo futuro.
-            </p>
-          </v-card-text>
-          <v-card-actions class="ml-10 mr-10">
-            <v-btn :class="{ 'smButton': mobile, 'dkButton': true }" append-icon="mdi-arrow-right" variant="elevated">
-              Preventivo gratuito
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </div>
+            <div>
+              <v-card elevation="0" color="transparent">
+                <v-card-title class="ml-10 mr-10">
+                  <h1 class="text-orange text-h5 font-weight-bold">Faustini Costruzioni</h1>
+                </v-card-title>
+                <v-card-text class="ml-10 mr-10">
+                  <p>
+                    Qualità e avanguardia, i pilastri su cui costruiamo il tuo futuro.
+                  </p>
+                </v-card-text>
+                <v-card-actions class="ml-10 mr-10">
 
+                  <v-card-actions>
+                    <v-btn append-icon="mdi-arrow-down" variant="elevated" @click="scrollTo">
+                      Preventivo gratuito
+                    </v-btn>
+                  </v-card-actions>
+
+                </v-card-actions>
+              </v-card>
+            </div>
+
+          </div>
+        </v-row>
+      </v-container>
     </div>
-  </v-parallax>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { useDisplay } from 'vuetify';
-import { reactive, ref, onMounted } from 'vue';
-
-const { mobile } = useDisplay();
-
-let image = 0;
-const images = reactive([
-  { id: 0, src: 'src/assets/1.jpg' },
-  { id: 1, src: 'src/assets/2.jpg' },
-  { id: 2, src: 'src/assets/3.jpg' }
-]);
-const current = ref(images[0].src);
-
-const changeImage = () => {
-  image = (image + 1) % images.length;
-  current.value = images[image].src;
+function scrollTo() {
+  window.scroll({ top: 10000, left: 0, behavior: 'smooth' });
 }
-
-onMounted(() => {
-  setInterval(changeImage, 5000);
-});
 </script>
 
 <style scoped>
-h1 {
-  font-size: 30px;
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-p {
-  font-size: 18px;
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
 }
 
-.dkTitle {
-  font-size: 36px !important;
-  color: #FF9800;
-}
-
-.smTitle {
-  font-size: 24px !important;
-  color: #FF9800;
-}
-
-.dkText {
-  font-size: 18px !important;
-  color: #FFFFFF;
-}
-
-.dsText {
-  font-size: 12px !important;
-  color: #FFFFFF;
-}
-
-.dkButton {
-  font-size: 16px !important;
-}
-
-.dsButton {
-  font-size: 12px !important;
-}
-
-.background-gradient {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 </style>
