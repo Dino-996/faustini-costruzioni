@@ -5,33 +5,16 @@
     <v-divider :thickness="5" color="black" class="w-25"></v-divider>
   </div>
 
-  <div class="d-flex justify-center align-center">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.3566113781385!2d15.507098!3d40.599955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339169b662e3187%3A0xdf1ebf67f980f6eb!2sFaustini%20Costruzioni!5e0!3m2!1sit!2sit!4v1713049534195!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
+  <div class="d-flex flex-wrap align-end justify-space-evenly bg-image">
 
-  <div class="d-flex flex-wrap-reverse align-end justify-space-evenly bg-image">
-    <div>
-      <v-card class="mt-10 mb-3 pt-3" rounded="sm" color="yellow-darken-2" width="340">
-
-        <v-card-subtitle class="text-subtitle-1 text-black">
-          <h4>CONTATTI </h4>
-        </v-card-subtitle>
-
-        <div v-for="contact in contacts" :key="contact.id">
-          <v-card-title class="text-blue-darken-2">
-            {{ contact.title }}
-            <v-divider :thickness="5" color="black" class="w-25"></v-divider>
-          </v-card-title>
-
-          <v-card-text class="d-flex justify-start align-start text-black">
-            <v-icon :icon="contact.icon"></v-icon><a class="ml-2" href="#" about="_blank">{{ contact.text }}</a>
-          </v-card-text>
-        </div>
-
-      </v-card>
+    <div class="d-flex justify-center align-center mb-5">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.3566113781385!2d15.507098!3d40.599955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339169b662e3187%3A0xdf1ebf67f980f6eb!2sFaustini%20Costruzioni!5e0!3m2!1sit!2sit!4v1713049534195!5m2!1sit!2sit"
+        class="resize" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
 
-    <v-card class="mt-5 pt-5 pb-5 pr-5 pl-5 text-black" rounded="sm" color="yellow-darken-2">
+    <v-card class="mb-5 pt-5 pb-5 pr-5 pl-5 text-black" rounded="sm" color="yellow-darken-2">
       <v-sheet class="mx-auto" width="300" elevation="0" color="transparent">
 
         <div class="text-subtitle-1 text-grey-darken-1 mb-3">
@@ -50,6 +33,10 @@
           <v-text-field clearable prepend-inner-icon="mdi-cellphone text-blue-darken-2" variant="underlined"
             v-model="telefono" :rules="rulesCellphone" label="Cellulare" color="blue-darken-2" counter="10">
           </v-text-field>
+
+          <!-- Alla v-select manca la validazione -->
+          <v-select prepend-inner-icon="mdi-toolbox-outline text-blue-darken-2" color="blue-darken-2" label="Servizi" :items="services"
+            variant="underlined" clearable chips multiple closable-chips></v-select>
 
           <v-textarea clearable prepend-inner-icon="mdi-forum text-blue-darken-2" variant="underlined"
             label="Inserisci la tua richiesta" :rules="rulesRequest" v-model="richiesta" counter="250"></v-textarea>
@@ -70,10 +57,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
 
-const scrollToSection = (id) => {
-  const element = document.getElementById(id);
-  element!.scrollIntoView({ behavior: "smooth" });
-}
+const services = ['Costruzioni generali', 'Idrodemolizione', 'Restauro conservativo', 'Noleggio ponteggio e attrezzature'];
 
 const contacts = reactive([
   { id: 0, title: "Fisso", text: "0971 71 87 45", icon: "mdi-phone text-subtitle-1 text-blue-darken-2" },
@@ -141,5 +125,19 @@ const rulesRequest = [
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+@media screen and (max-width: 1200px) {
+  .resize {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 898px) {
+  .resize {
+    width: 350px;
+    height: 450px;
+  }
 }
 </style>
