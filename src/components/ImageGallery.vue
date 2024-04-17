@@ -21,17 +21,19 @@
           </v-card>
 
           <v-overlay v-model="overlay" scroll-strategy="reposition" class="align-center justify-center">
-            <v-card rounded="sm" color="yellow-darken-2" elevation="5" height="auto" width="380px">
+            <v-card rounded="sm" color="yellow-darken-2" elevation="5" width="380" class="scrollable">
+
               <template v-slot:append>
-                <v-btn color="blue-darken-2" icon="mdi-close" variant="text" rounded="xl"
+                <v-btn color="blue-darken-2" icon="mdi-close" variant="text" rounded="sm"
                   @click.once="overlay = !overlay" />
               </template>
 
               <!--<v-img rounded="sm" :src="selectedImage.fileimage" width="auto"></v-img>-->
 
-              <v-carousel show-arrows="hover" hide-delimiters>
-                <v-carousel-item v-for="(image, id) in selectedImage.subfileimage" :key="id" :src="image"
-                  cover></v-carousel-item>
+              <v-carousel :show-arrows="selectedImage.subfileimage.length > 1 ? 'hover' : false" hide-delimiters>
+                <v-carousel-item v-for="(item, id) in selectedImage.subfileimage" :src="item" :key="id" cover>
+                  <video v-if="item.endsWith('.mp4')" :src="item" autoplay muted loop></video>
+                </v-carousel-item>
               </v-carousel>
 
 
@@ -74,11 +76,20 @@ const selectImage = (image: null) => {
 };
 
 const images = reactive([
-  { id: 1, fileimage: '/src/assets/work2.webp', subfileimage: ['/src/assets/work2.webp', '/src/assets/work3.webp'], title: "Area Rupe", subtitle: "Vietri di Potenza (PZ)", text: "L'area Rupe nel centro storico di Vietri di Potenza rappresenta un importante patrimonio culturale e storico della città. L'intervento di riqualificazione ha l'obiettivo di valorizzare e riqualificare questa zona, conservando e valorizzando le sue caratteristiche architettoniche e storiche, nonché migliorando la qualità urbana e il benessere dei cittadini." },
-  { id: 2, fileimage: '/src/assets/work1.webp', subfileimage: ['/src/assets/work1.webp', '/src/assets/work4.webp', '/src/assets/work5.webp'], title: "Teatro Cecilia", subtitle: "Tito (PZ)", text: "Il Teatro Cecilia di Tito è un edificio storico situato in provincia di Potenza. Considerato il suo valore culturale e storico, l'obiettivo dell'intervento di efficientamento energetico è stato quello di migliorare la performance energetica dell'edificio riducendo consumi e emissioni, senza compromettere l'integrità architettonica e storica dell'immobile." },
-  { id: 3, fileimage: '/src/assets/work6.webp', subfileimage: ['/src/assets/work6.webp'], title: "Title6", subtitle: "", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ut itaque ipsam repellat dignissimos ad saepe ducimus, numquam voluptate doloremque, placeat veritatis praesentium doloribus vel deleniti quos eum beatae sit." },
-  { id: 4, fileimage: '/src/assets/work7.webp', subfileimage: ['/src/assets/work7.webp', '/src/assets/work8.webp'], title: "Title7", subtitle: "", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ut itaque ipsam repellat dignissimos ad saepe ducimus, numquam voluptate doloremque, placeat veritatis praesentium doloribus vel deleniti quos eum beatae sit." },
-  { id: 5, fileimage: '/src/assets/work9.webp', subfileimage: ['/src/assets/viadotto.mp4', '/src/assets/work9.webp'], title: "Viadotto autostradale", subtitle: "Raccordo autostradale Sicignano - Potenza", text: "Il ripristino con malta tixotropica delle pile di viadotti sul raccordo autostradale Sicignano - Potenza ha permesso di riparare e rinforzare le strutture danneggiate, garantendo la sicurezza e la durabilità delle pile nel tempo. Attraverso l'applicazione di soluzioni tecnologicamente avanzate e l'utilizzo di materiali di alta qualità, abbiamo contribuito a prolungare la vita utile dei viadotti, minimizzando i rischi di cedimenti strutturali e garantendo la continuità e l'efficienza del collegamento autostradale tra la Campania e la Basilicata." },
-  { id: 6, fileimage: '/src/assets/work11.webp', subfileimage: ['/src/assets/work10.webp', '/src/assets/work11.webp'], title: "Ripristino facciate", subtitle: "Vietri di Potenza (PZ)", text: "Il ripristino facciate dell'edificio restituisce all'immobile un aspetto estetico rinnovato e valorizzato, migliorando la sua integrità architettonica e preservando il suo valore storico e patrimoniale. Grazie all'applicazione di soluzioni tecniche appropriate e all'utilizzo di materiali di alta qualità, l'edificio risplende in una nuova veste, riaffermando la sua presenza nel contesto urbano e contribuendo a valorizzare l'ambiente circostante." },
+  { id: 0, fileimage: '/src/assets/work2.webp', subfileimage: ['/src/assets/work2.webp', '/src/assets/work3.webp'], title: "Area Rupe", subtitle: "Vietri di Potenza (PZ)", text: "L'area Rupe nel centro storico di Vietri di Potenza rappresenta un importante patrimonio culturale e storico della città. L'intervento di riqualificazione ha l'obiettivo di valorizzare e riqualificare questa zona, conservando e valorizzando le sue caratteristiche architettoniche e storiche, nonché migliorando la qualità urbana e il benessere dei cittadini." },
+  { id: 1, fileimage: '/src/assets/work1.webp', subfileimage: ['/src/assets/work1.webp', '/src/assets/work4.webp', '/src/assets/work5.webp'], title: "Teatro Cecilia", subtitle: "Tito (PZ)", text: "Il Teatro Cecilia di Tito è un edificio storico situato in provincia di Potenza. Considerato il suo valore culturale e storico, l'obiettivo dell'intervento di efficientamento energetico è stato quello di migliorare la performance energetica dell'edificio riducendo consumi e emissioni, senza compromettere l'integrità architettonica e storica dell'immobile." },
+  { id: 2, fileimage: '/src/assets/work6.webp', subfileimage: ['/src/assets/work6.webp'], title: "Title6", subtitle: "subtitle", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ut itaque ipsam repellat dignissimos ad saepe ducimus, numquam voluptate doloremque, placeat veritatis praesentium doloribus vel deleniti quos eum beatae sit." },
+  { id: 3, fileimage: '/src/assets/work7.webp', subfileimage: ['/src/assets/faustini.mp4', '/src/assets/work7.webp', '/src/assets/work8.webp'], title: "Title7", subtitle: "Subtitle", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ut itaque ipsam repellat dignissimos ad saepe ducimus, numquam voluptate doloremque, placeat veritatis praesentium doloribus vel deleniti quos eum beatae sit." },
+  { id: 4, fileimage: '/src/assets/work9.webp', subfileimage: ['/src/assets/viadotto.mp4', '/src/assets/work9.webp'], title: "Viadotto autostradale", subtitle: "Raccordo autostradale Sicignano - Potenza", text: "Il ripristino con malta tixotropica delle pile di viadotti sul raccordo autostradale Sicignano - Potenza ha permesso di riparare e rinforzare le strutture danneggiate, garantendo la sicurezza e la durabilità delle pile nel tempo. Attraverso l'applicazione di soluzioni tecnologicamente avanzate e l'utilizzo di materiali di alta qualità, abbiamo contribuito a prolungare la vita utile dei viadotti, minimizzando i rischi di cedimenti strutturali e garantendo la continuità e l'efficienza del collegamento autostradale tra la Campania e la Basilicata." },
+  { id: 5, fileimage: '/src/assets/work11.webp', subfileimage: ['/src/assets/work10.webp', '/src/assets/work11.webp'], title: "Ripristino facciate", subtitle: "Vietri di Potenza (PZ)", text: "Il ripristino facciate dell'edificio restituisce all'immobile un aspetto estetico rinnovato e valorizzato, migliorando la sua integrità architettonica e preservando il suo valore storico e patrimoniale. Grazie all'applicazione di soluzioni tecniche appropriate e all'utilizzo di materiali di alta qualità, l'edificio risplende in una nuova veste, riaffermando la sua presenza nel contesto urbano e contribuendo a valorizzare l'ambiente circostante." },
 ]);
 </script>
+
+<style>
+@media screen and (max-width: 376px) {
+  .scrollable{
+    height: 650px;
+    overflow-y: auto;
+  }
+}
+</style>

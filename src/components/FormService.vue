@@ -5,12 +5,12 @@
     <v-divider :thickness="5" color="black" class="w-25"></v-divider>
   </div>
 
-  <div class="d-flex flex-wrap align-end justify-space-evenly bg-image">
+  <div class="d-flex flex-wrap-reverse align-center justify-space-evenly bg-image">
 
     <div class="d-flex justify-center align-center mb-5">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.3566113781385!2d15.507098!3d40.599955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339169b662e3187%3A0xdf1ebf67f980f6eb!2sFaustini%20Costruzioni!5e0!3m2!1sit!2sit!4v1713049534195!5m2!1sit!2sit"
-        class="resize" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        class="resize mr-1" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
 
@@ -36,7 +36,7 @@
 
           <!-- Alla v-select manca la validazione -->
           <v-select prepend-inner-icon="mdi-toolbox-outline text-blue-darken-2" color="blue-darken-2" label="Servizi" :items="services"
-            variant="underlined" clearable chips multiple closable-chips></v-select>
+            variant="underlined" chips multiple closable-chips></v-select>
 
           <v-textarea clearable prepend-inner-icon="mdi-forum text-blue-darken-2" variant="underlined"
             label="Inserisci la tua richiesta" :rules="rulesRequest" v-model="richiesta" counter="250"></v-textarea>
@@ -129,15 +129,15 @@ const rulesRequest = [
 
 @media screen and (max-width: 1200px) {
   .resize {
-    width: 500px;
+    width: 350px;
     height: 500px;
   }
 }
 
-@media screen and (max-width: 898px) {
+@media screen and (min-width: 898px) {
   .resize {
-    width: 350px;
-    height: 450px;
+    width: 800px;
+    height: 550px;
   }
 }
 </style>
