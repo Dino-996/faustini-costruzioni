@@ -7,22 +7,14 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CallToAction: typeof import('./src/components/CallToAction.vue')['default']
-    CardAction: typeof import('./src/components/CardAction.vue')['default']
     CarouselService: typeof import('./src/components/CarouselService.vue')['default']
-    CarouselService1: typeof import('./src/components/CarouselService1.vue')['default']
     FooterView: typeof import('./src/components/FooterView.vue')['default']
     FormService: typeof import('./src/components/FormService.vue')['default']
     HeaderView: typeof import('./src/components/HeaderView.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     ImageGallery: typeof import('./src/components/ImageGallery.vue')['default']
-    ImageGalley: typeof import('./src/components/ImageGalley.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SupporterBg: typeof import('./src/components/SupporterBg.vue')['default']
-    Test: typeof import('./src/components/Test.vue')['default']
-    TestComponent: typeof import('./src/components/TestComponent.vue')['default']
     TextCard: typeof import('./src/components/TextCard.vue')['default']
   }
 }

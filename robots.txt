@@ -1,0 +1,6 @@
+# Per consentire l’accesso a tutte le pagine del sito
+User-agent: *
+Allow: /
+
+# Sitemap del sito web
+# Sitemap: https://www.example.com/sitemap.xml

@@ -1,36 +1,40 @@
 <template>
+
   <div class="video-background">
+
     <video autoplay loop muted>
       <source src="/src/assets/faustini.mp4" type="video/mp4">
     </video>
+
     <div class="overlay-text">
+
       <v-container class="fill-height" fluid>
+
         <v-row align="center" justify="center">
+
           <div class="ml-5 mr-5 d-flex flex-row flex-wrap fill-height justify-space-evenly align-center">
 
             <div>
-              <v-img width="auto" max-width="200" src="../assets/logo.png" alt="logo"></v-img>
+              <v-img width="auto" max-width="150" src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890" lazy-src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890" alt="logo faustini costruzioni srl"></v-img>
             </div>
 
             <div>
               <v-card elevation="0" color="transparent">
+
                 <v-card-title class="ml-10 mr-10">
-                  <h1 class="text-orange text-h5 font-weight-bold">Faustini Costruzioni</h1>
+                  <h1 class="text-yellow-darken-2 text-h5 font-weight-bold">Faustini Costruzioni</h1>
                 </v-card-title>
+
                 <v-card-text class="ml-10 mr-10">
-                  <p>
-                    Qualità e avanguardia, i pilastri su cui costruiamo il tuo futuro.
-                  </p>
+                  Qualità e avanguardia, i pilastri su cui costruiamo il tuo futuro.
                 </v-card-text>
+
                 <v-card-actions class="ml-10 mr-10">
-
-                  <v-card-actions>
-                    <v-btn append-icon="mdi-arrow-down" variant="elevated" @click="scrollTo">
-                      Preventivo gratuito
-                    </v-btn>
-                  </v-card-actions>
-
+                  <v-btn append-icon="mdi-arrow-down" variant="elevated" @click="scrollTo">
+                    Preventivo gratuito
+                  </v-btn>
                 </v-card-actions>
+
               </v-card>
             </div>
 
@@ -39,6 +43,7 @@
       </v-container>
     </div>
   </div>
+
 </template>
 
 <script lang="ts" setup>

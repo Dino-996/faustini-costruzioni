@@ -3,10 +3,10 @@
     <v-card class="mt-3 mb-3" elevation="0" color="transparent" :prepend-icon="props.icon">
 
       <v-card-subtitle class="text-subtitle-1 text-white">
-        <h4>{{ props.subtitle.toUpperCase() }}</h4>
+        <span class="font-weight-bold">{{ props.subtitle.toUpperCase() }}</span>
       </v-card-subtitle>
 
-      <v-card-title class="text-blue-darken-2">
+      <v-card-title class="text-blue-darken-2 text-wrap">
         {{ props.title }}
         <v-divider :thickness="5" color="black" class="w-25"></v-divider>
       </v-card-title>
@@ -40,21 +40,21 @@ const cardClass = ref({
 
 <style scoped>
 .custom-card-1 {
-  background-image: url('src/assets/bg1.png');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg1.webp?alt=media&token=6e337ab0-c722-41d0-a6b5-43efb5ce70c7');
   background-size: cover;
   background-position: center;
   background-color: #FBC02D;
 }
 
 .custom-card-2 {
-  background-image: url('src/assets/bg2.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg2.webp?alt=media&token=b56f33e2-56b4-462b-a5ed-104ebb5d9c56');
   background-size: cover;
   background-position: center;
   background-color: #FBC02D;
 }
 
 .custom-card-3 {
-  background-image: url('src/assets/bg3.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg3.webp?alt=media&token=ece48165-3b09-4f92-a302-93453deadc24');
   background-size: cover;
   background-position: center;
   background-color: #FBC02D;

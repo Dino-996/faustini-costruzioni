@@ -21,8 +21,9 @@
 <script lang="ts" setup>
 import NavBar from '../components/NavBar.vue';
 import HeaderView from '../components/HeaderView.vue';
-import CarouselService from '../components/CarouselService.vue';
 import TextCard from '../components/TextCard.vue';
-import FormService from '../components/FormService.vue';
+import CarouselService from '../components/CarouselService.vue';
 import ImageGallery from '../components/ImageGallery.vue';
+import FormService from '../components/FormService.vue';
+import FooterView from '../components/FooterView.vue';
 </script>

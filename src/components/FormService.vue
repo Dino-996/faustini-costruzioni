@@ -15,7 +15,7 @@
     </div>
 
     <v-card class="mb-5 pt-5 pb-5 pr-5 pl-5 text-black" rounded="sm" color="yellow-darken-2">
-      <v-sheet class="mx-auto" width="300" elevation="0" color="transparent">
+      <v-sheet class="mx-auto resize" height="auto" elevation="0" color="transparent">
 
         <div class="text-subtitle-1 text-grey-darken-1 mb-3">
           <h4>PREVENTIVO GRATUITO</h4>
@@ -54,16 +54,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 
 const services = ['Costruzioni generali', 'Idrodemolizione', 'Restauro conservativo', 'Noleggio ponteggio e attrezzature'];
-
-const contacts = reactive([
-  { id: 0, title: "Fisso", text: "0971 71 87 45", icon: "mdi-phone text-subtitle-1 text-blue-darken-2" },
-  { id: 1, title: "Cellulare", text: "348 81 07 321", icon: "mdi-cellphone text-subtitle-1 text-blue-darken-2" },
-  { id: 2, title: "Email", text: "faustini.costruzioni@gmail.com", icon: "mdi-email text-subtitle-1 text-blue-darken-2" },
-  { id: 3, title: "PEC", text: "faustini.costruzioni@pec.it", icon: "mdi-email-check text-subtitle-1 text-blue-darken-2" },
-]);
 
 const name = ref('');
 const rulesName = [
@@ -129,14 +122,14 @@ const rulesRequest = [
 @media screen and (max-width: 1200px) {
   .resize {
     width: 350px;
-    height: 500px;
+    height: 570px;
   }
 }
 
 @media screen and (min-width: 898px) {
   .resize {
     width: 800px;
-    height: 550px;
+    height: 570px;
   }
 }
 </style>
