@@ -1,7 +1,7 @@
 <template>
 
   <div class="ml-5 mt-5 mb-5 justify-center align-center">
-    <h2 class="text-orange">Contatti</h2>
+    <h2 class="text-orange">Contattaci</h2>
     <v-divider :thickness="5" color="black" class="w-25"></v-divider>
   </div>
 

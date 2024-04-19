@@ -27,7 +27,7 @@
       <v-col>
         <v-card elevation="0" color="transparent">
           <v-card-subtitle class="text-subtitle-1 text-black">
-            <h4>LEGAL</h4>
+            <h4>NORME PRIVACY E COOKIE</h4>
           </v-card-subtitle>
           <div v-for="legal in legals" :key="legal.id">
             <v-card-title class="text-blue-darken-2">
@@ -44,7 +44,7 @@
       <v-col>
         <v-card elevation="0" color="transparent">
           <v-card-subtitle class="text-subtitle-1 text-black">
-            <h4>(FAQ) DOMANDE FREQUENTI</h4>
+            <h4>DOMANDE FREQUENTI</h4>
           </v-card-subtitle>
 
           <v-card-text v-for="faq in faqs" :key="faq.id">
@@ -68,7 +68,7 @@
 
     </v-row>
     <div>
-      &copy; {{ new Date().getFullYear() }} — Faustini Costruzioni S.r.l — <strong> P.IVA: | REA: </strong>
+      &copy; {{ new Date().getFullYear() }} — <strong>Faustini Costruzioni S.r.l</strong> — P.IVA: 01699410765 | URI: PZ | REA: 127800
     </div>
   </v-footer>
 </template>
@@ -89,7 +89,8 @@ const legals = reactive([
 ]);
 
 const faqs = reactive([
-  { id: 0, request: "Dove offrite i vostri servizi?", responde: "Lorem ipsum dolor est sum cul fordur trusted flaur", icon: "mdi-numeric-1 text-blue-darken-2" },
-  { id: 1, request: "Offrite preventivi gratuiti?", responde: "Lorem ipsum dolor est sum cul fordur trusted flaur", icon: "mdi-numeric-2 text-blue-darken-2" },
+  { id: 0, request: "Dove offrite i vostri servizi?", responde: "In Basilicata e regioni limitrofe", icon: "mdi-numeric-1 text-blue-darken-2" },
+  { id: 1, request: "Offrite preventivi gratuiti?", responde: "Certamente", icon: "mdi-numeric-2 text-blue-darken-2" },
+  { id: 2, request: "Siete un'impresa qualificata?", responde: "Si, abbiamo l'attestazione SOA in varie categorie", icon: "mdi-numeric-2 text-blue-darken-2" },
 ]);
 </script>

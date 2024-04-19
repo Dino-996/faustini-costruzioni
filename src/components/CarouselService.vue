@@ -7,7 +7,7 @@
             {{ slide.emoji }}
           </template>
           <v-card-title class="text-orange">
-            <h2>{{ slide.title }}</h2>
+            <h2 class="text-wrap">{{ slide.title }}</h2>
             <v-divider :thickness="5" color="white" class="w-25"></v-divider>
           </v-card-title>
           <v-card-text class="text-white">
