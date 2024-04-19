@@ -91,6 +91,6 @@ const legals = reactive([
 const faqs = reactive([
   { id: 0, request: "Dove offrite i vostri servizi?", responde: "In Basilicata e regioni limitrofe", icon: "mdi-numeric-1 text-blue-darken-2" },
   { id: 1, request: "Offrite preventivi gratuiti?", responde: "Certamente", icon: "mdi-numeric-2 text-blue-darken-2" },
-  { id: 2, request: "Siete un'impresa qualificata?", responde: "Si, abbiamo l'attestazione SOA in varie categorie", icon: "mdi-numeric-2 text-blue-darken-2" },
+  { id: 2, request: "Siete un'impresa qualificata?", responde: "Si, abbiamo l'attestazione SOA in varie categorie", icon: "mdi-numeric-3 text-blue-darken-2" },
 ]);
 </script>

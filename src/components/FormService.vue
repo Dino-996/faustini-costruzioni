@@ -34,7 +34,6 @@
             v-model="telefono" :rules="rulesCellphone" label="Cellulare" color="blue-darken-2" counter="10">
           </v-text-field>
 
-          <!-- Alla v-select manca la validazione -->
           <v-select prepend-inner-icon="mdi-toolbox-outline text-blue-darken-2" color="blue-darken-2" label="Servizi" :items="services"
             variant="underlined" chips multiple closable-chips></v-select>
 
