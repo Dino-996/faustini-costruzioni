@@ -2,13 +2,8 @@
 
   <div class="video-background">
 
-<<<<<<< HEAD
-    <video id="video" autoplay loop muted>
-      <source src="/src/assets/faustini.mp4" type="video/mp4">
-=======
     <video autoplay loop muted>
       <source src="../assets/faustini.mp4" type="video/mp4">
->>>>>>> 04e2c644f046f4aa229622c4a6e580b90616a94c
     </video>
 
     <div class="overlay-text">
