@@ -23,7 +23,7 @@
   <!-- HEADER -->
   <div class="video-background">
 
-    <video autoplay loop muted>
+    <video playsinline autoplay loop muted>
       <source src="../assets/faustini.webm" type="video/webm">
     </video>
 
@@ -109,7 +109,7 @@
               <v-carousel :show-arrows="selectedImage.subfileimage.length > 1 ? 'hover' : false" hide-delimiters>
                 <v-carousel-item v-for="(item, id) in selectedImage.subfileimage" :src="item" :key="id" rounded="t-sm"
                   cover>
-                    <video v-if="item.endsWith('.webm')" autoplay muted loop>
+                    <video v-if="item.endsWith('.webm')" playsinline autoplay muted loop>
                       <source v-if="item.includes('faustini')" src="../assets/faustini.webm" type="video/webm">
                       <source v-if="item.includes('viadotto')" src="../assets/viadotto.webm" type="video/webm">
                     </video>
