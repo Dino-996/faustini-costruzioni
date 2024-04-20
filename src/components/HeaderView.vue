@@ -2,7 +2,7 @@
 
   <div class="video-background">
 
-    <video autoplay loop muted>
+    <video id="video" autoplay loop muted>
       <source src="/src/assets/faustini.mp4" type="video/mp4">
     </video>
 
@@ -15,7 +15,10 @@
           <div class="ml-5 mr-5 d-flex flex-row flex-wrap fill-height justify-space-evenly align-center">
 
             <div>
-              <v-img width="auto" max-width="150" src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890" lazy-src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890" alt="logo faustini costruzioni srl"></v-img>
+              <v-img width="auto" max-width="150"
+                src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890"
+                lazy-src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890"
+                alt="logo faustini costruzioni srl"></v-img>
             </div>
 
             <div>
@@ -47,6 +50,7 @@
 </template>
 
 <script lang="ts" setup>
+
 function scrollTo() {
   window.scroll({ top: 10000, left: 0, behavior: 'smooth' });
 }
