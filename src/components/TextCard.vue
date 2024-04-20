@@ -25,7 +25,7 @@ import { defineProps, ref } from 'vue';
 const props = defineProps({
   title: { type: String, required: false, default: "Title" },
   subtitle: { type: String, required: false, default: "Subtitle" },
-  text: { type: String, required: false, default: "Fenwick Demolition and Dirt are specialists in the hire of plant and equipment services in Newcastle and the Hunter Valley. Our full range of mine site services covers complete mine closures from earthmoving and demolition, recycling and scrap recovery through to land remediation and land rehabilitation Australia wide. We have an extensive fleet of plant and equipment and highly trained and qualified staff to ensure that you have a successful project completion." },
+  text: { type: String, required: false, default: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odio nisi deserunt expedita eligendi dolorem aperiam, at quam debitis perspiciatis ad illo ducimus. Qui ipsam officiis at. Voluptas, consectetur facere." },
   icon: { type: String, required: false, default: "mdi-home text-black" },
   bgNumber: { type: String, required: false, default: "0" }
 });
@@ -37,26 +37,3 @@ const cardClass = ref({
 }[props.bgNumber.toString()]);
 
 </script>
-
-<style scoped>
-.custom-card-1 {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg1.webp?alt=media&token=6e337ab0-c722-41d0-a6b5-43efb5ce70c7');
-  background-size: cover;
-  background-position: center;
-  background-color: #FBC02D;
-}
-
-.custom-card-2 {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg2.webp?alt=media&token=b56f33e2-56b4-462b-a5ed-104ebb5d9c56');
-  background-size: cover;
-  background-position: center;
-  background-color: #FBC02D;
-}
-
-.custom-card-3 {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg3.webp?alt=media&token=ece48165-3b09-4f92-a302-93453deadc24');
-  background-size: cover;
-  background-position: center;
-  background-color: #FBC02D;
-}
-</style>

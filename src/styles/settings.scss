@@ -11,6 +11,97 @@ a:hover {
   color: #ff9800;
 }
 
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+.bg-image {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg3.webp?alt=media&token=ece48165-3b09-4f92-a302-93453deadc24');
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.custom-card-1 {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg1.webp?alt=media&token=6e337ab0-c722-41d0-a6b5-43efb5ce70c7');
+  background-size: cover;
+  background-position: center;
+  background-color: #FBC02D;
+}
+
+.custom-card-2 {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg2.webp?alt=media&token=b56f33e2-56b4-462b-a5ed-104ebb5d9c56');
+  background-size: cover;
+  background-position: center;
+  background-color: #FBC02D;
+}
+
+.custom-card-3 {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg3.webp?alt=media&token=ece48165-3b09-4f92-a302-93453deadc24');
+  background-size: cover;
+  background-position: center;
+  background-color: #FBC02D;
+}
+
+@media screen and (max-width: 376px) {
+  .scrollable {
+    height: 650px !important;
+    overflow-y: auto !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .resize {
+    width: 350px;
+    height: 670px;
+  }
+}
+
+@media screen and (min-width: 898px) {
+  .resize {
+    width: 800px;
+    height: 670px;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 13px;
 }
