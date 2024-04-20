@@ -8,5 +8,17 @@ a {
 }
 
 a:hover {
-  color: #FF9800;
+  color: #ff9800;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff9800;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bd8c10;
 }

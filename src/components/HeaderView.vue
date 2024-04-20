@@ -33,7 +33,7 @@
                 </v-card-text>
 
                 <v-card-actions class="ml-10 mr-10">
-                  <v-btn append-icon="mdi-arrow-down" variant="elevated" @click="scrollTo">
+                  <v-btn append-icon="mdi-arrow-down" density="compact" variant="elevated" @click="scrollTo">
                     Preventivo gratuito
                   </v-btn>
                 </v-card-actions>
