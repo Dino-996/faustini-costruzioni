@@ -7,12 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CarouselService: typeof import('./src/components/CarouselService.vue')['default']
-    FooterView: typeof import('./src/components/FooterView.vue')['default']
-    FormService: typeof import('./src/components/FormService.vue')['default']
-    HeaderView: typeof import('./src/components/HeaderView.vue')['default']
-    ImageGallery: typeof import('./src/components/ImageGallery.vue')['default']
-    NavBar: typeof import('./src/components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TextCard: typeof import('./src/components/TextCard.vue')['default']
