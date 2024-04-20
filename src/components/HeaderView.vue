@@ -3,7 +3,7 @@
   <div class="video-background">
 
     <video autoplay loop muted>
-      <source src="/src/assets/faustini.mp4" type="video/mp4">
+      <source src="../assets/faustini.mp4" type="video/mp4">
     </video>
 
     <div class="overlay-text">
