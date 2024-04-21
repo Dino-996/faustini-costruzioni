@@ -8,6 +8,7 @@ import VueRouter from 'unplugin-vue-router/vite'
 // Utilities
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,6 +23,18 @@ export default defineConfig({
       styles: {
         configFile: 'src/styles/settings.scss',
       },
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'robots.txt',
+          dest: ''
+        },
+        {
+          src: 'sitemap.xml',
+          dest: ''
+        }
+      ]
     }),
     Components(),
     ViteFonts({

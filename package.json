@@ -27,6 +27,8 @@
     "core-js": "^3.34.0",
     "firebase": "^10.11.0",
     "roboto-fontface": "*",
+    "vite-plugin-copy": "^0.1.6",
+    "vite-plugin-static-copy": "^1.0.3",
     "vue": "^3.4.21",
     "vue-recaptcha": "^3.0.0-alpha.6",
     "vuetify": "^3.5.8"
