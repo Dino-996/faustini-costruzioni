@@ -23,7 +23,9 @@
   <!-- HEADER -->
   <div class="video-background">
 
-    <video preload="none" poster="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/works%2FgalleriaSanNicola%2Fwork7.webp?alt=media&token=3ff0bdc1-8f3e-4514-8ca1-c7bf815a4a27" autoplay loop muted controls playsinline>
+    <video preload="none"
+      poster="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/works%2FgalleriaSanNicola%2Fwork7.webp?alt=media&token=3ff0bdc1-8f3e-4514-8ca1-c7bf815a4a27"
+      autoplay loop muted controls playsinline>
       <source src="../assets/faustini.mp4" type="video/mp4">
     </video>
 
@@ -35,7 +37,7 @@
 
           <div class="ml-5 mr-5 d-flex flex-row flex-wrap fill-height justify-space-evenly align-center">
 
-            <div>
+            <div role="tooltip" aria-label="videopresentazione">
               <v-img width="auto" max-width="150"
                 src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890"
                 lazy-src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890"
@@ -98,7 +100,7 @@
             </v-img>
           </v-card>
 
-          <v-overlay v-model="overlay" scroll-strategy="reposition" class="align-center justify-center">
+          <v-overlay v-model="overlay" scroll-strategy="reposition" class="align-center justify-center" role="tooltip" aria-label="progetti">
             <v-card rounded="sm" color="yellow-darken-2" elevation="5" width="380" height="667" class="overflow-y-auto">
 
               <template v-slot:append>
@@ -107,13 +109,12 @@
               </template>
 
               <v-carousel :show-arrows="selectedImage.subfileimage.length > 1 ? 'hover' : false" hide-delimiters>
-                <v-carousel-item v-for="(item, id) in selectedImage.subfileimage" :src="item" :key="id" rounded="t-sm" cover>
-                  <v-windows class="v-carousel-item">
-                    <video v-if="item.endsWith('.mp4')" muted autoplay style="width: 380px !important;">
-                      <source v-if="item.includes('faustini')" src="../assets/faustini.mp4" type="video/mp4">
-                      <source v-if="item.includes('viadotto')" src="../assets/viadotto.mp4" type="video/mp4">
-                    </video>
-                  </v-windows>
+                <v-carousel-item v-for="(item, id) in selectedImage.subfileimage" :src="item" :key="id" rounded="t-sm"
+                  cover eager>
+                  <video v-if="item.endsWith('.mp4')" muted autoplay style="width: 380px !important;">
+                    <source v-if="item.includes('faustini')" src="../assets/faustini.mp4" type="video/mp4">
+                    <source v-if="item.includes('viadotto')" src="../assets/viadotto.mp4" type="video/mp4">
+                  </video>
                 </v-carousel-item>
               </v-carousel>
 
@@ -148,7 +149,7 @@
   <!-- CAROUSEL SERVICE -->
   <v-carousel height="650" @mouseover="cycle = false" @mouseout="cycle = true" :cycle="cycle" :show-arrows="false"
     delimiter-icon="mdi-square" hide-delimiter-background>
-    <v-carousel-item v-for="slide in slides" :key="slide.id" :src="slide.src" :alt="slide.title" cover>
+    <v-carousel-item v-for="slide in slides" :key="slide.id" :src="slide.src" :alt="slide.title" color="black" cover>
       <div class="d-flex flex-wrap fill-height fill-width justify-space-evenly align-center image-overlay">
         <v-card color="transparent" rounded="sm" max-width="600" elevation="0">
           <template v-slot:prepend>
@@ -180,18 +181,21 @@
   <div class="d-flex flex-wrap-reverse align-center justify-space-evenly bg-image">
 
     <div class="d-flex justify-center align-center mb-5">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.3566113781385!2d15.507098!3d40.599955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339169b662e3187%3A0xdf1ebf67f980f6eb!2sFaustini%20Costruzioni!5e0!3m2!1sit!2sit!4v1713049534195!5m2!1sit!2sit"
-        class="resize mr-1" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+
+      <v-skeleton-loader class="resize border rounded-sm mr-1" elevation="2" :loading="!isLoading" type="image, article"
+        transition="fade-transition">
+        <iframe title="Mappa dell'indirizzo" :src="mapSrc" class="resize" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </v-skeleton-loader>
+
     </div>
 
     <v-card class="mb-5 pt-5 pb-5 pr-5 pl-5 text-black" rounded="sm" color="yellow-darken-2">
       <v-sheet class="mx-auto resize" height="auto" elevation="0" color="transparent">
 
         <div class="text-subtitle-1 text-grey-darken-1 mb-3">
-          <h4>PREVENTIVO GRATUITO</h4>
+          <span class="text-h6">PREVENTIVO GRATUITO</span>
         </div>
 
         <v-form @submit.prevent ref="form">
@@ -355,27 +359,26 @@
 import TextCard from '../components/TextCard.vue';
 import emailjs from '@emailjs/browser';
 
+import { db } from '../plugins/firebase';
+import { collection, addDoc } from "firebase/firestore";
 import { useDisplay, useGoTo } from "vuetify";
-import { reactive, ref, computed } from "vue";
+import { reactive, ref, Ref, computed, onMounted } from "vue";
 
 const { mobile } = useDisplay();
 const goTo = useGoTo();
 
-const options = computed(() => ({
-  duration: 600,
-  easing: 'easeInOutCubic',
-  offset: 0,
-}));
+const cycle: Ref<boolean> = ref(true);
+const overlay: Ref<boolean> = ref(false);
+const selectedImage: Ref<null> = ref(null);
+const isSelectedImage: Ref<null> = ref(null);
+const imageSelected: Ref<boolean> = ref(false);
+let mapSrc: Ref<string> = ref('');
+const isLoading: Ref<boolean> = ref(false);
 
-const scroll = (id: string) => {
-  goTo('#' + id, options.value);
-};
-
-const cycle = ref(true);
-const overlay = ref(false);
-const selectedImage = ref(null);
-const isSelectedImage = ref(null);
-const imageSelected = ref(false);
+onMounted(() => {
+  mapSrc.value = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.3566113781385!2d15.507098!3d40.599955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339169b662e3187%3A0xdf1ebf67f980f6eb!2sFaustini%20Costruzioni!5e0!3m2!1sit!2sit!4v1713049534195!5m2!1sit!2sit'
+  setTimeout(() => isLoading.value = true, 3000);
+});
 
 const isSelected = (image: null) => {
   isSelectedImage.value = image;
@@ -385,6 +388,16 @@ const isSelected = (image: null) => {
 const selectImage = (image: null) => {
   selectedImage.value = image;
   overlay.value = true;
+};
+
+const options = computed(() => ({
+  duration: 600,
+  easing: 'easeInOutCubic',
+  offset: 0,
+}));
+
+const scroll = (id: string) => {
+  goTo('#' + id, options.value);
 };
 
 const images = reactive([
@@ -441,7 +454,6 @@ const rulesName = [
     return 'Inserisci il tuo nome e cognome o la Ragione Sociale della tua impresa';
   }
 ];
-
 
 const email = ref('');
 const rulesEmail = [
@@ -523,6 +535,20 @@ const sendEmail = async () => {
     reply_to: "faustini.costruzioni@gmail.com",
   };
 
+  try {
+    const docRef = await addDoc(collection(db, "preventivi"), {
+      nome: name.value,
+      cellulare: telefono.value,
+      email: email.value,
+      servizio: servizioSelezionato.value,
+      messaggio: richiesta.value,
+      privacyPolicyAccettata: privacyPolicy.value
+    });
+    console.log(docRef.id);
+  } catch (e) {
+    console.error(e);
+  }
+
   await emailjs.send("service_0otesgc", "template_pefdhyp", param).then(
     (response) => {
       formValid.value.loading = false;
@@ -530,7 +556,7 @@ const sendEmail = async () => {
       formValid.value.text = 'Modulo inviato correttamente';
       formValid.value.color = 'success';
       form.value.reset();
-      console.log('SUCCESS!', response.status, response.text);
+      console.log(response.status, response.text);
       resetButton();
     },
     (error) => {
@@ -538,7 +564,7 @@ const sendEmail = async () => {
       formValid.value.iconValid = 'mdi-alert-circle';
       formValid.value.text = 'Si è verificato un errore, riprova';
       formValid.value.color = 'red';
-      console.log('FAILED...', error);
+      console.log(error);
       resetButton();
     },
   )

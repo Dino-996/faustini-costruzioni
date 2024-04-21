@@ -95,9 +95,16 @@ video {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 375px) {
   .resize {
     width: 350px;
+    height: 670px;
+  }
+}
+
+@media screen and (min-width: 630px) {
+  .resize {
+    width: 450px;
     height: 670px;
   }
 }

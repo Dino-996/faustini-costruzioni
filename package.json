@@ -28,6 +28,7 @@
     "firebase": "^10.11.0",
     "roboto-fontface": "*",
     "vue": "^3.4.21",
+    "vue-recaptcha": "^3.0.0-alpha.6",
     "vuetify": "^3.5.8"
   },
   "devDependencies": {
