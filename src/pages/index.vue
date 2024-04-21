@@ -227,7 +227,7 @@
                 Acconsento al trattamento dei dati personali come specificato nell'informativa
                 <v-tooltip location="bottom">
                   <template v-slot:activator="{ props }">
-                    <a href="https://vuetifyjs.com" target="_blank" v-bind="props" @click.stop>
+                    <a href="https://www.iubenda.com/privacy-policy/31752374" target="_blank" v-bind="props" @click.stop>
                       Privacy Policy
                     </a>
                   </template>
@@ -301,7 +301,7 @@
 
             <v-card-text class="d-flex justify-start align-start text-black">
               <v-icon :icon="legal.icon"></v-icon>
-              <a class="ml-2" href="#" about="_blank" aria-label="Area dedicata alla consultazione delle Policy">{{
+              <a class="ml-2" :href="legal.link" target="_blank" aria-label="Area dedicata alla consultazione delle Policy">{{
                 legal.text }}</a>
             </v-card-text>
           </div>
@@ -432,8 +432,8 @@ const contacts = reactive([
 ]);
 
 const legals = reactive([
-  { id: 0, title: "Privacy Policy", text: "Informativa privacy", icon: "mdi-scale-balance text-subtitle-1 text-blue-darken-2" },
-  { id: 1, title: "Cookie Policy", text: "Informativa cookie", icon: "mdi-cookie text-subtitle-1 text-blue-darken-2" },
+  { id: 0, title: "Privacy Policy", text: "Informativa privacy", link:"https://www.iubenda.com/privacy-policy/31752374", icon: "mdi-scale-balance text-subtitle-1 text-blue-darken-2" },
+  { id: 1, title: "Cookie Policy", text: "Informativa cookie", link:"https://www.iubenda.com/privacy-policy/31752374/cookie-policy", icon: "mdi-cookie text-subtitle-1 text-blue-darken-2" },
 ]);
 
 const faqs = reactive([
@@ -478,7 +478,7 @@ const rulesCellphone = [
 ];
 
 const servizioSelezionato = ref(null);
-const services = ['Costruzioni generali', 'Idrodemolizione', 'Restauro conservativo', 'Noleggio ponteggi e attrezzature'];
+const services = ['Costruzioni generali', 'Idrodemolizione', 'Restauro conservativo', 'Noleggio ponteggi e attrezzature', 'Altro'];
 const rulesService = [
   (service: any) => {
     if (service) {
