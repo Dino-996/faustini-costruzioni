@@ -111,7 +111,7 @@
               <v-carousel :show-arrows="selectedImage.subfileimage.length > 1 ? 'hover' : false" hide-delimiters>
                 <v-carousel-item v-for="(item, id) in selectedImage.subfileimage" :src="item" :key="id" rounded="t-sm"
                   cover eager>
-                  <video v-if="item.endsWith('.mp4')" muted autoplay style="width: 380px !important;">
+                  <video v-if="item.endsWith('.mp4')" poster="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890" muted autoplay style="width: 380px !important;">
                     <source v-if="item.includes('faustini')" src="../assets/faustini.mp4" type="video/mp4">
                     <source v-if="item.includes('viadotto')" src="../assets/viadotto.mp4" type="video/mp4">
                   </video>
