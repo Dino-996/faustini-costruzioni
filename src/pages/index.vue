@@ -148,7 +148,7 @@
 
   <!-- CAROUSEL SERVICE -->
   <v-carousel height="650" @mouseover="cycle = false" @mouseout="cycle = true" :cycle="cycle" :show-arrows="false"
-    delimiter-icon="mdi-square" interval="5000" hide-delimiter-background>
+    delimiter-icon="mdi-square" interval="7000" hide-delimiter-background>
     <v-carousel-item v-for="slide in slides" :key="slide.id" :src="slide.src" :alt="slide.title" color="black" cover>
       <div class="d-flex flex-wrap fill-height fill-width justify-space-evenly align-center image-overlay">
         <v-card color="transparent" rounded="sm" max-width="600" elevation="0">
