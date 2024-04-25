@@ -14,61 +14,14 @@
     <template v-slot:append>
       <v-btn v-for="social in socials" :key="social.id" :icon="social.icon" variant="text" rounded="sm"
         color="blue-darken-2" :href="social.link" target="_blank" class="mr-3"></v-btn>
-      <v-btn prepend-icon="mdi-cellphone text-button" variant="tonal" color="blue-darken-2"
+      <v-btn prepend-icon="mdi-cellphone text-button" variant="outlined" color="blue-darken-2"
         href="tel:+393488107321">Telefono</v-btn>
     </template>
 
   </v-app-bar>
 
   <!-- HEADER -->
-  <div class="video-background">
-
-    <video preload="none"
-      poster="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/works%2FgalleriaSanNicola%2Fwork7.webp?alt=media&token=3ff0bdc1-8f3e-4514-8ca1-c7bf815a4a27"
-      autoplay loop muted controls playsinline>
-      <source src="../assets/faustini.mp4" type="video/mp4">
-    </video>
-
-    <div class="overlay-text">
-
-      <v-container class="fill-height" fluid>
-
-        <v-row align="center" justify="center">
-
-          <div class="ml-5 mr-5 d-flex flex-row flex-wrap fill-height justify-space-evenly align-center">
-
-            <div role="tooltip" aria-label="videopresentazione">
-              <v-img width="auto" max-width="150"
-                src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890"
-                lazy-src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890"
-                alt="logo faustini costruzioni srl"></v-img>
-            </div>
-
-            <div>
-              <v-card elevation="0" color="transparent">
-
-                <v-card-title class="ml-10 mr-10">
-                  <h1 class="text-yellow-darken-2 text-h5 font-weight-bold">Faustini Costruzioni</h1>
-                </v-card-title>
-
-                <v-card-text class="ml-10 mr-10">
-                  Qualità e avanguardia, i pilastri su cui costruiamo il tuo futuro.
-                </v-card-text>
-
-                <v-card-actions class="ml-10 mr-10">
-                  <v-btn @click="scroll('services')" append-icon="mdi-arrow-down" density="compact" variant="elevated">
-                    Preventivo gratuito
-                  </v-btn>
-                </v-card-actions>
-
-              </v-card>
-            </div>
-
-          </div>
-        </v-row>
-      </v-container>
-    </div>
-  </div>
+  <carousel-text />
 
   <!-- TEXT CARD 1 -->
   <text-card title="Faustini Costruzioni" subtitle="chi siamo" icon="mdi-account-hard-hat"
@@ -77,8 +30,8 @@
 
   <!-- IMAGE GALLERY -->
   <v-parallax
-    src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg4.webp?alt=media&token=7a9b0b41-71ad-4193-9e20-c15bbd9c6f8d"
-    lazy-src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg4.webp?alt=media&token=7a9b0b41-71ad-4193-9e20-c15bbd9c6f8d"
+    src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg4.webp?alt=media&token=e54b41b6-4c36-4d3e-b4ec-f770f0ef148f"
+    lazy-src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/background%2Fbg4.webp?alt=media&token=e54b41b6-4c36-4d3e-b4ec-f770f0ef148f"
     alt="ponteggio">
 
     <v-container>
@@ -89,18 +42,21 @@
       <v-container fluid class="d-flex flex-wrap align-center justify-center">
         <div class="d-flex flex-wrap align-center justify-space-between">
 
-          <v-card elevation="5" rounded="sm" color="transparent" class="ml-5 mt-2" v-for="image in images"
-            :key="image.id">
-            <v-img rounded="sm" :src="image.fileimage" :lazy-src="image.fileimage" height="300" width="300"
-              :alt="image.title" class="text-end align-end cursor-pointer" @click="selectImage(image)"
-              @mouseover="isSelected(image)" @mouseout="imageSelected = !imageSelected" cover>
-              <span v-if="imageSelected && isSelectedImage.id == image.id" style="pointer-events: none;">
-                <v-btn append-icon="mdi-eye-outline">Scopri di pi&ugrave;</v-btn>
-              </span>
-            </v-img>
-          </v-card>
+          <v-skeleton-loader rounded="sm" :loading="!isLoading" type="card" color="transparent">
+            <v-card elevation="5" rounded="sm" color="transparent" class="ml-5 mt-2" v-for="image in images"
+              :key="image.id">
+              <v-img rounded="sm" :src="image.fileimage" :lazy-src="image.fileimage" height="300" width="300"
+                :alt="image.title" class="text-end align-end cursor-pointer" @click="selectImage(image)"
+                @mouseover="isSelected(image)" @mouseout="imageSelected = !imageSelected" cover>
+                <span v-if="imageSelected && isSelectedImage.id == image.id" style="pointer-events: none;">
+                  <v-btn append-icon="mdi-eye-outline">Scopri di pi&ugrave;</v-btn>
+                </span>
+              </v-img>
+            </v-card>
+          </v-skeleton-loader>
 
-          <v-overlay v-model="overlay" scroll-strategy="reposition" class="align-center justify-center" role="tooltip" aria-label="progetti">
+          <v-overlay v-model="overlay" scroll-strategy="reposition" class="align-center justify-center" role="tooltip"
+            aria-label="progetti">
             <v-card rounded="sm" color="yellow-darken-2" elevation="5" width="380" height="667" class="overflow-y-auto">
 
               <template v-slot:append>
@@ -111,7 +67,9 @@
               <v-carousel :show-arrows="selectedImage.subfileimage.length > 1 ? 'hover' : false" hide-delimiters>
                 <v-carousel-item v-for="(item, id) in selectedImage.subfileimage" :src="item" :key="id" rounded="t-sm"
                   cover eager>
-                  <video v-if="item.endsWith('.mp4')" poster="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890" muted autoplay style="width: 380px !important;">
+                  <video v-if="item.endsWith('.mp4')"
+                    poster="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890"
+                    muted autoplay style="width: 380px !important;">
                     <source v-if="item.includes('faustini')" src="../assets/faustini.mp4" type="video/mp4">
                     <source v-if="item.includes('viadotto')" src="../assets/viadotto.mp4" type="video/mp4">
                   </video>
@@ -147,30 +105,7 @@
     bg-number="1" />
 
   <!-- CAROUSEL SERVICE -->
-  <v-carousel height="650" @mouseover="cycle = false" @mouseout="cycle = true" :cycle="cycle" :show-arrows="false"
-    delimiter-icon="mdi-square" interval="5000" hide-delimiter-background>
-    <v-carousel-item v-for="slide in slides" :key="slide.id" :src="slide.src" :alt="slide.title" color="black" cover>
-      <div class="d-flex flex-wrap fill-height fill-width justify-space-evenly align-center image-overlay">
-        <v-card color="transparent" rounded="sm" max-width="600" elevation="0">
-          <template v-slot:prepend>
-            {{ slide.emoji }}
-          </template>
-          <v-card-title class="text-orange">
-            <h2 class="text-wrap">{{ slide.title }}</h2>
-            <v-divider :thickness="5" color="white" class="w-25"></v-divider>
-          </v-card-title>
-          <v-card-text class="text-white">
-            {{ slide.text }}
-          </v-card-text>
-          <v-card-actions class="d-flex justify-end mr-3">
-            <v-btn @click="scroll('contact')" variant="elevated" append-icon="mdi-arrow-down" rounded="sm">{{
-              slide.button
-              }}</v-btn>
-          </v-card-actions>
-        </v-card>
-      </div>
-    </v-carousel-item>
-  </v-carousel>
+  <scroll-card />
 
   <!-- FORM -->
   <div class="ml-5 mt-5 mb-5 justify-center align-center">
@@ -180,90 +115,92 @@
 
   <div class="d-flex flex-wrap-reverse align-center justify-space-evenly bg-image">
 
-    <div class="d-flex justify-center align-center mb-5">
+    <div class="d-flex justify-center align-center mb-5 mt-5">
 
-      <v-skeleton-loader class="resize border rounded-sm mr-1" elevation="2" :loading="!isLoading" type="image, article"
+      <v-skeleton-loader class="resize border rounded-sm" elevation="2" :loading="!isLoading" type="image, article"
         transition="fade-transition">
-        <iframe title="Mappa dell'indirizzo" :src="mapSrc" class="resize" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
+        <iframe title="Mappa dell'indirizzo" :src="mapSrc" class="resize" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </v-skeleton-loader>
 
     </div>
 
-    <v-card class="mb-5 pt-5 pb-5 pr-5 pl-5 text-black" rounded="sm" color="yellow-darken-2">
-      <v-sheet class="mx-auto resize" height="auto" elevation="0" color="transparent">
+    <v-skeleton-loader class="resize border rounded-sm" rounded="sm" :loading="!isLoading"
+      type="card, table-heading, table-thead, button" color="transparent">
+      <v-card class="mx-auto text-black h-100 w-100 pr-5 pl-5 pt-1 pb-2" rounded="sm" color="yellow-darken-2">
+        <v-sheet class="mx-auto resize" height="auto" width="auto" elevation="0" color="transparent">
 
-        <div class="text-subtitle-1 text-grey-darken-1 mb-3">
-          <span class="text-h6">PREVENTIVO GRATUITO</span>
-        </div>
-
-        <v-form @submit.prevent ref="form">
-
-          <v-text-field prepend-inner-icon="mdi-account-hard-hat text-blue-darken-2" variant="underlined" v-model="name"
-            :rules="rulesName" label="Nome o Impresa" color="blue-darken-2">
-          </v-text-field>
-
-          <v-text-field prepend-inner-icon="mdi-email text-blue-darken-2" variant="underlined" v-model="email"
-            :rules="rulesEmail" label="Email" color="blue-darken-2">
-          </v-text-field>
-
-          <v-text-field prepend-inner-icon="mdi-cellphone text-blue-darken-2" variant="underlined" v-model="telefono"
-            :rules="rulesCellphone" label="Cellulare" color="blue-darken-2" counter="10">
-          </v-text-field>
-
-          <v-select prepend-inner-icon="mdi-toolbox-outline text-blue-darken-2" color="blue-darken-2"
-            v-model="servizioSelezionato" :rules="rulesService" variant="underlined" label="Servizi" :items="services"
-            chips closable-chips>
-          </v-select>
-
-          <v-textarea clearable class="mt-3" prepend-inner-icon="mdi-forum text-blue-darken-2" variant="underlined"
-            label="Inserisci la tua richiesta" :rules="rulesRequest" v-model="richiesta" counter="250">
-          </v-textarea>
-
-          <v-checkbox color="blue-darken-2" v-model="privacyPolicy" :rules="isCheck" required>
-            <template v-slot:label>
-              <div>
-                Acconsento al trattamento dei dati personali come specificato nell'informativa
-                <v-tooltip location="bottom">
-                  <template v-slot:activator="{ props }">
-                    <a href="https://www.iubenda.com/privacy-policy/31752374" target="_blank" v-bind="props" @click.stop>
-                      Privacy Policy
-                    </a>
-                  </template>
-                  Consulta l'informativa'
-                </v-tooltip>
-              </div>
-            </template>
-          </v-checkbox>
-
-          <div class="mt-5 d-flex justify-end">
-            <v-btn @click="validate" type="submit" rounded="sm" variant="elevated" :color="formValid.color"
-              :append-icon="formValid.iconValid" :loading="formValid.loading">{{ formValid.text }}</v-btn>
+          <div class="text-subtitle-1 text-grey-darken-1 mb-3">
+            <span class="text-h6">PREVENTIVO GRATUITO</span>
           </div>
-        </v-form>
 
-      </v-sheet>
-    </v-card>
+          <v-form @submit.prevent ref="form">
+
+            <v-text-field prepend-inner-icon="mdi-account-hard-hat text-blue-darken-2" variant="underlined"
+              v-model="name" type="text" :rules="rulesName" label="Nome o Impresa" color="blue-darken-2"
+              aria-required="true" required>
+            </v-text-field>
+
+            <v-text-field prepend-inner-icon="mdi-email text-blue-darken-2" variant="underlined" v-model="email"
+              :rules="rulesEmail" type="email" label="Email" color="blue-darken-2" aria-required="true">
+            </v-text-field>
+
+            <v-text-field prepend-inner-icon="mdi-cellphone text-blue-darken-2" variant="underlined" v-model="telefono"
+              :rules="rulesCellphone" type="tel" label="Cellulare" color="blue-darken-2" counter="10"
+              aria-required="true" required>
+            </v-text-field>
+
+            <v-select prepend-inner-icon="mdi-toolbox-outline text-blue-darken-2" color="blue-darken-2"
+              v-model="servizioSelezionato" :rules="rulesService" variant="underlined" label="Servizi" :items="services"
+              chips closable-chips aria-required="true" required>
+            </v-select>
+
+            <v-textarea clearable class="mt-3" prepend-inner-icon="mdi-forum text-blue-darken-2" variant="underlined"
+              label="Inserisci la tua richiesta" type="text" :rules="rulesRequest" v-model="richiesta" counter="250"
+              required aria-required="true">
+            </v-textarea>
+
+            <v-checkbox color="blue-darken-2" v-model="privacyPolicy" :rules="isCheck" aria-required="true" required>
+              <template v-slot:label>
+                <div>
+                  Acconsento al trattamento dei dati personali come specificato nell'informativa
+                  <v-tooltip location="bottom">
+                    <template v-slot:activator="{ props }">
+                      <a href="https://www.iubenda.com/privacy-policy/31752374" target="_blank" v-bind="props"
+                        @click.stop>
+                        Privacy Policy
+                      </a>
+                    </template>
+                    Consulta l'informativa'
+                  </v-tooltip>
+                </div>
+              </template>
+            </v-checkbox>
+
+            <div class="mt-5 d-flex justify-end">
+              <v-btn @click="validate" type="submit" rounded="sm" variant="elevated" :color="formValid.color"
+                :append-icon="formValid.iconValid" :loading="formValid.loading">{{ formValid.text }}</v-btn>
+            </div>
+          </v-form>
+
+        </v-sheet>
+      </v-card>
+    </v-skeleton-loader>
 
   </div>
 
   <!-- FOOTER -->
-  <v-footer color="yellow-darken-2" class="d-flex flex-column">
+  <v-footer color="yellow-darken-2" class="d-flex flex-column" id="contact">
 
-    <div class="mb-3">
-      <v-btn v-for="social in socials" :key="social.id" :icon="social.icon" variant="text" rounded="sm"
-        :href="social.link" target="_blank"></v-btn>
-    </div>
-
-    <v-row>
+    <v-row class="mt-3">
 
       <v-col>
 
         <v-card elevation="0" color="transparent">
 
           <v-card-subtitle class="text-subtitle-1 text-black">
-            <h4 id="contact">CONTATTI</h4>
+            <h4>CONTATTI</h4>
           </v-card-subtitle>
 
           <div v-for="contact in contacts" :key="contact.id">
@@ -301,8 +238,34 @@
 
             <v-card-text class="d-flex justify-start align-start text-black">
               <v-icon :icon="legal.icon"></v-icon>
-              <a class="ml-2" :href="legal.link" target="_blank" aria-label="Area dedicata alla consultazione delle Policy">{{
-                legal.text }}</a>
+              <a class="ml-2" :href="legal.link" target="_blank"
+                aria-label="Area dedicata alla consultazione delle Policy">{{
+                  legal.text }}</a>
+            </v-card-text>
+          </div>
+
+        </v-card>
+      </v-col>
+
+      <v-col>
+        <v-card elevation="0" color="transparent">
+
+          <v-card-subtitle class="text-subtitle-1 text-black">
+            <h4>SOCIAL NETWORK</h4>
+          </v-card-subtitle>
+
+          <div v-for="social in socials" :key="social.id">
+
+            <v-card-title class="text-blue-darken-2">
+              {{ social.title }}
+              <v-divider :thickness="5" color="black" class="w-25"></v-divider>
+            </v-card-title>
+
+            <v-card-text class="d-flex justify-start align-start text-black">
+              <v-icon :icon="social.icon"></v-icon>
+              <a class="ml-2" :href="social.link" target="_blank"
+                aria-label="Area dedicata alla consultazione dei Social Network">{{
+                  social.title }}</a>
             </v-card-text>
           </div>
 
@@ -346,7 +309,8 @@
     </v-row>
 
     <div>
-      &copy; {{ new Date().getFullYear() }} • <strong>Faustini Costruzioni S.R.L</strong> • P.IVA 01699410765 • URI PZ
+      &copy; {{ new Date().getFullYear() }} • <strong>Faustini Costruzioni S.R.L</strong> • Corso Garibaldi, 82, 85058
+      Vietri di Potenza PZ • P.IVA 01699410765 • URI PZ
       • REA 127800
     </div>
 
@@ -358,6 +322,8 @@
 <script lang="ts" setup>
 import TextCard from '../components/TextCard.vue';
 import emailjs from '@emailjs/browser';
+import CarouselText from '../components/CarouselText.vue';
+import ScrollCard from '../components/ScrollCard.vue';
 
 import { db } from '../plugins/firebase';
 import { collection, addDoc } from "firebase/firestore";
@@ -367,7 +333,6 @@ import { reactive, ref, Ref, computed, onMounted } from "vue";
 const { mobile } = useDisplay();
 const goTo = useGoTo();
 
-const cycle: Ref<boolean> = ref(true);
 const overlay: Ref<boolean> = ref(false);
 const selectedImage: Ref<null> = ref(null);
 const isSelectedImage: Ref<null> = ref(null);
@@ -391,7 +356,7 @@ const selectImage = (image: null) => {
 };
 
 const options = computed(() => ({
-  duration: 600,
+  duration: 8000,
   easing: 'easeInOutCubic',
   offset: 0,
 }));
@@ -410,18 +375,11 @@ const images = reactive([
   { id: 6, fileimage: 'https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/works%2Fidrodemolizione%2Fwork12.webp?alt=media&token=a96b3a53-00fb-4bc1-9989-d223081f036f', subfileimage: ['https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/works%2Fidrodemolizione%2Fwork13.webp?alt=media&token=eb276be0-e149-447a-b376-3526a23eceeb', 'https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/works%2Fidrodemolizione%2Fwork12.webp?alt=media&token=a96b3a53-00fb-4bc1-9989-d223081f036f', 'https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/services%2Fidrodemolizioni.webp?alt=media&token=1a7c5727-0e49-48d2-aaa8-560870257cbe'], title: "Idrodemolizione", subtitle: "Raccordo autostradale Sicignano - Potenza ", text: "Abbiamo trasformato le pile autostradali del raccordo 05 Sicignano-Potenza con la nostra tecnologia d'avanguardia di idrodemolizione. Grazie ai getti d'acqua ad alta pressione, abbiamo rimosso il calcestruzzo deteriorato con precisione chirurgica, salvaguardando la struttura d'acciaio e garantendo una durata senza pari. Se cerchi un intervento efficiente e di alta qualità per il rinnovamento delle infrastrutture, sei nel posto giusto." },
 ]);
 
-const slides = reactive([
-  { id: 0, src: "https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/services%2FcostruzioniGenerali.webp?alt=media&token=73fd9d18-5e91-4b24-a473-03711d49a5d2", emoji: "🏗", title: "Costruzioni Generali", text: "La nostra esperienza si estende alla cura di ogni tipo di edificio, pubblico o privato. Con un occhio attento all’innovazione, ci dedichiamo alla manutenzione, ristrutturazione e all’aggiornamento energetico e sismico, perché ogni costruzione possa essere un sicuro rifugio nel presente e un solido patrimonio per il domani.", button: "Contattaci" },
-  { id: 1, src: "https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/services%2FlavoriStradali.webp?alt=media&token=ce87be66-0e3a-435b-9b05-f3f10265fa0c", emoji: "🔨", title: "Lavori Edili e Stradali", text: "Le arterie della nostra comunità, le strade, richiedono una manutenzione che va oltre il semplice intervento. Noi ci occupiamo della salute complessiva delle infrastrutture stradali, dalla manutenzione di pile e viadotti alla gestione delle acque, fino alla realizzazione di scavi e sistemi di canalizzazione, assicurando così fluidità e sicurezza al flusso vitale della circolazione quotidiana.", button: "Contattaci" },
-  { id: 2, src: "https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/services%2Fidrodemolizioni.webp?alt=media&token=1a7c5727-0e49-48d2-aaa8-560870257cbe", emoji: "💦🚧", title: "Idrodemolizioni", text: "Immaginate una tecnologia all’avanguardia che, con la forza purificatrice dell’acqua, riesce a cancellare i segni del tempo dal calcestruzzo, restituendo vigore e stabilità alle infrastrutture che incorniciano la nostra vita quotidiana. Ponti, viadotti e gallerie rinascono sotto l’azione mirata e potente dell’idrodemolizione.", button: "Contattaci" },
-  { id: 3, src: "https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/services%2Frestauro.webp?alt=media&token=989ba4d7-3016-440e-997e-a89aa98b5b67", emoji: "🛠️", title: "Restauro Conservativo", text: "Ogni edificio ha una storia da raccontare, e il nostro intervento conservativo ne è il narratore fedele. Con maestria e rispetto, lavoriamo per preservare l’essenza estetica degli edifici, rinforzando le loro ossature e garantendo che il passato possa dialogare con il futuro.", button: "Contattaci" },
-  { id: 4, src: "https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/services%2Fponteggio.webp?alt=media&token=0b422240-f08e-432b-8ebc-af40e2ff7582", emoji: "🚚", title: "Noleggio Ponteggi e Attrezzature", text: "Offriamo un servizio di noleggio professionale di ponteggi e attrezzature per lavori di costruzione, ristrutturazione e manutenzione. Con una vasta gamma di attrezzature di alta qualità e conformi alle normative di sicurezza, garantiamo soluzioni su misura per ogni tipo di esigenza, dalla piccola ristrutturazione domestica ai grandi cantieri edili.", button: "Contattaci" },
-]);
 
 const socials = reactive([
-  { id: 0, icon: "mdi-facebook", link: "https://www.facebook.com/faustini.costruzioni.Srl.1/" },
-  { id: 1, icon: "mdi-instagram", link: "https://www.instagram.com/faustinicostruzioni/?igsh=MWI2ejNvN3ppOTA2dQ%3D%3D" },
-  { id: 2, icon: "mdi-map", link: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x1339169b662e3187:0xdf1ebf67f980f6eb?source=g.page.m._" },
+  { id: 0, icon: "mdi-facebook text-subtitle-1 text-blue-darken-2", title: "Facebook", link: "https://www.facebook.com/faustini.costruzioni.Srl.1/" },
+  { id: 1, icon: "mdi-instagram text-subtitle-1 text-blue-darken-2", title: "Instagram", link: "https://www.instagram.com/faustinicostruzioni/?igsh=MWI2ejNvN3ppOTA2dQ%3D%3D" },
+  { id: 2, icon: "mdi-map text-subtitle-1 text-blue-darken-2", title: "Google Maps", link: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x1339169b662e3187:0xdf1ebf67f980f6eb?source=g.page.m._" },
 ]);
 
 const contacts = reactive([
@@ -432,8 +390,8 @@ const contacts = reactive([
 ]);
 
 const legals = reactive([
-  { id: 0, title: "Privacy Policy", text: "Informativa privacy", link:"https://www.iubenda.com/privacy-policy/31752374", icon: "mdi-scale-balance text-subtitle-1 text-blue-darken-2" },
-  { id: 1, title: "Cookie Policy", text: "Informativa cookie", link:"https://www.iubenda.com/privacy-policy/31752374/cookie-policy", icon: "mdi-cookie text-subtitle-1 text-blue-darken-2" },
+  { id: 0, title: "Privacy Policy", text: "Informativa privacy", link: "https://www.iubenda.com/privacy-policy/31752374", icon: "mdi-scale-balance text-subtitle-1 text-blue-darken-2" },
+  { id: 1, title: "Cookie Policy", text: "Informativa cookie", link: "https://www.iubenda.com/privacy-policy/31752374/cookie-policy", icon: "mdi-cookie text-subtitle-1 text-blue-darken-2" },
 ]);
 
 const faqs = reactive([

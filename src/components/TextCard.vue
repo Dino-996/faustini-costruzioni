@@ -1,5 +1,7 @@
 <template>
   <v-container fluid :class="cardClass">
+
+    <v-skeleton-loader rounded="sm" :loading="loading" type="card, list-item-two-line, button" color="transparent">
     <v-card class="mt-3 mb-3" elevation="0" color="transparent" :prepend-icon="props.icon">
 
       <v-card-subtitle class="text-subtitle-1 text-white">
@@ -16,11 +18,15 @@
       </v-card-text>
 
     </v-card>
+  </v-skeleton-loader>
+
   </v-container>
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref } from 'vue';
+import { defineProps, ref, onMounted } from 'vue';
+
+const loading = ref(true);
 
 const props = defineProps({
   title: { type: String, required: false, default: "Title" },
@@ -35,5 +41,9 @@ const cardClass = ref({
   '1': 'custom-card-2',
   '2': 'custom-card-3'
 }[props.bgNumber.toString()]);
+
+onMounted(()=>{
+  setTimeout(()=>loading.value = false, 3000);
+});
 
 </script>
