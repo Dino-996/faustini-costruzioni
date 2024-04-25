@@ -8,6 +8,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CarouselText: typeof import('./src/components/CarouselText.vue')['default']
+    FormContact: typeof import('./src/components/FormContact.vue')['default']
+    ImageGallery: typeof import('./src/components/ImageGallery.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScrollCard: typeof import('./src/components/ScrollCard.vue')['default']

@@ -1,12 +1,12 @@
 <template>
   <v-skeleton-loader rounded="sm" :loading="loading" type="list-item-two-line" color="transparent">
 
-    <v-alert v-if="mobile && value != 500" :closable="true" rounded="sm" variant="tonal">
+    <v-alert v-if="mobile && value != 600" :closable="true" rounded="sm" variant="tonal">
 
       <v-alert-title>
         <v-progress-circular :rotate="360" :size="50" :width="2" class="mr-3 text-subtitle-1" color="info"
-          :model-value="value / 5">
-          {{ value / 1000 }}
+          :model-value="value / 6">
+          {{ value / 1000 }}s
         </v-progress-circular>
         <span class="text-info text-subtitle-1">Scorri il dito sulle immagini per visualizzare tutti i servizi</span>
       </v-alert-title>
@@ -47,7 +47,7 @@
             <v-spacer></v-spacer>
 
             <v-btn rounded="sm" color="blue-darken-2" :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-              @click="show = !show"></v-btn>
+              @click="show = !show" aria-label="Visualizza testo" ></v-btn>
           </v-card-actions>
 
           <v-expand-transition>
@@ -106,7 +106,7 @@ onMounted(() => {
   setTimeout(() => loading.value = false, 3000);
   // Timeout closed banner
   interval = setInterval(() => {
-    if (value.value !== 500) {
+    if (value.value !== 600) {
       value.value += 10
     }
     return value.value;
