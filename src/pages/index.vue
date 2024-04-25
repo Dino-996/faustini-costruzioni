@@ -105,7 +105,34 @@
     bg-number="1" />
 
   <!-- CAROUSEL SERVICE -->
+<<<<<<< HEAD
   <scroll-card />
+=======
+  <v-carousel height="650" @mouseover="cycle = false" @mouseout="cycle = true" :cycle="cycle" :show-arrows="false"
+    delimiter-icon="mdi-square" interval="7000" hide-delimiter-background>
+    <v-carousel-item v-for="slide in slides" :key="slide.id" :src="slide.src" :alt="slide.title" color="black" cover>
+      <div class="d-flex flex-wrap fill-height fill-width justify-space-evenly align-center image-overlay">
+        <v-card color="transparent" rounded="sm" max-width="600" elevation="0">
+          <template v-slot:prepend>
+            {{ slide.emoji }}
+          </template>
+          <v-card-title class="text-orange">
+            <h2 class="text-wrap">{{ slide.title }}</h2>
+            <v-divider :thickness="5" color="white" class="w-25"></v-divider>
+          </v-card-title>
+          <v-card-text class="text-white">
+            {{ slide.text }}
+          </v-card-text>
+          <v-card-actions class="d-flex justify-end mr-3">
+            <v-btn @click="scroll('contact')" variant="elevated" append-icon="mdi-arrow-down" rounded="sm">{{
+              slide.button
+              }}</v-btn>
+          </v-card-actions>
+        </v-card>
+      </div>
+    </v-carousel-item>
+  </v-carousel>
+>>>>>>> f78812301946537cca941ae7c6c156793cad64e4
 
   <!-- FORM -->
   <div class="ml-5 mt-5 mb-5 justify-center align-center">
