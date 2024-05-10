@@ -70,7 +70,7 @@
             </v-checkbox>
 
             <div class="mt-5 d-flex justify-end">
-              <v-btn @click="validate" type="submit" rounded="sm" variant="elevated" :color="formValid.color"
+              <v-btn @click="validate" type="submit" variant="elevated" :color="formValid.color"
                 :append-icon="formValid.iconValid" :loading="formValid.loading">{{ formValid.text }}</v-btn>
             </div>
           </v-form>
@@ -160,7 +160,7 @@ const rulesRequest = [
 ];
 
 const form = ref();
-const formValid = ref({ text: 'Invia', color: 'blue-darken-2', iconValid: 'mdi-arrow-right', loading: false });
+const formValid = ref({ text: 'Invia', color: 'blue-darken-2', iconValid: 'mdi-chevron-right', loading: false });
 const validate = async () => {
   const { valid } = await form.value.validate()
   if (valid) {
@@ -219,7 +219,7 @@ const sendEmail = async () => {
   function resetButton(): void {
     setTimeout(() => {
       formValid.value.loading = false;
-      formValid.value.iconValid = 'mdi-arrow-right';
+      formValid.value.iconValid = 'mdi-chevron-right';
       formValid.value.text = 'Invia';
       formValid.value.color = 'blue-darken-2';
     }, 5000);

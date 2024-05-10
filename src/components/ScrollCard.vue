@@ -1,7 +1,7 @@
 <template>
   <v-skeleton-loader rounded="sm" :loading="loading" type="list-item-two-line" color="transparent">
 
-    <v-alert v-if="mobile && value != 600" :closable="true" rounded="sm" variant="tonal">
+    <v-alert v-if="mobile && value != 600" :closable="true" variant="tonal">
 
       <v-alert-title>
         <v-progress-circular :rotate="360" :size="50" :width="2" class="mr-3 text-subtitle-1" color="info"
@@ -17,11 +17,11 @@
   <v-window :show-arrows="!mobile">
 
     <template v-slot:prev="{ props }">
-      <v-btn icon="mdi-chevron-left" color="blue-darken-2" rounded="sm" @click="props.onClick"></v-btn>
+      <v-btn icon="mdi-chevron-left" color="blue-darken-2" @click="props.onClick"></v-btn>
     </template>
 
     <template v-slot:next="{ props }">
-      <v-btn icon="mdi-chevron-right" color="blue-darken-2" rounded="sm" @click="props.onClick"></v-btn>
+      <v-btn icon="mdi-chevron-right" color="blue-darken-2" @click="props.onClick"></v-btn>
     </template>
 
     <v-window-item v-for="card in cards" :key="card.id">
@@ -40,20 +40,20 @@
           </v-card-subtitle>
 
           <v-card-actions>
-            <v-btn @click="scroll('contact')" append-icon="mdi-arrow-down" variant="elevated" rounded="sm"
-              color="blue-darken-2" text="Contatti">
+            <v-btn @click="scroll('contact')" append-icon="mdi-chevron-down" variant="elevated" color="blue-darken-2"
+              text="Contatti">
             </v-btn>
 
             <v-spacer></v-spacer>
 
-            <v-btn rounded="sm" color="blue-darken-2" :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-              @click="show = !show" aria-label="Visualizza testo" ></v-btn>
+            <v-btn color="blue-darken-2" :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show = !show"
+              aria-label="Visualizza testo"></v-btn>
           </v-card-actions>
 
           <v-expand-transition>
             <div v-show="show">
 
-              <v-divider></v-divider>
+              <v-divider inset class="border-opacity-75" color="info"></v-divider>
 
               <v-card-text>
                 {{ card.text }}
@@ -102,9 +102,7 @@ const cards = reactive([
 ]);
 
 onMounted(() => {
-  // Skeleton loader
   setTimeout(() => loading.value = false, 3000);
-  // Timeout closed banner
   interval = setInterval(() => {
     if (value.value !== 600) {
       value.value += 10

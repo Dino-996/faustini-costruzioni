@@ -1,7 +1,7 @@
 <template>
   <v-skeleton-loader rounded="sm" :loading="loading" type="card, list-item-two-line, button" color="transparent">
     <v-carousel height="830" @mouseover="cycle = false" @mouseout="cycle = true" :cycle="cycle" :show-arrows="false"
-      delimiter-icon="mdi-square" interval="5000" hide-delimiter-background>
+      delimiter-icon="mdi-circle" interval="5000" hide-delimiter-background>
       <v-carousel-item v-for="slide in slides" :key="slide.id" :src="slide.src" :alt="slide.title" color="black" cover>
         <div class="d-flex flex-wrap fill-height fill-width justify-center align-center image-overlay">
           <v-card color="transparent" rounded="sm" max-width="600" elevation="0">
@@ -11,15 +11,15 @@
                 lazy-src="https://firebasestorage.googleapis.com/v0/b/faustinicostruzioni-b5930.appspot.com/o/logo.webp?alt=media&token=18353037-9486-4a2d-bfab-c2a60b6fc890"
                 class="mt-5" alt="logo faustini costruzioni srl"></v-img>
             </template>
-            <v-card-title class="text-orange">
-              <h2 class="text-wrap">Faustini Costruzioni</h2>
+            <v-card-title class="text-h4 text-orange">
+              <span class="text-wrap">Faustini Costruzioni</span>
               <v-divider :thickness="5" color="white" class="w-25"></v-divider>
             </v-card-title>
-            <v-card-text class="font-weight-bold text-white">
+            <v-card-text class="font-weight-bold text-body-1 text-white">
               Qualità e avanguardia, i pilastri su cui costruiamo il tuo futuro.
             </v-card-text>
             <v-card-actions class="d-flex justify-end mr-3">
-              <v-btn @click="scroll('services')" variant="elevated" append-icon="mdi-arrow-down" rounded="sm">Preventivo
+              <v-btn @click="scroll('services')" variant="elevated" append-icon="mdi-chevron-down">Preventivo
                 gratuito</v-btn>
             </v-card-actions>
           </v-card>

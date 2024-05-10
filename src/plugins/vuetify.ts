@@ -25,7 +25,7 @@ export default createVuetify({
     },
   },
   defaults: {
-    VBtn: { class: 'text-body-1', color: 'blue-darken-2', rounded: "sm", density: "comfortable", variant: "elevated" },
+    VBtn: { color: 'blue-darken-2', rounded: "lg", density: "comfortable", variant: "elevated" },
   },
   theme: {
     defaultTheme: 'light',

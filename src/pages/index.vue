@@ -11,7 +11,7 @@
     </template>
 
     <template v-slot:append>
-      <v-btn v-for="social in socials" :key="social.id" :icon="social.icon" variant="text" rounded="sm"
+      <v-btn v-for="social in socials" :key="social.id" :icon="social.icon" variant="text"
         color="blue-darken-2" :href="social.link" target="_blank" class="mr-3"></v-btn>
       <v-btn prepend-icon="mdi-cellphone text-button" variant="outlined" color="blue-darken-2"
         href="tel:+393488107321">Telefono</v-btn>
