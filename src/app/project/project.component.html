@@ -1,0 +1,130 @@
+<div class="relative mt-6 py-4 animate-fade duration-300"
+  [ngClass]="{'animate-play': isAnimationProjectTitle(), 'animate-stop': !isAnimationProjectTitle()}">
+  <div class="max-w-7xl mx-auto flex flex-col">
+    <div class="lg:py-2 px-8">
+      <div class="px-8 lg:px-0">
+        <h2
+          class="text-3xl font-extrabold text-blue-navy sm:text-4xl projectAction animate-fade-right duration-500 projectTitle"
+          [ngClass]="{'animate-play': isAnimationProjectTitle(), 'animate-stop': !isAnimationProjectTitle()}">
+          I nostri progetti
+        </h2>
+        <hr class="border-blue-navy my-4 w-44 animate-fade-right duration-500 mb-10"
+          [ngClass]="{'animate-play': isAnimationProjectTitle(), 'animate-stop': !isAnimationProjectTitle()}" />
+      </div>
+      @if(!isMore) {
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center px-8 animate-fade-left projectCard"
+        [ngClass]="{'animate-play': isAnimationProjectCard(), 'animate-stop': !isAnimationProjectCard()}">
+        @for(project of displayedProjects; track project.id) {
+        <div
+          class="max-w-sm rounded-xl overflow-hidden bg-yellow-200 mb-8 shadow-md bg-yellow border-2 border-blue-navy cursor-pointer hover:scale-105 transition duration-500">
+          <img class="w-full h-48 object-cover" [src]="project.fileimage" alt="Progetti completati" />
+          <div class="px-6 py-4">
+            <div class="font-semibold text-sm mb-2 text-gray-500">
+              {{ project.subtitle }}
+            </div>
+            <div class="font-bold text-xl mb-2 text-blue-navy">
+              {{ project.title }}
+            </div>
+            <p class="text-gray-700 text-base">
+              {{ project.text }}
+            </p>
+          </div>
+          <div class="px-6 pt-4 pb-2 flex justify-end mb-3">
+            <button (click)="showModal(project.subfileimage)"
+              class="inline-flex items-center font-medium rounded-full border-2 border-white text-white bg-blue-navy py-2 px-2 hover:bg-opacity-90 hover:border-blue-navy hover:text-blue-navy hover:bg-transparent transition duration-500">
+              <svg height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M8 11C9.10457 11 10 10.1046 10 9C10 7.89543 9.10457 7 8 7C6.89543 7 6 7.89543 6 9C6 10.1046 6.89543 11 8 11Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M6.56055 21C12.1305 8.89998 16.7605 6.77998 22.0005 14.63" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path
+                    d="M18 3H6C3.79086 3 2 4.79086 2 7V17C2 19.2091 3.79086 21 6 21H18C20.2091 21 22 19.2091 22 17V7C22 4.79086 20.2091 3 18 3Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+        }
+      </div>
+      @if(currentIndex < projects.length) { <div class="text-center sm:text-end w-full mt-8">
+        <button (click)="loadMoreProjects()"
+          class="mr-5 inline-flex items-center font-medium text-blue-navy py-2 px-5 transition duration-500">
+          <svg height="30" class="animate-bounce transition duration-500 animate-delay-100 animate-infinite" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="currentColor"></path> </g></svg>
+          <svg height="30" class="animate-bounce transition duration-500 animate-delay-200 animate-infinite" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="currentColor"></path> </g></svg>
+          <svg height="30" class="animate-bounce transition duration-500 animate-delay-300 animate-infinite" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" fill="currentColor"></path> </g></svg>
+        </button>
+        <span id="quote"></span>
+    </div>
+    } }
+  </div>
+</div>
+</div>
+<!-- Modal -->
+<div #modal id="modal"
+  class="fixed inset-0 z-50 hidden content-center bg-black bg-opacity-50 backdrop-blur-sm">
+  <div id="modal-content"
+    class="bg-white rounded-lg flex justify-center w-11/12 md:w-1/2 lg:w-1/3 transform transition-transform duration-500 ease-in-out">
+    <!-- Image Slider -->
+    <div #sliderContainer id="modal-slider" class="relative overflow-hidden">
+      <div id="slider-container" class="flex transition-transform duration-500 ease-in-out">
+        @for(url of imageUrls; track $index) {
+        <div class="flex-shrink-0 w-full">
+            <picture>
+              <source [srcset]="url" media="(max-width: 400px)">
+              <source [srcset]="url" media="(max-width: 800px)">
+              <img [src]="url" loading="lazy"  alt="Immagine" class="w-full rounded-xl">
+            </picture>
+        </div>
+        }
+      </div>
+      <button id="next-slide"
+        class="font-medium rounded-full border-2 border-white text-white bg-blue-navy py-2 px-2 hover:bg-opacity-90 hover:border-[#A94442] hover:text-[#A94442] hover:bg-transparent transition duration-500"
+        (click)="hideModal()">
+        <svg height="20" viewBox="-0.5 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 21.32L21 3.32001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M3 3.32001L21 21.32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      @if(imageUrls.length > 1) {
+      @if(!isPlay) {
+      <button
+        class="absolute text-center bottom-1 font-medium rounded-full border-2 border-white text-white bg-blue-navy my-2 py-2 px-2 transition duration-500"
+        (click)="stop()">
+        <svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path d="M8 5V19M16 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+            </path>
+          </g>
+        </svg>
+      </button>
+      } @else {
+      <button
+        class="absolute text-center bottom-1 font-medium rounded-full border-2 border-white text-white bg-blue-navy my-2 py-2 px-2 hover:bg-opacity-90 transition duration-500"
+        (click)="play()">
+        <svg height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z"
+              stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+            </path>
+          </g>
+        </svg>
+      </button>
+      }
+      }
+    </div>
+  </div>
+</div>

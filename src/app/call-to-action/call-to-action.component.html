@@ -1,0 +1,66 @@
+<div
+  class="relative mt-8 mb-8 bg-yellow bg-cover bg-center bg-no-repeat bg-cta border-2 border-blue-navy rounded-xl mx-8 py-4 animate-fade duration-300"
+  [ngClass]="{'animate-play': isAnimationTitleAction(), 'animate-stop': !isAnimationTitleAction()}">
+  <div class="max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:gap-8">
+    <div class="lg:py-2 lg:px-8">
+      <div class="px-8 lg:px-0">
+        <h2 class="text-3xl font-extrabold text-blue-navy sm:text-4xl animate-fade-right duration-500 titleAction"
+          [ngClass]="{'animate-play': isAnimationTitleAction(), 'animate-stop': !isAnimationTitleAction()}">Chi siamo
+        </h2>
+        <hr class="border-blue-navy my-4 w-44 animate-fade-right duration-500"
+          [ngClass]="{'animate-play': isAnimationTitleAction(), 'animate-stop': !isAnimationTitleAction()}">
+        <p class="mt-4 text-lg text-gray-900 animate-fade-left duration-500 textAction"
+          [ngClass]="{'animate-play': isAnimationTextAction(), 'animate-stop': !isAnimationTextAction()}">
+          Fondata nel 2008, l'azienda trae origine dalla fusione per incorporazione dell’impresa individuale di
+          Rocco
+          Macellaro, con sede in <a
+            href="https://www.google.com/maps/place/Faustini+Costruzioni/@40.5999149,15.5070775,17z/data=!4m15!1m8!3m7!1s0x1339169b662e3187:0xdf1ebf67f980f6eb!2sFaustini+Costruzioni!8m2!3d40.599955!4d15.507098!10e5!16s%2Fg%2F1hc6mvq0r!3m5!1s0x1339169b662e3187:0xdf1ebf67f980f6eb!8m2!3d40.599955!4d15.507098!16s%2Fg%2F1hc6mvq0r?entry=ttu"
+            class="underline hover:no-underline hover:text-orange" target="_blank">Corso Garibaldi 82, a Vietri di
+            Potenza (PZ)</a>. L’azienda è impegnata nella
+          realizzazione
+          di opere edili e stradali, rivolgendosi sia al settore pubblico che a quello privato, con una particolare
+          specializzazione nelle idrodemolizioni. Personale specializzato che opera in conformità alle normative in
+          materia di sicurezza e salute sui luoghi di lavoro e nel rispetto dell'etica e dignità professionale.
+          L’azienda dispone di attrezzature e macchine utili alla realizzazione dei lavori in modo efficiente e
+          sicuro.
+          Faustini Costruzioni Srl è regolarmente iscritta presso la <a
+            href="https://www.ufficiocamerale.it/4104/faustini-costruzioni-srl"
+            class="underline hover:no-underline hover:text-orange" target="_blank">Camera di Commercio, Industria,
+            Artigianato e
+            Agricoltura (CCIAA) di Potenza </a> e detiene <a
+            href="https://www.attestazione.net/SoaEngine/Dettaglio?piva=01699410765"
+            class="underline hover:no-underline hover:text-orange" target="_blank">l’attestazione SOA</a> per
+          l’esecuzione di lavori pubblici,
+          conformemente
+          al Decreto del Presidente della Repubblica n. 207/2010, nelle categorie <a
+            href="https://www.attestazione.net/SoaEngine/Dettaglio?piva=01699410765"
+            class="underline hover:no-underline hover:text-orange" target="_blank">OG1, OG2 e OG3</a>
+        </p>
+        <div class="mt-8 buttonAction animate-fade-right duration-500"
+          [ngClass]="{'animate-play': isAnimationButtonAction(), 'animate-stop': !isAnimationButtonAction()}">
+          <div class="py-2 flex justify-end lg:justify-start">
+            <button role="link" type="link" (click)="onPage()"
+              class="inline-flex font-medium rounded-full border-2 border-white text-white bg-blue-navy py-2 px-5 hover:bg-opacity-90 hover:border-blue-navy hover:text-blue-navy hover:bg-transparent transition duration-500">
+              <svg height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M4 19V6.2C4 5.0799 4 4.51984 4.21799 4.09202C4.40973 3.71569 4.71569 3.40973 5.09202 3.21799C5.51984 3 6.0799 3 7.2 3H16.8C17.9201 3 18.4802 3 18.908 3.21799C19.2843 3.40973 19.5903 3.71569 19.782 4.09202C20 4.51984 20 5.0799 20 6.2V17H6C4.89543 17 4 17.8954 4 19ZM4 19C4 20.1046 4.89543 21 6 21H20M9 7H15M9 11H15M19 17V21"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  </path>
+                </g>
+              </svg>
+              <span class="ml-3">Richiedi appuntamento</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <span id="project"></span>
+    </div>
+    <div
+      class="lg:relative lg:col-start-2 mt-10 lg:mt-0 content-center hover:scale-105 cursor-pointer videoAction animate-fade-left duration-500">
+      <app-carousel></app-carousel>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="mt-5 xl:mx-8 px-8 cursor-pointer carousel animate-fade duration-300"
+  [ngClass]="{'animate-play': isAnimationCarousel(), 'animate-stop': !isAnimationCarousel()}">
+
+  <div class="relative w-full overflow-hidden shadow-xl rounded-xl animate-fade-up animate-duration-500"
+    (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" (mousedown)="onMouseDown($event)"
+    (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp($event)">
+
+    <div class="flex transition-transform duration-500" [style.transform]="transform">
+      @for(slide of slides; track slide.id){
+      <div class="w-full flex-shrink-0">
+        <img [src]="slide.src" alt="Vari lavori effettuati" class="w-full h-96 object-cover rounded-md">
+      </div>
+      }
+    </div>
+
+    <button (click)="prevSlide()"
+      class="hidden ml-3 rounded-full absolute top-1/2 left-0 transform -translate-y-1/2 bg-orange text-white px-4 py-2"></button>
+    <button (click)="nextSlide()"
+      class="hidden mr-3 rounded-full absolute top-1/2 right-0 transform -translate-y-1/2 bg-orange text-white px-4 py-2"></button>
+  </div>
+
+  <div class="flex justify-center mt-4">
+    @for(slide of slides; track slide.id; let index = $index) {
+    <button (click)="goToSlide(index)" [class.bg-white]="currentSlide !== index"
+      class="w-4 h-4 mx-2 bg-blue-navy rounded-full">
+    </button>
+    }
+  </div>
+
+</div>

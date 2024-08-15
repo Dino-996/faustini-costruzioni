@@ -1,32 +1,32 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "ESNext",
-    "jsx": "preserve",
-    "lib": ["DOM", "ESNext"],
-    "baseUrl": ".",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "resolveJsonModule": true,
-    "types": [
-      "vite/client",
-      "vite-plugin-vue-layouts/client",
-      "unplugin-vue-router/client"
-    ],
-    "allowJs": true,
+    "outDir": "./dist/out-tsc",
     "strict": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "skipLibCheck": true
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
   },
-  "include": [
-    "./src/typed-router.d.ts"
-  ],
-  "exclude": ["dist", "node_modules", "cypress"],
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
 }

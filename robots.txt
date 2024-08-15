@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-sitemap: https://faustinicostruzioni.it/sitemap.xml

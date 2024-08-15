@@ -1,0 +1,36 @@
+#modal-slider {
+  height: 90vh;
+  width: 100%;
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#slider-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+#slider-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#modal-content {
+  width: auto;
+  height: auto;
+  margin: 0 1rem 0 1rem;
+  background: transparent;
+  border: none;
+}
+
+#next-slide {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}

@@ -1,20 +1,6 @@
-/**
- * main.ts
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
- */
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { AppComponent } from './app/app.component';
 
-// Plugins
-import { registerPlugins } from '@/plugins'
-
-// Components
-import App from './App.vue'
-
-// Composables
-import { createApp } from 'vue'
-
-const app = createApp(App)
-
-registerPlugins(app)
-
-app.mount('#app')
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));

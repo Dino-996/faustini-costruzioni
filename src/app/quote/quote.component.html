@@ -1,0 +1,230 @@
+<div
+  class="relative mt-6 bg-cover bg-center bg-no-repeat bg-form py-8 mx-8 rounded-xl border-2 border-blue-navy animate-fade duration-300"
+  [ngClass]="{
+    'animate-play': isAnimationTitleSection(),
+    'animate-stop': !isAnimationTitleSection()
+  }">
+  <div class="max-w-7xl mx-auto flex flex-col">
+    <div class="relative mx-4 content-center hover:scale-105 cursor-pointer formSection animate-fade-left duration-500"
+      [ngClass]="{
+        'animate-play': isAnimationFormSection(),
+        'animate-stop': !isAnimationFormSection()
+      }">
+      <form class="mx-auto shadow-lg bg-yellow rounded-xl p-5 w-full" [formGroup]="profileForm" (submit)="onSubmit()">
+        <div class="mb-4" [ngClass]="{
+            'animate-play': isAnimationTitleSection(),
+            'animate-stop': !isAnimationTitleSection()
+          }">
+          <h2 class="text-3xl font-extrabold text-blue-navy sm:text-4xl titleSection animate-fade-right duration-500"
+            [ngClass]="{
+              'animate-play': isAnimationTitleSection(),
+              'animate-stop': !isAnimationTitleSection()
+            }">
+            Contattaci subito per il tuo prossimo progetto di costruzioni
+          </h2>
+          <hr class="border-blue-navy my-4 w-44 titleSection animate-fade-right duration-500" [ngClass]="{
+              'animate-play': isAnimationTitleSection(),
+              'animate-stop': !isAnimationTitleSection()
+            }" />
+          <p class="mt-4 text-lg text-gray-900 textSection textSection animate-fade-right duration-500" [ngClass]="{
+              'animate-play': isAnimationTextSection(),
+              'animate-stop': !isAnimationTextSection()
+            }">
+            Se stai cercando un partner affidabile e altamente qualificato per i
+            tuoi progetti edili e stradali, Faustini Costruzioni è la scelta
+            ideale per te. Compila il form oggi stesso per richiedere un
+            preventivo personalizzato e senza impegno. Siamo qui per ascoltare
+            le tue esigenze e fornirti una soluzione su misura che soddisfi le
+            tue aspettative
+          </p>
+        </div>
+        <div class="mb-8 flex flex-col">
+          <span class="text-xl font-semibold text-blue-navy">Dati personali</span>
+        </div>
+        <div class="my-8">
+          <div class="grid md:grid-cols-3 md:gap-6">
+            <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="first-name" id="first-name" formControlName="firstName"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-900 appearance-none focus:outline-none focus:ring-0 focus:border-blue-navy peer"
+                placeholder=" " autocomplete="on" required />
+              <label for="first-name"
+                class="peer-focus:font-medium absolute text-sm text-gray-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-navy peer-focus:dark:text-blue-navy peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Nome</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="last-name" id="last-name" formControlName="lastName"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-900 appearance-none focus:outline-none focus:ring-0 focus:border-blue-navy peer"
+                placeholder=" " autocomplete="on" required />
+              <label for="last-name"
+                class="peer-focus:font-medium absolute text-sm text-gray-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-navy peer-focus:dark:text-blue-navy peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Cognome</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <input type="tel" max="10" name="phone" id="phone" formControlName="phone"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-900 appearance-none focus:outline-none focus:ring-0 focus:border-blue-navy peer"
+                placeholder=" " autocomplete="tel" required />
+              <label for="phone"
+                class="peer-focus:font-medium absolute text-sm text-graay-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-navy peer-focus:dark:text-blue-navy peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Cellulare</label>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-1 md:gap-6">
+            <div class="relative z-0 w-full mb-5 group">
+              <input type="email" name="eMail" id="eMail" formControlName="email"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-900 appearance-none focus:outline-none focus:ring-0 focus:border-blue-navy peer"
+                placeholder=" " aria-label="eMail cliente" autocomplete="email" required />
+              <label for="eMail"
+                class="peer-focus:font-medium absolute text-sm text-gray border-gray-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-navy peer-focus:dark:text-blue-navy peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                eMail</label>
+            </div>
+          </div>
+        </div>
+        <div class="my-8 flex flex-col">
+          <span class="text-xl font-semibold text-blue-navy">Dati di progetto</span>
+        </div>
+        <div class="my-8">
+          <div class="relative z-0 w-full mb-5 group">
+            <label for="service" class="block mb-2 text-sm font-medium text-gray-900">Servizio desiderato</label>
+            <select id="service" name="service" formControlName="service" required
+              class="cursor-pointer block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 rounded-none border-gray-900 appearance-none focus:outline-none focus:ring-0 focus:border-blue-navy peer">
+              <option disabled selected>
+                Seleziona il servizio desiderato
+              </option>
+              <option value="Costruzioni Generali">Costruzioni Generali</option>
+              <option value="Idrodemolizione">Idrodemolizione</option>
+              <option value="Restauro Conservativo">
+                Restauro Conservativo
+              </option>
+              <option value="Noleggio Ponteggi e Attrezzature">
+                Noleggio Ponteggi e Attrezzature
+              </option>
+              <option value="Altro">Altro...</option>
+            </select>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <label for="budget" class="block mb-2 text-sm font-medium text-gray-900">Budget stimato</label>
+            @if(profileForm.get('budget')?.value != '') {
+            <span class="font-light text-gray-600">
+              {{ formatEuro(profileForm.get("budget")?.value) }}</span>
+            }
+            <input id="budget" name="budget" type="range" value="100000" min="100000" max="1500000"
+              formControlName="budget" class="w-full h-2 bg-white rounded-lg appearance-none cursor-pointer"
+              aria-label="Budget stimato" required />
+            <div class="flex justify-between">
+              <span class="text-sm text-gray-900">100.000 &euro;</span>
+              <span class="text-sm text-gray-900">1.500.000 &euro;</span>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 md:gap-6 mt-8">
+            <div class="relative z-0 w-full mb-2 group">
+              <label for="completion-time" class="block mb-2 text-sm font-medium text-gray-900">Tempo di
+                completamento</label>
+              <select id="completion-time" name="completion-time" formControlName="completionTime" required
+                class="cursor-pointer block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 rounded-none border-blue-navy appearance-none focus:outline-none focus:ring-0 focus:border-blue-navy text-wrap peer">
+                <option value="" disabled selected>
+                  Seleziona un tempo di completamento
+                </option>
+                <option class="text-yellow font-semibold" value="1-2-settimane">
+                  Da 1 settimana a 2 mesi
+                </option>
+                <option value="2-6-mesi">Da 2 a 6 mesi</option>
+                <option value="6-mesi-1-anno">Da 6 mesi a 1 anno</option>
+                <option value="1-3-anni">Da 1 anno a 3 anni</option>
+                <option value="oltre-3-anni">Oltre 3 anni</option>
+              </select>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <label for="start-work" class="block mb-2 text-sm font-medium text-gray-900">Data inizio lavori</label>
+              <input
+                class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-blue-navy cursor-pointer peer"
+                type="date" id="start-work" name="start-work" formControlName="startWork" [attr.min]="minDate()" />
+            </div>
+          </div>
+          <div class="relative z-0 w-full group">
+            <label for="details" class="block mb-2 text-sm font-medium text-gray-900">Dettagli progetto</label>
+            <textarea id="details" name="details" formControlName="details" rows="4"
+              class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-blue-navy peer"
+              placeholder="Dettagli aggiuntivi..."></textarea>
+          </div>
+          <div class="flex justify-between items-center relative z-0 w-full my-5 group">
+            <div class="flex flex-col">
+              <span class="text-blue-navy text-lg font-semibold mb-2">Carica documenti</span>
+              <span class="text-gray-600 text-xs font-semibold">Inserisci disegni, piante, permessi o licenze in
+                PDF</span>
+            </div>
+            <div>
+              <label for="uploadFile"
+                class="flex transform duration-300 border-2 text-sm border-white bg-blue-navy hover:bg-transparent hover:text-blue-navy hover:border-blue-navy text-white px-4 py-2 outline-none rounded-full w-max cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 mr-2 inline" viewBox="0 0 32 32">
+                  <path
+                    d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
+                    data-original="#000000" />
+                  <path
+                    d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
+                    data-original="#000000" />
+                </svg>
+                Carica file
+                <input type="file" name="uploadFile" id="uploadFile" class="hidden" aria-label="Carica un file"
+                  accept="application/pdf" (input)="onFileSelected($event)" />
+              </label>
+              <span id="services"></span>
+            </div>
+          </div>
+          <div>
+            <span class="font-light text-gray-600 underline">{{
+              selectedFile?.name
+              }}</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center content-center space-x-2">
+          <label for="legal" class="relative flex items-center p-3 rounded-full cursor-pointer">
+            <input type="checkbox"
+              class="peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-navy transition-all checked:border-blue-navy checked:bg-blue-navy hover:before:opacity-10"
+              id="legal" name="legal" formControlName="legal" />
+            <span
+              class="absolute inset-0 flex items-center justify-center text-white transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 pb-1" viewBox="0 0 20 20" fill="currentColor"
+                stroke="currentColor" stroke-width="1">
+                <path fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </span>
+          </label>
+          <div class="font-normal text-gray-900 select-none">
+            <span>Acconsento al trattamento dei dati personali come specificato
+              nell'informativa
+              <a href="https://www.iubenda.com/privacy-policy/31752374" target="_blank"
+                class="underline hover:text-white hover:no-underline transition duration-300">
+                Privacy Policy</a>
+            </span>
+          </div>
+        </div>
+        @if(progressBar() != 0) {
+        <div class="w-full bg-gray-200 rounded-full my-5">
+          <div class="bg-orange text-xs font-medium text-blue-navy text-center p-0.5 leading-none rounded-full"
+            [style.width.%]="progressBar()">
+            {{ progressBar() }}&percnt;
+          </div>
+        </div>
+        }
+        <div class="flex justify-end items-center relative z-0 w-full mt-8">
+          <button type="submit" [disabled]="!profileForm.valid"
+            class="inline-flex items-center rounded-full px-4 py-2 shadow-sm text-center text-xs font-medium border-2 disabled:bg-transparent disabled:text-gray-500 disabled:shadow-none disabled:border-gray-600 text-white border-white hover:border-blue-navy hover:bg-transparent hover:text-blue-navy bg-blue-navy transition duration-300">
+            <svg class="w-4 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z"
+                  stroke-width="2" stroke-linejoin="round"></path>
+              </g>
+            </svg>
+            <span class="pl-1 text-sm font-semibold">Invia</span>
+          </button>
+        </div>
+        <div id="response" class="space-y-6 py-8 text-base text-center leading-7"></div>
+      </form>
+    </div>
+  </div>
+</div>
