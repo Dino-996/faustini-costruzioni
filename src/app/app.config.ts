@@ -18,14 +18,14 @@ const firebaseConfig = {
   measurementId: "G-KKM0YT53CD"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 getAnalytics(app);
-initializeAppCheck(app, {
+
+const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider('6LcFG8cpAAAAAEWyCrx4HMHNoaI2EIm4y5Qxe9cG'),
   isTokenAutoRefreshEnabled: true
-})
+});
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes)]
