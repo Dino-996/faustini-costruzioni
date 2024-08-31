@@ -1,3 +1,8 @@
+.overflow-y-hidden {
+  overflow-y: hidden;
+  touch-action: none;
+}
+
 #modal-slider {
   height: 90vh;
   width: 100%;

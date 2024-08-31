@@ -169,24 +169,22 @@ export class ProjectComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+
   /**
-   * Displays a modal with a slideshow of images.
+   * Shows the modal with the image slide show.
    *
-   * @param {string[]} imageUrls - An array of URLs for the images to be displayed in the slideshow.
-   * @return {void} Nothing is returned.
+   * @param imageUrls the list of image URLs to display
+   * @return {void}
    */
   showModal(imageUrls: string[]): void {
     this.imageUrls = imageUrls;
     const modal = document.getElementById('modal');
     modal?.classList.remove('hidden');
     document.body.classList.add('overflow-y-hidden');
+    document.addEventListener('touchmove', this.preventScroll, { passive: false });
     this.showSlide(this.currentSlideIndex);
-
     this.intervalID = setInterval(() => {
-      this.currentSlideIndex =
-        this.currentSlideIndex < imageUrls.length - 1
-          ? this.currentSlideIndex + 1
-          : 0;
+      this.currentSlideIndex = this.currentSlideIndex < imageUrls.length - 1 ? this.currentSlideIndex + 1 : 0;
       this.showSlide(this.currentSlideIndex);
     }, 2000);
   }
@@ -201,13 +199,12 @@ export class ProjectComponent implements AfterViewInit, OnDestroy {
     const sliderContainer = document.getElementById(
       'slider-container'
     ) as HTMLElement;
-    const slideWidth =
-      sliderContainer?.querySelector('.flex-shrink-0')?.clientWidth || 0;
+    const slideWidth = sliderContainer?.querySelector('.flex-shrink-0')?.clientWidth || 0;
     sliderContainer.style.transform = `translateX(-${index * slideWidth}px)`;
   }
 
   /**
-   * Hides the modal and stops the slideshow interval.
+   * Hides the modal and stops the slideshow.
    *
    * @return {void} Nothing is returned.
    */
@@ -215,8 +212,12 @@ export class ProjectComponent implements AfterViewInit, OnDestroy {
     const modal = document.getElementById('modal');
     modal?.classList.add('hidden');
     document.body.classList.remove('overflow-y-hidden');
+    document.removeEventListener('touchmove', this.preventScroll);
     clearInterval(this.intervalID);
     this.isPlay = false;
+  }
+  preventScroll(event: TouchEvent): void {
+    event.preventDefault();
   }
 
   /**

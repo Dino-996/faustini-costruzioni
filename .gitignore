@@ -2,6 +2,7 @@
 node_modules
 package-lock.json
 /dist
+deploy.sh
 
 # local env files
 .env.local
