@@ -1,5 +1,11 @@
 # Faustini Costruzioni - Sito Web Ufficiale
 
+![Angular](https://img.shields.io/badge/Angular-19-red?logo=angular&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.x-06B6D4?logo=tailwindcss&logoColor=white)
+![Firebase Hosting](https://img.shields.io/badge/Firebase-Hosting-FFCA28?logo=firebase&logoColor=black)
+![Status](https://img.shields.io/badge/Online-success?style=flat-square)
+
+
 SPA per l’impresa edile **Faustini Costruzioni**, specializzata in costruzioni pubbliche e private, ristrutturazioni, idrodemolizioni e soluzioni edilizie su misura. Il sito è stato progettato con attenzione alla performance, accessibilità e SEO.
 
 🔗 https://faustinicostruzioni.it/
