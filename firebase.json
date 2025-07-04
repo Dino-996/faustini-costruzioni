@@ -1,10 +1,6 @@
 {
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
   "hosting": {
-    "public": "dist/browser",
+    "public": "dist/faustini-costruzioni/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

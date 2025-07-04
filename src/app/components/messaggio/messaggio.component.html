@@ -1,0 +1,17 @@
+<section class="p-2 text-amber-50">
+    @if (isVisible()) {
+    <div [class]="containerClasses()"
+        class="hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 flex items-start p-4 mb-4 rounded-2xl"
+        role="alert">
+
+        <ng-icon [name]="iconName()" size="22" class="shrink-0 mr-2">
+        </ng-icon>
+
+        <span class="sr-only">{{ srOnlyText() }}</span>
+
+        <div>
+            <span class="font-medium">{{ prefixText() }}</span>{{ messaggio() }}
+        </div>
+    </div>
+    }
+</section>

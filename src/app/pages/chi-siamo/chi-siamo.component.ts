@@ -1,0 +1,68 @@
+import { ChangeDetectionStrategy, Component, computed, signal, WritableSignal } from '@angular/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { heroUserGroup, heroShieldCheck, heroEnvelope, heroDevicePhoneMobile, heroGlobeAlt } from '@ng-icons/heroicons/outline';
+import { CallToActionComponent } from '../../components/call-to-action/call-to-action.component';
+import { NgOptimizedImage } from '@angular/common';
+import { VideoPlayerComponent } from '../../components/video-player/video-player.component';
+import { VideoConfig } from '../../model/video';
+import { bootstrapPatchCheckFill } from '@ng-icons/bootstrap-icons';
+import { Valori, Certificazioni, Garanzie } from '../../model/chi-siamo';
+
+@Component({
+  selector: 'app-chi-siamo',
+  imports: [
+    NgIcon,
+    NgOptimizedImage,
+    CallToActionComponent,
+    VideoPlayerComponent
+  ],
+  providers: [
+    provideIcons({
+      heroUserGroup,
+      heroShieldCheck,
+      heroEnvelope,
+      heroDevicePhoneMobile,
+      heroGlobeAlt,
+      bootstrapPatchCheckFill
+    })
+  ],
+  templateUrl: './chi-siamo.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+
+export class ChiSiamoComponent {
+
+  private readonly valori = signal<Valori[]>([
+    { id: 0, titolo: 'Competenza', descrizione: 'Un team di professionisti altamente qualificati in grado di affrontare ogni sfida costruttiva con comprovata esperienza tecnica', icona: 'heroUserGroup' },
+    { id: 1, titolo: 'Qualità', descrizione: 'Utilizziamo solo materiali di prima scelta e tecniche costruttive all\'avanguardia per garantire risultati duraturi e di elevato standard', icona: 'heroShieldCheck' },
+    { id: 2, titolo: 'Sostenibilità', descrizione: 'Progettiamo e costruiamo con un occhio attento all\'ambiente, utilizzando soluzioni a basso impatto energetico e materiali eco-compatibili', icona: 'heroGlobeAlt' }
+  ]);
+
+  private readonly certificazioni = signal<Certificazioni[]>([
+    { id: 0, categoria: 'OG1', descrizione: 'Edifici civili e industriali' },
+    { id: 1, categoria: 'OG2', descrizione: 'Restauro e tutela di beni immobili' },
+    { id: 2, categoria: 'OG3', descrizione: 'Strade, ponti, ferrovie e metropolitane' },
+    { id: 3, categoria: 'OG6', descrizione: 'Acquedotti, gasdotti, oleodotti, opere di irrigazione e di evacuazione' },
+    { id: 4, categoria: 'OG13', descrizione: 'Opere di ingegneria naturalistica' },
+    { id: 5, categoria: 'OS21', descrizione: 'Opere strutturali speciali' }
+  ]);
+
+  private readonly garanzie = signal<Garanzie[]>([
+    { id: 0, descrizione: 'Qualità e durabilità dei nostri interventi' },
+    { id: 1, descrizione: 'Assistenza post-vendita garantita' },
+    { id: 2, descrizione: 'Rispetto delle normative edilizie italiane' },
+    { id: 3, descrizione: 'Precisione e attenzione in ogni dettaglio' }
+  ]);
+
+  private readonly videoConfig = signal<VideoConfig>({
+    src: '/assets/video/chi-siamo.mp4',
+    poster: 'assets/image/image-video/poster.webp',
+    title: 'Persone per le persone',
+  });
+
+  public readonly getValori = computed(() => this.valori());
+  public readonly getCertificazioni = computed(() => this.certificazioni());
+  public readonly getGaranzie = computed(() => this.garanzie());
+  public readonly getVideoConfig = computed(() => this.videoConfig());
+
+}

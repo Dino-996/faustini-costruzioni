@@ -1,0 +1,252 @@
+<section class="bg-[#191A19] min-h-screen py-32 px-4 sm:px-6 lg:px-8 relative">
+
+    <!-- Pattern di sfondo -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none z-0">
+        <div class="h-full w-full"
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+
+        <!-- Header del progetto -->
+        <div class="bg-black/100 shadow-xl rounded-lg overflow-hidden">
+
+            <!-- Immagine copertina -->
+            <div class="h-64 md:h-96 overflow-hidden">
+                <img [src]="galleria[0]" [alt]="titolo" class="w-full h-full object-cover" />
+            </div>
+
+            <!-- Titolo e info principali -->
+            <div class="p-6 md:p-8">
+                <div class="flex flex-col xl:flex-row justify-between gap-4">
+                    <div>
+                        <h1 class="text-3xl md:text-4xl font-bold text-[#F5F5F5] mb-2">{{ titolo }}</h1>
+                        <span
+                            class="inline-block bg-[#FF7420] text-[#F5F5F5] px-3 py-1 rounded-full text-sm font-medium my-2">
+                            {{ tipo }}
+                        </span>
+                        <p class="text-gray-300">{{ descrizioneBreve }}</p>
+                        @if(linkAltriDettagli) {
+                        <span class="text-gray-300">Dettagli:
+                            <a class="text-[#F5F5F5] hover:text-[#FF7420] underline" [href]="linkAltriDettagli"
+                                target="_blank">{{ linkAltriDettagli }}</a>
+                        </span>
+                        }
+                    </div>
+                    <div class="bg-black/100 p-4 rounded-lg xl:w-1/3 border border-[#FF7420]">
+                        <ul class="gap-y-2">
+                            <li class="flex justify-between">
+                                <span class="text-[#F5F5F5]">Cliente:</span>
+                                <span class="text-gray-300 font-medium">{{ cliente }}</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-[#F5F5F5]">Ubicazione:</span>
+                                <span class="text-gray-300 font-medium">{{ ubicazione }}</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-[#F5F5F5]">Inizio lavori:</span>
+                                <span class="text-gray-300 font-medium">{{ anno }}</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-[#F5F5F5]">Tempo:</span>
+                                <span class="text-gray-300 font-medium">{{ tempoRealizzazione }}</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-[#F5F5F5]">Budget:</span>
+                                <span class="text-gray-300 font-medium">{{ costoTotale | currency: 'EUR' : 'symbol' :
+                                    '1.0-2' }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenitore con pattern -->
+        <div class="relative">
+
+            <!-- Pattern di sfondo solo sotto le card -->
+            <div class="absolute inset-0 opacity-10 z-0">
+                <div class="h-full w-full"
+                    style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E'); background-repeat: repeat;">
+                </div>
+            </div>
+
+            <!-- Corpo della scheda -->
+            <div class="relative grid grid-cols-1 lg:grid-cols-3 gap-8 z-10">
+
+                <!-- Colonna sinistra: Descrizione e fasi di lavoro -->
+                <div class="lg:col-span-2 my-8 gap-y-8">
+
+                    <!-- Descrizione completa -->
+                    <div class="bg-black/100 p-6 md:p-8 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold text-white mb-2 pb-2">
+                            <span class="text-[#FF7420]">Descrizione</span> del Progetto
+                        </h2>
+                        <div class="h-1 w-24 bg-[#FF7420] mb-6 rounded"></div>
+                        <div class="prose prose-lg text-gray-300">
+                            <p>{{ descrizioneCompleta }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Galleria immagini con slider -->
+                    <div class="relative bg-black/100 p-6 md:p-8 rounded-xl shadow-md mt-8">
+                        <h2 class="text-2xl font-bold text-[#F5F5F5] mb-2 pb-2">
+                            <span class="text-[#FF7420]">Galleria</span>
+                        </h2>
+                        <div class="h-1 w-24 bg-[#FF7420] mb-6 rounded"></div>
+
+                        <!-- Slider container -->
+                        <div class="relative">
+                            <!-- Immagine principale del slider -->
+                            <div class="overflow-hidden rounded-lg shadow-md">
+                                <img [src]="galleria[currentImageIndex]"
+                                    [alt]="'Foto cantiere ' + (currentImageIndex + 1)"
+                                    class="w-full h-64 md:h-96 object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+                                    (click)="apriOverlay(galleria[currentImageIndex])" />
+                            </div>
+
+                            <!-- Controlli di navigazione -->
+                            <div class="flex items-center justify-between mt-4">
+                                <!-- Bottone precedente -->
+                                <button (click)="immaginePrecedente()" [disabled]="currentImageIndex === 0"
+                                    class="flex items-center justify-center w-12 h-12 bg-[#FF7420] hover:bg-[#FF7420]/80 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110">
+                                    <ng-icon name="heroChevronLeft" size="20"></ng-icon>
+                                </button>
+
+                                <!-- Indicatori di posizione -->
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-[#F5F5F5] text-sm">
+                                        {{ currentImageIndex + 1 }} di {{ galleria.length }}
+                                    </span>
+                                </div>
+
+                                <!-- Bottone successivo -->
+                                <button (click)="immagineSuccessiva()"
+                                    [disabled]="currentImageIndex === galleria.length - 1"
+                                    class="flex items-center justify-center w-12 h-12 bg-[#FF7420] hover:bg-[#FF7420]/80 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110">
+                                    <ng-icon name="heroChevronRight" size="20"></ng-icon>
+                                </button>
+                            </div>
+
+                            <!-- Thumbnails opzionali (per una navigazione più rapida) -->
+                            <div class="flex justify-center mt-4 space-x-2 overflow-x-auto pb-2">
+                                @for (img of galleria; track i; let i = $index) {
+                                <button (click)="restituisciImmagine(i)"
+                                    [class]="'flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ' + 
+                                            (i === currentImageIndex ? 'border-[#FF7420] opacity-100' : 'border-gray-600 opacity-60 hover:opacity-80')">
+                                    <img [src]="img" [alt]="'Thumbnail ' + (i + 1)"
+                                        class="w-full h-full object-cover" />
+                                </button>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Overlay per immagine ingrandita -->
+                        @if (selectedImage) {
+                        <div class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-2 pt-24 sm:pt-8">
+                            <div class="relative top-10">
+                                <img [src]="selectedImage" alt="Immagine grande"
+                                    class="max-h-[80vh] max-w-[90vw] object-contain rounded-xl" />
+                                <button (click)="chiudiOverlay()"
+                                    class="absolute top-4 right-4 sm:top-2 sm:right-2 bg-white/90 hover:bg-[#FF7420] text-black rounded-full w-12 h-12 flex items-center justify-center shadow-lg cursor-pointer transition-transform hover:scale-110 z-10">
+                                    <ng-icon name="heroXMark" size="18"></ng-icon>
+                                </button>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Colonna destra: Dettagli tecnici -->
+                <div class="lg:my-8 my-0">
+
+                    <!-- Materiali utilizzati -->
+                    <div class="bg-black/100 p-4 md:p-6 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold text-[#F5F5F5] mb-1 pb-1">
+                            <span class="text-[#FF7420]">Materiali</span> Principali
+                        </h2>
+                        <div class="h-1 w-24 bg-[#FF7420] mb-4 rounded"></div>
+                        <ul class="space-y-2">
+                            @for (materiale of materialiPrincipali; track $index) {
+                            <li class="flex items-start">
+                                <div>
+                                    <h3 class="font-medium text-[#F5F5F5]">{{ materiale.nome }}</h3>
+                                    @if (materiale.quantita) {
+                                    <p class="text-sm text-gray-300">{{ materiale.quantita }} m<sup>3</sup></p>
+                                    }
+                                    @if (materiale.fornitore) {
+                                    <p class="text-xs text-gray-300">Fornitore: {{ materiale.fornitore }}</p>
+                                    }
+                                </div>
+                            </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <!-- Team e certificazioni -->
+                    <div class="bg-black/100 p-6 md:p-8 rounded-xl shadow-md mt-8">
+                        <h2 class="text-2xl font-bold text-[#F5F5F5] mb-2 pb-2"><span class="text-[#FF7420]">Team</span>
+                            & Certificazioni</h2>
+                        <div class="h-1 w-24 bg-[#FF7420] mb-6 rounded"></div>
+                        <ul class="space-y-4">
+                            @if(architetti.length > 0) { 
+                                <li class="flex items-center">
+                                    <span class="text-[#F5F5F5]">{{architetti.length > 1 ? "Architetti: " : "Architetto: "}}
+                                        <strong>{{ architetti.join(', ')}}</strong>
+                                    </span>
+                                </li>
+                                }
+                                 @if(ingegneri.length > 0) {
+                                    <li class="flex items-center">
+                                    <span class="text-[#F5F5F5]">{{ingegneri.length > 1 ? "Ingegneri: " : "Ingegnere: "}}
+                                        <strong>{{ ingegneri.join(', ')}}</strong>
+                                    </span>
+                                </li>
+                                }  
+                                <li class="flex items-center">
+                                    <span class="text-[#F5F5F5]">Impresa: <strong>{{ impresaAppaltatrice}}</strong></span>
+                                </li> 
+                                @if (certificazioni && certificazioni.length > 0) {
+                                <li class="flex items-start">
+                                    <div>
+                                        <span class="block text-[#F5F5F5] font-medium mb-1">Certificazioni:</span>
+                                        <ul class="list-disc pl-5 text-gray-300">
+                                            @for (cert of certificazioni; track $index) {
+                                            <li>{{ cert }}</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </li>
+                                }
+                        </ul>
+                    </div>
+
+                    <!-- Planimetrie (se presenti) -->
+                    @if (planimetrie && planimetrie.length > 0) {
+                    <div class="relative bg-black/100 p-6 md:p-8 rounded-xl shadow-md mt-8">
+                        <h2 class="text-2xl font-bold text-[#FF7420] mb-2 pb-2">Planimetrie</h2>
+                        <div class="h-1 w-24 bg-[#FF7420] mb-6 rounded"></div>
+                        <div class="space-y-4">
+                            <ul class="list-disc pl-5 text-gray-300">
+                                @for (planimetria of planimetrie; track $index) {
+                                <li>
+                                    <a [href]="planimetria" target="_blank" rel="noopener noreferrer"
+                                        class="flex items-center text-[#F5F5F5] hover:text-[#FF7420]">
+                                        <span>Visualizza {{ planimetria.split('/').pop() }}</span>
+                                    </a>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

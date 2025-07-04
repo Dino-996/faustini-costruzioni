@@ -1,0 +1,113 @@
+<footer class="relative bg-black/80 text-[#F5F5F5] py-12">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 pb-8 px-4">
+
+            <!-- Logo Section -->
+            <div class="flex flex-col items-start">
+                <img class="w-32 h-32 mb-4 cursor-pointer transition-transform duration-300 hover:scale-105"
+                    routerLink="/home" src="assets/image/logo/logo.webp" alt="Logo Faustini Costruzioni" />
+                <cite class="text-sm mt-2 break-words">Qualità e Avanguardia, i pilastri su cui costruiamo il tuo
+                    futuro</cite>
+            </div>
+
+            <!-- Contattaci + Link utili -->
+            <div>
+                <h3 class="text-white text-xl font-bold mb-4">
+                    <span class="text-[#FF7420]">Contattaci</span>
+                </h3>
+                <div class="h-1 w-12 bg-[#FF7420] mb-4 rounded"></div>
+                <ul class="space-y-3 mb-6">
+                    @for (contact of getInformazioniContatto(); track contact.id) {
+                    <li class="flex items-start transition-all duration-300 hover:translate-x-1">
+                        <ng-icon [name]="contact.icon" size="18" class="text-[#FF7420] mr-2 shrink-0" />
+                        <a [href]="contact.href" [attr.aria-label]="contact.ariaLabel"
+                            class="hover:text-[#FF7420] transition">
+                            {{ contact.text }}
+                        </a>
+                    </li>
+                    }
+                </ul>
+
+                <h3 class="text-white text-xl font-bold mb-4">
+                    <span class="text-[#FF7420]">Link</span> utili
+                </h3>
+                <div class="h-1 w-12 bg-[#FF7420] mb-4 rounded"></div>
+                <ul class="space-y-3">
+                    @for (link of getLinkUtili(); track link.id) {
+                    <li class="transition-all duration-300 hover:translate-x-1">
+                        <a [href]="link.href" [target]="link.external ? '_blank' : '_self'"
+                            [rel]="link.external ? 'noopener noreferrer' : null"
+                            class="hover:text-[#FF7420] transition">
+                            {{ link.text }}
+                        </a>
+                    </li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Legal + Social -->
+            <div>
+                <h3 class="text-white text-xl font-bold mb-3">
+                    <span class="text-[#FF7420]">Legale</span>
+                </h3>
+                <div class="h-1 w-12 bg-[#FF7420] mb-3 rounded"></div>
+                <ul class="space-y-2 mb-6">
+                    @for (legal of getLinkLegali(); track legal.id) {
+                    <li class="transition-all duration-300 hover:translate-x-1">
+                        <a [href]="legal.href" [target]="legal.external ? '_blank' : '_self'"
+                            [rel]="legal.external ? 'noopener noreferrer' : null"
+                            class="text-sm hover:text-[#FF7420] transition">
+                            {{ legal.text }}
+                        </a>
+                    </li>
+                    }
+                </ul>
+
+                <h3 class="text-white text-lg font-bold mb-3">
+                    <span class="text-[#FF7420]">Seguici</span> sui social
+                </h3>
+                <div class="h-1 w-8 bg-[#FF7420] mb-3 rounded"></div>
+                <div class="flex flex-wrap gap-4">
+                    @for (social of getLinkSocial(); track social.id) {
+                    <a [href]="social.href" target="_blank" rel="noopener noreferrer"
+                        [attr.aria-label]="'Seguici su ' + social.platform"
+                        class="flex items-center justify-center bg-[#FF7420] w-10 h-10 rounded-full text-white hover:bg-white hover:text-[#FF7420] transition transform duration-300 hover:-translate-y-1">
+                        <span class="sr-only">{{ social.platform }}</span>
+                        <ng-icon [name]="social.icon" size="22" />
+                    </a>
+                    }
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="text-start min-w-0 break-words">
+                <h3 class="text-white text-xl font-bold mb-4">
+                    <span class="text-[#FF7420]">Domande</span> Frequenti
+                </h3>
+                <div class="h-1 w-12 bg-[#FF7420] mb-4 rounded"></div>
+                <div class="space-y-2 text-sm text-gray-300">
+                    @for (faq of getListaFaq(); track faq.id) {
+                    <button (click)="visualizzaFaq(faq.id)" class="w-full text-left font-semibold text-[#FF7420] flex items-center justify-between cursor-pointer">
+                        {{ faq.question }}
+                        <ng-icon name="bootstrapCaretDownFill" size="18" color="#FF7420" [class.rotate-180]="isAperto(faq.id)" class="w-4 h-4 transition-transform duration-300 transform"></ng-icon>
+                    </button>
+                    @if(isAperto(faq.id)) {
+                    <div class="text-gray-300 transition-all duration-300">
+                        {{ faq.answer }}
+                    </div>
+                    }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mt-8 pt-6 border-t border-gray-700">
+            <p class="text-center text-sm">
+                © {{ getAnnoCorrente() }} <span class="font-medium">Faustini Costruzioni S.r.l</span> • Corso Garibaldi, 82,
+                85058 Vietri di Potenza PZ • P.IVA 01699410765• URI PZ • REA 127800
+            </p>
+        </div>
+    </div>
+</footer>

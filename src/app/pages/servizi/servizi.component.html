@@ -1,0 +1,93 @@
+@if(isChildRoute()) {
+<router-outlet />
+} @else {
+<!-- Hero Section -->
+<section class="relative h-screen py-32 w-full">
+
+    <div class="absolute inset-0 w-auto h-screen">
+        <img ngSrc="/assets/image/hero/hero-8.webp"
+            alt="Immagine di sfondo" fill priority
+            class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out" />
+        <div class="absolute inset-0 bg-[#191A19]/60"></div>
+    </div>
+
+    <div class="relative h-full flex flex-col items-start md:items-center justify-center text-start px-4">
+        <h1 class="text-4xl text-white md:text-5xl font-bold mb-4">
+            Servizi
+        </h1>
+        <p class="text-lg text-white max-w-2xl mx-auto"> Mettiamo a tua disposizione un'ampia gamma di servizi
+            specializzati, unendo esperienza,
+            competenza tecnica e attrezzature all'avanguardia per ogni tipo di progetto </p>
+    </div>
+
+</section>
+
+<!-- Servizi -->
+<section class="bg-[#191A19] pt-16 px-4 relative">
+
+    <!-- Pattern di sfondo -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="h-full w-full"
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+        </div>
+    </div>
+
+    <div class="container mx-auto max-w-6xl">
+
+        <!-- Grid di servizi con hover effect -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+
+            <!-- Servizi -->
+            @for(servizio of servizi; track servizio.id) {
+            <div
+                class="group bg-black/100 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+
+                <!-- Immagine di sfondo del servizio con overlay -->
+                <div class="relative h-48 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 z-10"></div>
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <h3
+                            class="text-white text-2xl font-bold mb-2 group-hover:text-[#FF7420] transition-colors duration-300">
+                            {{servizio.titolo}}</h3>
+                        <div class="h-1 w-12 bg-[#FF7420] rounded transition-all duration-300 group-hover:w-20"></div>
+                    </div>
+
+                    <!-- Placeholder per immagine - in produzione usare [src] per binding Angular -->
+                    <div class="relative">
+                        <img [src]="servizio.immagine" [alt]="servizio.titolo" class="w-full h-48 object-cover">
+                    </div>
+
+                </div>
+
+                <!-- Contenuto del servizio -->
+                <div class="p-6">
+                    <p class="text-[#F5F5F5] mb-6">{{ servizio.descrizione }}</p>
+
+                    <ul class="space-y-2 mb-6">
+                        @for(dettaglio of servizio.dettagli; track $index) {
+                        <li class="flex items-center text-[#F5F5F5]">
+                            <ng-icon name="heroCheckCircle" size="18" class="text-[#FF7420] mr-2 shrink-0" />
+                            <span>{{ dettaglio }}</span>
+                        </li>
+                        }
+                    </ul>
+
+                    <button (click)="onRotta(servizio.rotta)"
+                        class="relative flex items-center px-4 py-2 bg-transparent text-[#FF7420] border border-[#FF7420] rounded-xl hover:bg-[#FF7420] hover:text-white cursor-pointer transition-all duration-300 group mt-auto">
+                        <span class="font-medium">Scopri di più</span>
+                        <ng-icon name="heroArrowRight" size="16"
+                            class="ml-2 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
+                    </button>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+}
+
+<!-- CTA -->
+<div class="md:p-12 p-0">
+    <app-call-to-action titoloCTA="Non trovi il servizio che cerchi?" 
+    descrizioneCTA="Il nostro team è a disposizione per analizzare le tue esigenze specifiche e creare soluzioni personalizzate per il tuo progetto" />
+</div>

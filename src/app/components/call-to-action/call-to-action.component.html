@@ -1,0 +1,29 @@
+<div class="bg-transparent w-full p-6 relative overflow-hidden">
+    <div class="bg-gradient-to-r from-[#191A19] to-[#191A19]/70 rounded-2xl p-8 lg:p-12 shadow-xl relative overflow-hidden">
+
+        <div
+            class="absolute top-0 right-0 w-40 h-40 bg-[#FF7420] opacity-20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-60 h-60 bg-[#FF7420] opacity-10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl">
+        </div>
+
+        <div class="relative flex flex-col lg:flex-row items-center justify-between gap-8">
+
+            <div class="lg:max-w-lg">
+                <h3 class="text-3xl font-bold text-white mb-4">{{ titolo }}</h3>
+                <p class="text-[#F5F5F5] text-lg mb-6">{{ descrizione }}</p>
+            </div>
+
+            <button (click)="onContatti()"
+                class="flex items-center justify-center px-6 py-4 bg-[#FF7420] text-[#F5F5F5] rounded-xl hover:bg-orange-600 cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group whitespace-nowrap">
+                <span class="font-medium">Contattaci ora</span>
+                <ng-icon name="heroArrowRight" size="18"
+                    class="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

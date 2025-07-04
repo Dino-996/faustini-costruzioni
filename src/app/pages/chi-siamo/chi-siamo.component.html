@@ -1,0 +1,197 @@
+<div class="bg-[#FF7420]">
+
+    <!-- Hero Section -->
+    <section class="relative h-screen py-32 w-full">
+
+        <div class="absolute inset-0 w-auto h-screen">
+            <img ngSrc="/assets/image/hero/hero-2.webp" alt="Immagine di sfondo" fill
+                class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out" />
+            <div class="absolute inset-0 bg-[#191A19]/40"></div>
+        </div>
+
+        <div class="relative h-full flex flex-col items-start md:items-center justify-center text-start px-4">
+            <h1 class="text-4xl text-white md:text-5xl font-bold mb-4"> Chi Siamo </h1>
+            <p class="text-lg text-white max-w-2xl mx-auto"> Tradizione, esperienza e innovazione nel settore delle
+                costruzioni dal 1975</p>
+        </div>
+
+    </section>
+
+    <!-- Storia aziendale -->
+    <section class="relative py-20 bg-[#191A19] text-white">
+
+        <!-- Pattern di sfondo -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="h-full w-full"
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative">
+
+            <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+                <!-- Testo -->
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight"><span class="text-[#FF7420]">La
+                            nostra</span> storia</h2>
+                    <div class="h-1 w-24 bg-[#FF7420] mb-6 mx-auto md:mx-0 rounded"></div>
+                    <p class="mb-4 text-lg leading-relaxed">
+                        Radicata a Vietri di Potenza, Faustini Costruzioni nasce dall’esperienza artigiana locale e si è
+                        evoluta mantenendo immutati valori di affidabilità e integrità. Oggi, grazie a un team altamente
+                        qualificato e all’adozione di tecnologie d’avanguardia nella demolizione controllata e nella
+                        riqualificazione strutturale, siamo riconosciuti come partner di eccellenza nel settore delle
+                        costruzioni.
+                    </p>
+                    <p class="mb-4 text-lg leading-relaxed">
+                        I dati di OpenCoesione ci collocano tra i protagonisti di interventi pubblici 2014-2020 per
+                        oltre 300 milioni di euro, a dimostrazione del nostro contributo strategico allo sviluppo
+                        infrastrutturale e territoriale, sempre nel pieno rispetto delle normative di sicurezza e degli
+                        elevati standard qualitativi.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Guardiamo avanti con spirito innovativo: investiamo costantemente nella formazione, nella
+                        sicurezza sul lavoro e nella sostenibilità ambientale per realizzare progetti ambiziosi che
+                        durino nel tempo e soddisfino pienamente i nostri clienti.
+
+                    </p>
+                </div>
+
+                <!-- Immagine -->
+                <div class="relative md:w-1/2 flex justify-center">
+                    <img ngSrc="/assets/image/logo/logo.webp" width="501" height="498"
+                        class="rounded-xl w-80 md:w-96 h-auto transition-transform duration-300 hover:scale-105"
+                        alt="Logo storico di Faustini Costruzioni" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- I Nostri Valori -->
+    <section class="py-20 bg-[#FF7420]">
+
+        <div class="container mx-auto px-6 text-center mb-12">
+            <h2 class="text-4xl lg:text-5xl font-extrabold mb-4 text-[#191A19]">I Valori<span class="text-white"> in cui
+                    crediamo</span></h2>
+            <div class="h-1 w-24 bg-[#191A19] mb-6 mx-auto rounded"></div>
+            <p class="text-lg max-w-3xl mx-auto leading-relaxed text-[#191A19]">
+                La nostra filosofia si fonda su principi solidi che guidano ogni nostro progetto
+            </p>
+        </div>
+
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+
+                @for(valore of getValori(); track valore.id) {
+
+                <div
+                    class="bg-black/100 text-white p-8 rounded-2xl shadow-xl transition-transform duration-300 hover:scale-105">
+
+                    <div
+                        class="bg-white text-[#191A19] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-md border border-[#FF7420]">
+                        <ng-icon [name]="valore.icona" size="28"></ng-icon>
+                    </div>
+                    <h3
+                        class="text-[#FF7420] text-xl font-semibold mb-3 transition-colors duration-300 hover:text-white">
+                        {{ valore.titolo }}</h3>
+                    <p class="text-neutral-300 text-sm leading-relaxed">{{ valore.descrizione }}</p>
+
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Zona video -->
+    <section class="py-16 md:py-24 bg-[#191A19] min-h-screen flex items-center relative">
+
+        <!-- Pattern di sfondo -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="h-full w-full"
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white"><span
+                        class="text-[#FF7420]">Persone</span> per le Persone</h2>
+                <div class="h-1 w-24 bg-[#FF7420] mx-auto mb-6 rounded-full"></div>
+                <p class="max-w-2xl mx-auto text-white/80 text-lg">Professionalità, passione e impegno: guarda il video
+                    e lasciati ispirare dal nostro modo di lavorare</p>
+            </div>
+
+            <!-- Video -->
+            <app-video-player [config]="getVideoConfig()"></app-video-player>
+
+        </div>
+    </section>
+
+    <!-- Certificazioni -->
+    <section class="py-16 bg-[#FF7420]">
+        <div class="container mx-auto px-6">
+
+            <div class="container mx-auto px-6 text-center mb-12">
+                <h2 class="text-4xl lg:text-5xl font-extrabold mb-4 text-[#191A19]">Certificazioni e <span
+                        class="text-white">Garanzie</span></h2>
+                <div class="h-1 w-24 bg-black mb-6 mx-auto rounded"></div>
+                <p class="text-lg max-w-3xl mx-auto leading-relaxed text-[#191A19]">
+                    Garanzie concrete e certificazioni ufficiali per assicurarti lavori a regola d’arte
+                </p>
+            </div>
+
+            <!-- Contenuto -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
+
+                <!-- Pattern di sfondo -->
+                <div class="absolute inset-0 opacity-10">
+                    <div class="h-full w-full"
+                        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+                    </div>
+                </div>
+
+                <!-- Certificazioni -->
+                <div
+                    class="bg-black/100 p-8 rounded-xl shadow-lg text-white transition-transform duration-300 hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-4"><span class="text-[#FF7420]">Certificazioni</span> SOA</h3>
+                    <div class="h-1 w-12 bg-[#FF7420] mb-6 rounded"></div>
+                    <ul class="space-y-4">
+                        @for(certificazione of getCertificazioni(); track certificazione.id) {
+                        <li class="flex gap-3 items-start">
+                            <ng-icon class="shrink-0" name="bootstrapPatchCheckFill" size="18"
+                                color="#FF7420"></ng-icon>
+                            <div>
+                                <p class="font-semibold">{{ certificazione.categoria }}</p>
+                                <p class="text-sm text-neutral-300">{{ certificazione.descrizione }}</p>
+                            </div>
+                        </li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- Garanzie -->
+                <div
+                    class="bg-black/100 p-8 rounded-xl shadow-lg text-white transition-transform duration-300 hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-4"><span class="text-[#FF7420]">Garanzie</span> e Sicurezza</h3>
+                    <div class="h-1 w-12 bg-[#FF7420] mb-6 rounded"></div>
+                    <ul class="space-y-4">
+                        @for(garanzia of getGaranzie(); track garanzia.id) {
+                        <li class="flex gap-3 items-start">
+                            <ng-icon class="shrink-0" name="bootstrapPatchCheckFill" size="18"
+                                color="#FF7420"></ng-icon>
+                            <p>{{ garanzia.descrizione }}</p>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="p-0 md:p-12">
+            <app-call-to-action titoloCTA="Hai un progetto in mente? Parliamone"
+                descrizioneCTA="Ogni giorno aiutiamo persone come te a trasformare idee in realtà, con professionalità, trasparenza e tempi certi" />
+        </div>
+    </section>
+</div>

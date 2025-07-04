@@ -1,9 +1,109 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-:root{
-  --blue-navy: #2D4059;
-  --orange: #F07B3F;
-  --yellow: #FFD460;
+@theme {
+  --font-default: Poppins, "sans-serif";
+  --orange-500: #FF7420;
+  --black-500: #191A19;
+  --whitesmoke-500: #F5F5F5;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Utility classes */
+@utility active {
+  color: var(--orange-500) !important;
+  text-decoration: underline;
+  animation: fadeIn 1s ease forwards;
+}
+
+@utility slide-in-up {
+  animation: slideInUp 0.3s ease-out forwards;
+}
+
+@utility slide-out-down {
+  animation: slideOutDown 0.3s ease-in forwards;
+}
+
+/* Custom color utilities */
+.text-orange {
+  color: var(--orange-500);
+}
+
+.bg-orange {
+  background-color: var(--orange-500);
+}
+
+.text-black {
+  color: var(--black-500);
+}
+
+.bg-black {
+  background-color: var(--black-500);
+}
+
+.text-whitesmoke {
+  color: var(--whitesmoke-500);
+}
+
+/* Base layer styles */
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #FF7420 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #FF7420;
+    border-radius: 4px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #e6651c;
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }

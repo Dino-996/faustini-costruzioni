@@ -1,0 +1,189 @@
+@if(isChildRoute()) {
+<router-outlet></router-outlet>
+} @else {
+<div class="relative bg-[#191A19]">
+
+    <!-- Pattern di sfondo -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="h-full w-full"
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen py-32 w-full">
+
+        <div class="absolute inset-0 w-auto h-screen">
+            <img ngSrc="/assets/image/hero/hero-9.webp" alt="Immagine di sfondo" fill
+                class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out" />
+            <div class="absolute inset-0 bg-[#191A19]/60"></div>
+        </div>
+
+        <div class="relative h-full flex flex-col items-start md:items-center justify-center text-start px-4">
+            <h1 class="text-4xl text-white md:text-5xl font-bold mb-4">
+                Progetti
+            </h1>
+            <p class="text-lg text-white max-w-2xl mx-auto"> Scopri i progetti realizzati dalla nostra impresa di
+                costruzioni: interventi edilizi di qualità, soluzioni su misura e risultati che durano nel tempo, frutto
+                di esperienza, affidabilità e passione</p>
+        </div>
+
+    </section>
+
+    <!-- Sezione ricerca e filtri -->
+    <section class="container mx-auto w-full p-4 relative max-w-7xl">
+
+        <!-- Pattern di sfondo -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="h-full w-full"
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+            </div>
+        </div>
+
+        <!-- Campo di ricerca -->
+        <div class="relative mb-4">
+            <!-- Contenitore dell'icona, posizionato a sinistra -->
+            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-[#F5F5F5]">
+                <!-- Icona -->
+                <ng-icon name="heroMagnifyingGlass" size="20"></ng-icon>
+            </div>
+            <!-- Input con padding a sinistra per fare spazio all'icona -->
+            <input type="text" [(ngModel)]="termineDiRicerca"
+                class="block w-full pl-12 pr-4 py-3 sm:py-4 text-sm bg-black/100 border border-gray-700 rounded-xl px-4 text-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
+                placeholder="Cerca progetti...">
+        </div>
+
+        <!-- Bottoni di ordinamento -->
+        <div class="relative flex flex-wrap gap-2 sm:gap-3">
+            <button (click)="filtraPerData('crescente')"
+                [ngClass]="{'bg-[#191A19] text-white border-[#FF7420]': ordine === 'crescente', 'bg-black/100 text-gray-300 border-gray-700 hover:border-[#FF7420]': ordine !== 'crescente'}"
+                class="cursor-pointer px-3 py-2 sm:px-4 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 border shadow-md">
+                Anno crescente
+                <ng-icon name="heroArrowLongUp" size="18" class="text-[#FF7420]"></ng-icon>
+            </button>
+
+            <button (click)="filtraPerData('decrescente')"
+                [ngClass]="{'bg-[#191A19] text-white border-[#FF7420]': ordine === 'decrescente', 'bg-black/100 text-gray-300 border-gray-700 hover:border-[#FF7420]': ordine !== 'decrescente'}"
+                class="cursor-pointer px-3 py-2 sm:px-4 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 border shadow-md">
+                Anno decrescente
+                <ng-icon name="heroArrowLongDown" size="18" class="text-[#FF7420]"></ng-icon>
+            </button>
+        </div>
+    </section>
+
+    <section class="bg-black py-2 px-4 relative">
+
+        <!-- Pattern di sfondo -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="h-full w-full"
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+            </div>
+        </div>
+
+        <div class="container mx-auto max-w-6xl">
+
+            <!-- Grid di servizi con hover effect -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Servizi -->
+                @for(progetto of progettiFiltrati(); track progetto.id) {
+                <div
+                    class="relative group bg-black/100 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+
+                    <!-- Immagine di sfondo del servizio con overlay -->
+                    <div class="relative h-48 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 z-10"></div>
+                        <div class="absolute bottom-0 left-0 p-6 z-20">
+                            <h3
+                                class="text-white text-2xl font-bold mb-2 group-hover:text-[#FF7420] transition-colors duration-300">
+                                {{progetto.titolo}}</h3>
+                            <div class="h-1 w-12 bg-[#FF7420] rounded transition-all duration-300 group-hover:w-20">
+                            </div>
+                        </div>
+                        <!-- Placeholder per immagine - in produzione usare [src] per binding Angular -->
+                        <div class="relative">
+                            <img [src]="progetto.immagine" [alt]="progetto.titolo" class="w-full h-48 object-cover">
+                            @if(isNuovoProgetto(progetto.anno)) {
+                            <div title="Progetto recente"
+                                class="absolute top-0 right-0 bg-black text-white text-xs font-bold px-3 py-1 m-1 flex items-center rounded-xl">
+                                Nuovo
+                                <span class="relative flex items-center ml-2">
+                                    <span
+                                        class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF7420] opacity-75"></span>
+                                    <span class="relative inline-flex h-3 w-3 rounded-full bg-[#FF7420]"></span>
+                                </span>
+                            </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Contenuto del servizio -->
+                    <div class="p-6 relative">
+
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-[#F5F5F5]">
+                                <ng-icon name="heroClock" size="18" class="text-[#FF7420] mr-2" />
+                                <span>{{ progetto.anno }}</span>
+                            </li>
+                        </ul>
+
+                        <p class="text-[#F5F5F5] mb-6">{{ progetto.descrizione }}</p>
+
+                        <button [routerLink]="progetto.link"
+                            class="flex items-center px-4 py-2 bg-transparent text-[#FF7420] border border-[#FF7420] rounded-xl hover:bg-[#FF7420] hover:text-white cursor-pointer transition-all duration-300 group mt-auto">
+                            <span class="font-medium">Scopri di più</span>
+                            <ng-icon name="heroArrowRight" size="16"
+                                class="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                        </button>
+                    </div>
+                </div>
+                }
+
+                <!-- Messaggio se non ci sono risultati -->
+                @if(progettiFiltrati().length === 0) {
+                <div class="col-span-full">
+
+                    <div class="flex justify-center items-center w-full min-h-[400px]">
+
+                        <div
+                            class="flex flex-col justify-center items-center text-center text-white relative max-w-xl mx-auto">
+                            <div class="border-2 border-gray-700 rounded-xl p-8 bg-[#191A19] w-full">
+
+                                <!-- Pattern di sfondo -->
+                                <div class="absolute inset-0 opacity-10">
+                                    <div class="h-full w-full"
+                                        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+                                    </div>
+                                </div>
+
+                                <!-- Icona di ricerca -->
+                                <div class="p-5 rounded-full inline-block">
+                                    <ng-icon name="heroMagnifyingGlassCircle" size="48" class="text-[#FF7420]" />
+                                </div>
+
+                                <!-- Messaggi -->
+                                <h3 class="text-2xl font-bold text-white mb-3">Nessun progetto trovato</h3>
+                                <p class="text-gray-400 mb-8">I criteri di ricerca selezionati non corrispondono a
+                                    nessun
+                                    progetto
+                                    nel nostro archivio. Prova a modificare i filtri o a reimpostare la ricerca.</p>
+
+                                <!-- Pulsanti -->
+                                <div class="relative flex flex-wrap justify-center gap-3">
+                                    <button (click)="resettaFiltri()"
+                                        class="flex items-center cursor-pointer bg-[#FF7420] hover:bg-[#E66A15] text-white py-3 px-6 rounded-xl text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
+                                        <span>Reimposta tutti i filtri</span>
+                                        <ng-icon name="heroArrowPath" size="18" class="ml-2" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+        </div>
+    </section>
+
+</div>
+}

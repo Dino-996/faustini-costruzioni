@@ -1,73 +1,30 @@
-import { Component, ElementRef } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { CardComponent } from './card/card.component';
-import { CallToActionComponent } from './call-to-action/call-to-action.component';
-import { ProjectComponent } from './project/project.component';
-import { FooterComponent } from './footer/footer.component';
-import { QuoteComponent } from './quote/quote.component';
-import { NgClass } from '@angular/common';
+import { Component } from '@angular/core';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [
-    RouterOutlet,
-    NgClass,
-    RouterLink,
-    CardComponent,
-    CallToActionComponent,
-    QuoteComponent,
-    ProjectComponent,
+    NavbarComponent,
     FooterComponent,
+    RouterOutlet
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
-  isMobileMenuOpen: boolean = false;
 
-  constructor(private elementRef: ElementRef) { }
+  public isCaricamento: boolean = true;
 
-  /**
-   *  Toggles the mobile menu open or closed.
-   *
-   *  @return {void} No return value.
-   */
-  toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  public onAttivato(): void {
+    setTimeout(()=>{
+      this.isCaricamento = false;
+    }, 300)
   }
 
-  /**
-   * Scrolls the page to the specified element and toggles the mobile menu.
-   *
-   * @param {string} elementId - The id of the element to scroll to.
-   * @return {void} Nothing is returned.
-   */
-  scrollToElement(elementId: string): void {
-    const elementToScroll = document.getElementById(elementId);
-    if (elementToScroll) {
-      elementToScroll.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    this.toggleMobileMenu();
+  public onDisattivo(): void {
+    this.isCaricamento = true;
   }
 
-  /**
-   * Scrolls to the quote element on the page.
-   *
-   * @return {void} No return value.
-   */
-  goQuote(): void {
-    const element = document.getElementById('quote') as HTMLElement;
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  /**
-   * Scrolls the element into view from the top with a smooth animation.
-   *
-   * @return {void} No return value.
-   */
-  onTop(): void {
-    this.elementRef.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
 }
