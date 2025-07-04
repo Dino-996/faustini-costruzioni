@@ -57,10 +57,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   public intervalloImmaginiSfondo: any;
 
   public steps: Steps[] = [
-    { id: 0, description: 'Passo 1' },
-    { id: 1, description: 'Passo 2' },
-    { id: 2, description: 'Passo 3' },
-    { id: 3, description: 'Passo 4' },
+    { id: 0, description: 'Progettazione' },
+    { id: 1, description: 'Autorizzazione' },
+    { id: 2, description: 'Esecuzione' },
+    { id: 3, description: 'Consegna' },
   ];
 
   public testimonials = [
