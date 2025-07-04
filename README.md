@@ -1,59 +1,72 @@
-# FaustiniCostruzioni
+# Faustini Costruzioni - Sito Web Ufficiale
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+SPA per l’impresa edile **Faustini Costruzioni**, specializzata in costruzioni pubbliche e private, ristrutturazioni, idrodemolizioni e soluzioni edilizie su misura. Il sito è stato progettato con attenzione alla performance, accessibilità e SEO.
 
-## Development server
+🔗 https://faustinicostruzioni.it/
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🧰 Tecnologie Utilizzate
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+| Area         | Tecnologia                         |
+|--------------|-------------------------------------|
+| **Frontend** | [Angular](https://angular.dev)      |
+| **Styling**  | [Tailwind CSS](https://tailwindcss.com) |
+| **Build**    | Standalone components, Signals      |
+| **Hosting**  | [Firebase Hosting](https://firebase.google.com/products/hosting) |
+| **Ottimizzazioni** | `NgOptimizedImage`, ChangeDetection `OnPush`, lazy loading routes |
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📐 Struttura del Sito
 
-```bash
-ng generate component component-name
-```
+- **Home**: Hero con presentazione aziendale
+- **Chi Siamo**: Valori e approccio
+- **Servizi**: Edilizia, ristrutturazioni, interventi chiavi in mano
+- **Progetti**: Lavori realizzati
+- **Contatti**: Modulo e CTA dirette
+- **Footer**: Contatti, link utili, privacy
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## ⚙️ Architettura Angular
 
-## Building
+- ✔️ Componenti standalone
+- ✔️ Routing con lazy loading
+- ✔️ `signal()` per stato locale
+- ✔️ `computed()` per logica derivata
+- ✔️ Template con controllo di flusso nativo (`@if`, `@for`)
+- ✔️ Uso esteso di `NgOptimizedImage` per immagini performanti
+- ✔️ Deployment continuo su Firebase Hosting
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🚀 Performance & SEO
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+| Aspetto         | Stato       | Note |
+|------------------|------------|------|
+| **Caricamento**  | ⚡ Ottimo   | Latenza bassa su Firebase |
+| **SEO**          | 📈 Buono    | Meta dinamici, ma manca attributo `lang="it"` |
+| **Accessibilità**| ♿ Discreta | Migliorabile contrasto in alcune parti dell'app |
+| **Responsività** | 📱 Perfetta | Mobile-first e fluida su tutti i dispositivi |
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🧪 TODO / Sviluppi Futuri
 
-```bash
-ng test
-```
+- [ ] Migliorare accessibilità (test WCAG)
+- [X] Aggiunta sezione FAQ dinamica
+- [ ] Ottimizzazione ulteriore SEO via Angular Universal (SSR)
+- [ ] Miglioramento Lighthouse score mobile
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🧑‍💻 Autore
 
-```bash
-ng e2e
-```
+Sito sviluppato da [Davide](https://github.com/tuo-username) — Full Stack Developer  
+Con tecnologie moderne e attenzione a UX, performance e SEO.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📜 Licenza
 
-## Additional Resources
+Progetto privato. Tutti i diritti riservati © Faustini Costruzioni.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
