@@ -25,7 +25,8 @@ const routes = [
     ]
   },
   { path: 'contatti' },
-  { path: 'preventivo' }
+  { path: 'preventivo' },
+  { path: 'pagina-non-trovata' }
 ];
 
 // Helper: genera array di URL da routes annidate
