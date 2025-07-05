@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
 
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-
     { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent), data: { breadcrumb: 'Home Page' } },
     { path: 'chi-siamo', loadComponent: () => import('./pages/chi-siamo/chi-siamo.component').then(m => m.ChiSiamoComponent), data: { breadcrumb: 'Chi siamo' } },
     {
