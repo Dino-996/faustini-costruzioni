@@ -18,7 +18,7 @@
                 </h3>
                 <div class="h-1 w-12 bg-[#FF7420] mb-4 rounded"></div>
                 <ul class="space-y-3 mb-6">
-                    @for (contact of getInformazioniContatto(); track contact.id) {
+                    @for (contact of informazioniContatto(); track contact.id) {
                     <li class="flex items-start transition-all duration-300 hover:translate-x-1">
                         <ng-icon [name]="contact.icon" size="18" class="text-[#FF7420] mr-2 shrink-0" />
                         <a [href]="contact.href" [attr.aria-label]="contact.ariaLabel"
@@ -34,7 +34,7 @@
                 </h3>
                 <div class="h-1 w-12 bg-[#FF7420] mb-4 rounded"></div>
                 <ul class="space-y-3">
-                    @for (link of getLinkUtili(); track link.id) {
+                    @for (link of linkUtili(); track link.id) {
                     <li class="transition-all duration-300 hover:translate-x-1">
                         <a [href]="link.href" [target]="link.external ? '_blank' : '_self'"
                             [rel]="link.external ? 'noopener noreferrer' : null"
@@ -53,7 +53,7 @@
                 </h3>
                 <div class="h-1 w-12 bg-[#FF7420] mb-3 rounded"></div>
                 <ul class="space-y-2 mb-6">
-                    @for (legal of getLinkLegali(); track legal.id) {
+                    @for (legal of linkLegali(); track legal.id) {
                     <li class="transition-all duration-300 hover:translate-x-1">
                         <a [href]="legal.href" [target]="legal.external ? '_blank' : '_self'"
                             [rel]="legal.external ? 'noopener noreferrer' : null"
@@ -69,7 +69,7 @@
                 </h3>
                 <div class="h-1 w-8 bg-[#FF7420] mb-3 rounded"></div>
                 <div class="flex flex-wrap gap-4">
-                    @for (social of getLinkSocial(); track social.id) {
+                    @for (social of linkSocial(); track social.id) {
                     <a [href]="social.href" target="_blank" rel="noopener noreferrer"
                         [attr.aria-label]="'Seguici su ' + social.platform"
                         class="flex items-center justify-center bg-[#FF7420] w-10 h-10 rounded-full text-white hover:bg-white hover:text-[#FF7420] transition transform duration-300 hover:-translate-y-1">
@@ -87,7 +87,7 @@
                 </h3>
                 <div class="h-1 w-12 bg-[#FF7420] mb-4 rounded"></div>
                 <div class="space-y-2 text-sm text-gray-300">
-                    @for (faq of getListaFaq(); track faq.id) {
+                    @for (faq of listaFaq(); track faq.id) {
                     <button (click)="visualizzaFaq(faq.id)" class="w-full text-left font-semibold text-[#FF7420] flex items-center justify-between cursor-pointer">
                         {{ faq.question }}
                         <ng-icon name="bootstrapCaretDownFill" size="18" color="#FF7420" [class.rotate-180]="isAperto(faq.id)" class="w-4 h-4 transition-transform duration-300 transform"></ng-icon>
@@ -105,7 +105,7 @@
         <!-- Bottom Bar -->
         <div class="mt-8 pt-6 border-t border-gray-700">
             <p class="text-center text-sm">
-                © {{ getAnnoCorrente() }} <span class="font-medium">Faustini Costruzioni S.r.l</span> • Corso Garibaldi, 82,
+                © {{ getAnnoCorrente }} <span class="font-medium">Faustini Costruzioni S.r.l</span> • Corso Garibaldi, 82,
                 85058 Vietri di Potenza PZ • P.IVA 01699410765• URI PZ • REA 127800
             </p>
         </div>

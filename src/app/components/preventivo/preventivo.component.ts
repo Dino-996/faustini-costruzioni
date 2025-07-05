@@ -36,7 +36,7 @@ export class PreventivoComponent implements OnInit {
 
   private readonly firestore = inject(Firestore);
   private readonly preventivi$: Observable<Preventivo[]>;
-  private collezionePreventiviRef: CollectionReference<Preventivo>;
+  private readonly collezionePreventiviRef: CollectionReference<Preventivo>;
 
   private readonly router = inject(Router);
   private readonly generaEmail = new Email(); // Classe di utilità
@@ -144,7 +144,7 @@ export class PreventivoComponent implements OnInit {
     }),
   });
 
-  // Getter 
+  // Getter (da sostituire con computed)
   public get nome() { return this.formPreventivo.get('nome'); }
   public get cognome() { return this.formPreventivo.get('cognome'); }
   public get email() { return this.formPreventivo.get('email'); }
