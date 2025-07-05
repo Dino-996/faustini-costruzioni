@@ -67,11 +67,6 @@ SPA per l’impresa edile **Faustini Costruzioni**, specializzata in costruzioni
 
 ---
 
-## 🧑‍💻 Autore
-
-Sito sviluppato da [Davide](https://github.com/Dino-996) — Full Stack Developer  
-Con tecnologie moderne e attenzione a UX, performance e SEO.
-
 ## 📜 Licenza
 
 Progetto privato. Tutti i diritti riservati © Faustini Costruzioni.
