@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
 
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    //{ path: '**', component: PaginaNonTrovataComponent },
 
     { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent), data: { breadcrumb: 'Home Page' } },
     { path: 'chi-siamo', loadComponent: () => import('./pages/chi-siamo/chi-siamo.component').then(m => m.ChiSiamoComponent), data: { breadcrumb: 'Chi siamo' } },
@@ -27,5 +26,6 @@ export const routes: Routes = [
         ]
     },
     { path: 'contatti', loadComponent: () => import('./pages/contatti/contatti.component').then(m => m.ContattiComponent), data: { breadcrumb: 'Contatti' } },
-    { path: 'preventivo', loadComponent: () => import('./components/preventivo/preventivo.component').then(m => m.PreventivoComponent), data: { breadcrumb: 'Preventivo' } }
+    { path: 'preventivo', loadComponent: () => import('./components/preventivo/preventivo.component').then(m => m.PreventivoComponent), data: { breadcrumb: 'Preventivo' } },
+    { path: '**', loadComponent: () => import('./components/pagina-non-trovata/pagina-non-trovata.component').then(m => m.PaginaNonTrovataComponent) }
 ];
