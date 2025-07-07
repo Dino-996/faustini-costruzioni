@@ -35,7 +35,7 @@ export class FooterComponent {
   public readonly informazioniContatto = signal<InformazioniContatto[]>([
     { id: 0, icon: 'bootstrapPhone', href: 'tel:+393488107321', text: '348 81 07 321', ariaLabel: 'Chiama il numero 348 81 07 321' },
     { id: 1, icon: 'heroPhone', href: 'tel:0971718745', text: '0971 71 87 45', ariaLabel: 'Chiama il numero 0971 71 87 45' },
-    { id: 2, icon: 'heroEnvelope', href: 'mailto:faustini.costruzioni@gmail.it', text: 'faustini.costruzioni@gmail.it', ariaLabel: 'Invia email a faustini.costruzioni@gmail.it' },
+    { id: 2, icon: 'heroEnvelope', href: 'mailto:faustini.costruzioni@gmail.com', text: 'faustini.costruzioni@gmail.com', ariaLabel: 'Invia email a faustini.costruzioni@gmail.it' },
     { id: 3, icon: 'heroEnvelope', href: 'mailto:faustini.costruzioni@pec.it', text: 'faustini.costruzioni@pec.it', ariaLabel: 'Invia PEC a faustini.costruzioni@pec.it' }
   ]);
 
