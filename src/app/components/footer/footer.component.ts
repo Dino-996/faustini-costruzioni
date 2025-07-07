@@ -4,13 +4,15 @@ import { heroPhone, heroEnvelope } from '@ng-icons/heroicons/outline';
 import { bootstrapCaretDownFill, bootstrapFacebook, bootstrapInstagram, bootstrapPhone, bootstrapPinMap } from '@ng-icons/bootstrap-icons'
 import { RouterLink } from '@angular/router';
 import { InformazioniContatto, LinkUtili, LinkSocial, FAQ } from '../../model/footer';
+import { NgOptimizedImage } from '@angular/common';
 
 
 @Component({
   selector: 'app-footer',
   imports: [
     NgIcon,
-    RouterLink
+    RouterLink,
+    NgOptimizedImage
   ],
   providers: [provideIcons({
     heroPhone,
