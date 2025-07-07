@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, isDevMode, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -23,9 +23,20 @@ export const appConfig: ApplicationConfig = {
         measurementId: "G-KKM0YT53CD"
       })),
     provideAnalytics(() => getAnalytics()),
-    ScreenTrackingService, provideFirestore(() => getFirestore()),
-    provideAppCheck(() => initializeAppCheck(getApp(), {
-      provider: new ReCaptchaV3Provider('6LcFG8cpAAAAAEWyCrx4HMHNoaI2EIm4y5Qxe9cG')
-    })),
+    ScreenTrackingService,
+    provideFirestore(() => getFirestore()),
+    provideAppCheck(() => getAppCheck()),
   ]
+};
+
+const getAppCheck = () => {
+  if (isDevMode() && typeof window !== 'undefined') {
+    // Debug token per sviluppo locale
+    (window as any).FIREBASE_APPCHECK_DEBUG_TOKEN = 'AA63943E-1AC2-4038-A444-48EADE61C7BB';
+  }
+
+  return initializeAppCheck(getApp(), {
+    provider: new ReCaptchaV3Provider('6Lf683orAAAAAHW10dLEAF9J5PHO3nJpaedBNxyH'),
+    isTokenAutoRefreshEnabled: true
+  });
 };

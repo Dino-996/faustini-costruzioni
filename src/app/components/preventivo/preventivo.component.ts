@@ -178,7 +178,10 @@ export class PreventivoComponent implements OnInit {
 
     try {
       const formValues: Preventivo = this.formPreventivo.getRawValue();
+      // Salva dati nel server
+      await this.createPreventivo(this.formPreventivo.getRawValue());
 
+      // Invia email di preventivo
       await this.generaEmail.inviaEmailPreventivo(
         new Form(formValues.nome).primaLetteraMaiuscola(),
         new Form(formValues.cognome).primaLetteraMaiuscola(),
@@ -189,7 +192,6 @@ export class PreventivoComponent implements OnInit {
         new Form(formValues.privacy_policy).privacyPolicyAccettata()
       );
 
-      await this.createPreventivo(this.formPreventivo.getRawValue());
       this.handleSuccessfulSubmission(oraCorrente);
     } catch (error) {
       this.handleSubmissionError();
@@ -230,7 +232,7 @@ export class PreventivoComponent implements OnInit {
     await this.router.navigate(['/home']);
   }
 
-    private async createPreventivo(preventivo: Preventivo): Promise<string> {
+  private async createPreventivo(preventivo: Preventivo): Promise<string> {
     try {
       const newDocRef = doc(this.collezionePreventiviRef);
       preventivo.id = newDocRef.id;

@@ -113,6 +113,9 @@ export class ContattiComponent {
     }
 
     try {
+      // Salva su server
+      await this.createMessaggio(this.formContatti.getRawValue());
+      // Invia Email
       const formValue = this.formContatti.getRawValue();
       this.emailService.inviaEmailContatti(
         new Form(formValue.nome).primaLetteraMaiuscola(),
@@ -124,7 +127,6 @@ export class ContattiComponent {
         new Form(formValue.privacy_policy).privacyPolicyAccettata()
       );
 
-      await this.createMessaggio(this.formContatti.getRawValue());
       this.handleSuccessfulSubmission();
     } catch (error) {
       this.handleSubmissionError();
