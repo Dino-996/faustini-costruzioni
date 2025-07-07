@@ -79,6 +79,10 @@ export class NavbarComponent implements OnInit {
       });
   }
 
+  public onTop(): void {
+    window.scroll({top: 0, left: 0, behavior: 'smooth'});
+  }
+
   private createBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Array<{ label: string; url: string }> = []): Array<{ label: string; url: string }> {
     const children: ActivatedRoute[] = route.children;
 

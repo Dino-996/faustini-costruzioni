@@ -117,10 +117,8 @@
             <div class="flex justify-between items-center">
 
                 <!-- Logo -->
-                <div class="flex items-center">
-                    <img class="w-10 h-10"
-                        src="/assets/image/logo/logo.webp"
-                        alt="Logo Faustini Costruzioni">
+                <div class="flex items-center" (click)="onTop()">
+                    <img class="w-10 h-10" src="/assets/image/logo/logo.webp" alt="Logo Faustini Costruzioni">
                     <span class="text-[#FF7420] font-semibold text-lg ml-2">Faustini Costruzioni</span>
                 </div>
 
@@ -128,14 +126,12 @@
 
                     <!-- Whatsapp -->
                     <a href="https://wa.me/393488107321?text=Faustini Costruzioni, trasforma i tuoi progetti in realtà, garantendo massima qualità, attenzione ai dettagli e soluzioni personalizzate. Contattaci oggi stesso per un preventivo gratuito o per scoprire come possiamo realizzare il tuo progetto con precisione e professionalità!"
-                        target="_blank" (click)="toggleMenu()"
-                        class="text-white cursor-pointer transition duration-300 hover:opacity-80 shrink-0 shadow-md hover:shadow-lg transform hover:-translate-y-1 group mr-3">
-                        <ng-icon name="bootstrapWhatsapp" size="24"></ng-icon>
+                        target="_blank" class="text-white cursor-pointer transition duration-300 hover:opacity-80 shrink-0 shadow-md hover:shadow-lg transform hover:-translate-y-1 group mr-6">
+                        <ng-icon name="bootstrapWhatsapp" size="24" aria-label="Contattaci su Whatsapp"></ng-icon>
                     </a>
 
                     <!-- Toggle Button -->
-                    <button class="p-2 rounded-xl text-white cursor-pointer hover:bg-[#FF7420] transition duration-300 w-10 h-10"
-                        (click)="toggleMenu()">
+                    <button class="p-2 rounded-xl text-white cursor-pointer hover:bg-[#FF7420] transition duration-300 w-10 h-10" (click)="toggleMenu()" aria-label="Menu">
                         @if(!isOpen) {
                         <ng-icon name="heroBars3" size="24" />
                         }
