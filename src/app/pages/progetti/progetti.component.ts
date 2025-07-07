@@ -1,9 +1,10 @@
 import { NgClass, NgOptimizedImage } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroArrowRightCircle, heroMagnifyingGlass, heroArrowLongDown, heroArrowLongUp, heroClock, heroArrowRight, heroMagnifyingGlassCircle, heroXMark, heroArrowPath } from '@ng-icons/heroicons/outline';
+import { SeoService } from '../../services/seo.service';
 
 type ordine = 'crescente' | 'decrescente';
 
@@ -30,8 +31,9 @@ type ordine = 'crescente' | 'decrescente';
   templateUrl: './progetti.component.html',
 })
 
-export class ProgettiComponent {
+export class ProgettiComponent implements OnInit {
 
+  public seoService = inject(SeoService);
   public route: ActivatedRoute = inject(ActivatedRoute);
 
   public termineDiRicerca: string = '';
@@ -72,6 +74,19 @@ export class ProgettiComponent {
       link: '/progetti/teatro-cecilia'
     },
   ]
+
+  public ngOnInit(): void {
+    this.setupSeoForPage();
+  }
+
+  private setupSeoForPage(): void {
+    this.seoService.updateSeo({
+      title: 'Progetti - Faustini Costruzioni',
+      description: 'Vieni a scoprire tutti i progetti che ci contrddistinguono',
+      url: 'https://faustinicostruzioni.it/progetti',
+      keywords: 'progetti, idrodemolizioni, costruzioni generali'
+    });
+  }
 
   public isChildRoute(): boolean {
     return this.route.children.length > 0;

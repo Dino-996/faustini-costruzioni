@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroDocumentCheck, heroChatBubbleLeft, heroHeart, heroMap, heroMapPin, heroStar, heroSwatch, heroArrowRight } from '@ng-icons/heroicons/outline';
 import { CardCarouselComponent } from '../../components/card-carousel/card-carousel.component';
@@ -8,6 +8,7 @@ import { CallToActionComponent } from '../../components/call-to-action/call-to-a
 import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Steps } from '../../model/steps';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -35,9 +36,11 @@ import { Steps } from '../../model/steps';
 
 export class HomeComponent implements OnInit, OnDestroy {
 
+  private readonly seoService = inject(SeoService);
+
   readonly imagePath: string = '/assets/image/hero/hero-content-1.webp';
   readonly imageAlt: string = 'Geom. Sergio Macellaro';
-  
+
   readonly signaturePath: string = '/assets/image/hero/hero-content-2.webp';
   readonly signatureAlt: string = 'Firma Geom. Sergio Macellaro';
 
@@ -53,7 +56,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     { id: 8, url: '/assets/image/hero/hero-1.webp' },
   ]
   public idCorrente: number | null = null;
-  public idImmagineAttiva:number = this.bgImmagini[0].id;
+  public idImmagineAttiva: number = this.bgImmagini[0].id;
   public intervalloImmaginiSfondo: any;
 
   public steps: Steps[] = [
@@ -73,18 +76,28 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
 
   public progetti = [
-    { id: 0, title: 'Area rupe', description: 'Un viaggio nel cuore storico di Vietri di Potenza, dove la pietra racconta secoli di storia e cultura', location:'Vietri di Potenza', imageUrl: '/assets/progetti/area-rupe/area-rupe-1.webp', buttonLink: '/progetti/area-rupe' },
-    { id: 1, title: 'Teatro Cecilia', description: 'Uno spazio vivo e vibrante dove arte, creatività e tecnologia si incontrano per dar vita a esperienze uniche', location:'Tito', imageUrl: '/assets/progetti/teatro-cecilia/teatro-cecilia-2.webp', buttonLink: '/progetti/teatro-cecilia' },
-    { id: 2, title: 'Viadotto Santa Venere', description: 'Ingegneria e funzionalità al servizio della mobilità: un’opera che unisce territori e persone', imageUrl: '/assets/progetti/viadotto-venere/viadotto-venere-1.webp', location:'R.A. n. 5 Sicignano - Potenza', buttonLink: '/progetti/viadotto-svenere' },
-    { id: 3, title: 'Galleria San Nicola', description: 'Un\'infrastruttura strategica realizzata con precisione e sicurezza per una viabilità più fluida e moderna', imageUrl: '/assets/progetti/galleria-san-nicola/galleria-san-nicola-2.webp', location:'S.S. 658 Potenza - Melfi', buttonLink: '/progetti/galleria-snicola' },
+    { id: 0, title: 'Area rupe', description: 'Un viaggio nel cuore storico di Vietri di Potenza, dove la pietra racconta secoli di storia e cultura', location: 'Vietri di Potenza', imageUrl: '/assets/progetti/area-rupe/area-rupe-1.webp', buttonLink: '/progetti/area-rupe' },
+    { id: 1, title: 'Teatro Cecilia', description: 'Uno spazio vivo e vibrante dove arte, creatività e tecnologia si incontrano per dar vita a esperienze uniche', location: 'Tito', imageUrl: '/assets/progetti/teatro-cecilia/teatro-cecilia-2.webp', buttonLink: '/progetti/teatro-cecilia' },
+    { id: 2, title: 'Viadotto Santa Venere', description: 'Ingegneria e funzionalità al servizio della mobilità: un’opera che unisce territori e persone', imageUrl: '/assets/progetti/viadotto-venere/viadotto-venere-1.webp', location: 'R.A. n. 5 Sicignano - Potenza', buttonLink: '/progetti/viadotto-svenere' },
+    { id: 3, title: 'Galleria San Nicola', description: 'Un\'infrastruttura strategica realizzata con precisione e sicurezza per una viabilità più fluida e moderna', imageUrl: '/assets/progetti/galleria-san-nicola/galleria-san-nicola-2.webp', location: 'S.S. 658 Potenza - Melfi', buttonLink: '/progetti/galleria-snicola' },
   ];
 
   public ngOnInit(): void {
     this.intervalloImmaginiSfondo = setInterval(() => this.cambiaImmagine(), 5000);
+    this.setupSeoForPage();
   }
 
   public ngOnDestroy(): void {
     clearInterval(this.intervalloImmaginiSfondo);
+  }
+
+  private setupSeoForPage(): void {
+    this.seoService.updateSeo({
+      title: 'Faustini Costruzioni - Impresa Edile in Basilicata',
+      description: 'Impresa edile specializzata in costruzioni pubbliche e private in Basilicata.',
+      url: 'https://faustinicostruzioni.it/home',
+      keywords: 'impresa edile, costruzioni, Basilicata'
+    });
   }
 
   public getExperience() {
@@ -99,13 +112,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     return this.getExperience() - 13;
   }
 
-  public async cambiaImmagine():Promise<void> {
+  public async cambiaImmagine(): Promise<void> {
     this.idCorrente = await this.trovaImmagine();
     const idSuccessivo = (this.idCorrente + 1) % this.bgImmagini.length;
     this.idImmagineAttiva = this.bgImmagini[idSuccessivo].id;
   }
 
-  public async trovaImmagine():Promise<number> {
+  public async trovaImmagine(): Promise<number> {
     return this.bgImmagini.findIndex(immagine => immagine.id === this.idImmagineAttiva);
   }
 

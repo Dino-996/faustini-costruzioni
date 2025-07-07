@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroArrowRight, heroCheckCircle } from '@ng-icons/heroicons/outline';
 import { CallToActionComponent } from '../../components/call-to-action/call-to-action.component';
 import { NgOptimizedImage } from '@angular/common';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-servizi',
@@ -22,14 +23,11 @@ import { NgOptimizedImage } from '@angular/common';
   templateUrl: './servizi.component.html',
 })
 
-export class ServiziComponent {
+export class ServiziComponent implements OnInit {
 
-  public route: ActivatedRoute = inject(ActivatedRoute);
-  public router: Router = inject(Router);
-
-  public isChildRoute(): boolean {
-    return this.route.children.length > 0;
-  }
+  private readonly seoService = inject(SeoService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   public servizi = [
     {
@@ -74,8 +72,25 @@ export class ServiziComponent {
     }
   ]
 
+  public ngOnInit(): void {
+    this.setupSeoForPage();
+  }
+
+  public isChildRoute(): boolean {
+    return this.route.children.length > 0;
+  }
+
   public onRotta(rottaSelezionata: string): void {
     this.router.navigate([`/servizi/${rottaSelezionata}`]);
+  }
+
+  private setupSeoForPage(): void {
+    this.seoService.updateSeo({
+      title: 'Servizi - Faustini Costruzioni',
+      description: 'Vieni a scoprire tutti i progetti che ci contrddistinguono',
+      url: 'https://faustinicostruzioni.it/progetti',
+      keywords: 'servizi, noleggio ponteggi, opere di riqualificazione'
+    });
   }
 
 }

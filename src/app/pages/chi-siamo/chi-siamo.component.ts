@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroUserGroup, heroShieldCheck, heroEnvelope, heroDevicePhoneMobile, heroGlobeAlt } from '@ng-icons/heroicons/outline';
 import { CallToActionComponent } from '../../components/call-to-action/call-to-action.component';
@@ -7,6 +7,7 @@ import { VideoPlayerComponent } from '../../components/video-player/video-player
 import { VideoConfig } from '../../model/video';
 import { bootstrapPatchCheckFill } from '@ng-icons/bootstrap-icons';
 import { Valori, Certificazioni, Garanzie } from '../../model/chi-siamo';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-chi-siamo',
@@ -30,7 +31,9 @@ import { Valori, Certificazioni, Garanzie } from '../../model/chi-siamo';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ChiSiamoComponent {
+export class ChiSiamoComponent implements OnInit {
+
+  private readonly seoService = inject(SeoService);
 
   private readonly valori = signal<Valori[]>([
     { id: 0, titolo: 'Competenza', descrizione: 'Un team di professionisti altamente qualificati in grado di affrontare ogni sfida costruttiva con comprovata esperienza tecnica', icona: 'heroUserGroup' },
@@ -59,6 +62,19 @@ export class ChiSiamoComponent {
     poster: 'assets/image/image-video/poster.webp',
     title: 'Persone per le persone',
   });
+
+  public ngOnInit(): void {
+    this.setupSeoForPage();
+  }
+
+  private setupSeoForPage(): void {
+    this.seoService.updateSeo({
+      title: 'Chi Siamo - Faustini Costruzioni',
+      description: 'Scopri la storia di Faustini Costruzioni: oltre 20 anni di esperienza nel settore edile.',
+      url: 'https://faustinicostruzioni.it/chi-siamo',
+      keywords: 'chi siamo, storia, esperienza, Faustini Costruzioni'
+    });
+  }
 
   public readonly getValori = computed(() => this.valori());
   public readonly getCertificazioni = computed(() => this.certificazioni());

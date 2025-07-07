@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal, computed, ChangeDetectionStrategy, viewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MessaggioComponent } from '../messaggio/messaggio.component';
+import { MessaggioComponent } from '../../components/messaggio/messaggio.component';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroArrowPath, heroCalculator } from '@ng-icons/heroicons/outline';
 import { Email } from '../../util/email';
@@ -10,6 +10,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { Preventivo } from '../../model/preventivo';
 import { collection, collectionData, CollectionReference, doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-preventivo',
@@ -28,6 +29,8 @@ import { Observable } from 'rxjs';
 })
 
 export class PreventivoComponent implements OnInit {
+
+  private readonly seoService = inject(SeoService);
 
   private readonly targetElement = viewChild<ElementRef>('target'); // Per gestire meglio lo scroll
 
@@ -144,7 +147,7 @@ export class PreventivoComponent implements OnInit {
     }),
   });
 
-  // Getter (da sostituire con computed)
+  // Getter
   public get nome() { return this.formPreventivo.get('nome'); }
   public get cognome() { return this.formPreventivo.get('cognome'); }
   public get email() { return this.formPreventivo.get('email'); }
@@ -154,18 +157,20 @@ export class PreventivoComponent implements OnInit {
   public get privacy_policy() { return this.formPreventivo.get('privacy_policy'); }
 
   public ngOnInit(): void {
-
-    // -- DEBUG -- 
-    localStorage.clear();
-    this.esito.set(undefined);
-    this.sessioneCorrente.set(0);
-
-
-    /*if (this.isTempoScaduto()) {
+    if (this.isTempoScaduto()) {
       localStorage.clear();
       this.esito.set(undefined);
-    }*/
+    }
+    this.setupSeoForPage();
+  }
 
+  private setupSeoForPage(): void {
+    this.seoService.updateSeo({
+      title: 'Preventivo - Faustini Costruzioni',
+      description: 'Contatta Faustini Costruzioni per un preventivo gratuito. Tel: 348 810 7321',
+      url: 'https://faustinicostruzioni.it/preventivo',
+      keywords: 'contatti, preventivo, telefono'
+    });
   }
 
   public async richiestaPreventivo(): Promise<void> {

@@ -25,6 +25,6 @@ export const routes: Routes = [
         ]
     },
     { path: 'contatti', loadComponent: () => import('./pages/contatti/contatti.component').then(m => m.ContattiComponent), data: { breadcrumb: 'Contatti' } },
-    { path: 'preventivo', loadComponent: () => import('./components/preventivo/preventivo.component').then(m => m.PreventivoComponent), data: { breadcrumb: 'Preventivo' } },
+    { path: 'preventivo', loadComponent: () => import('./pages/preventivo/preventivo.component').then(m => m.PreventivoComponent), data: { breadcrumb: 'Preventivo' } },
     { path: '**', loadComponent: () => import('./components/pagina-non-trovata/pagina-non-trovata.component').then(m => m.PaginaNonTrovataComponent) }
 ];

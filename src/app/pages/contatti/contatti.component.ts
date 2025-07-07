@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, ElementRef, inject, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { heroArrowTopRightOnSquare, heroClock, heroEnvelope, heroMapPin, heroPaperAirplane, heroPhone } from '@ng-icons/heroicons/outline';
@@ -11,6 +11,7 @@ import { bootstrapArrowClockwise } from '@ng-icons/bootstrap-icons';
 import { Observable } from 'rxjs';
 import { Messaggi } from '../../model/contatti';
 import { collection, collectionData, CollectionReference, doc, Firestore, setDoc } from '@angular/fire/firestore';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contatti',
@@ -34,15 +35,18 @@ import { collection, collectionData, CollectionReference, doc, Firestore, setDoc
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ContattiComponent {
+export class ContattiComponent implements OnInit {
+
+  private readonly firestore = inject(Firestore);
+  private readonly seoService = inject(SeoService);
 
   private readonly targetElement = viewChild<ElementRef>('target');
 
-  private readonly CHIUSO = 'Chiuso' as const;
-  private readonly emailService = new Email();
-
   private readonly loading = signal<boolean>(false);
   private readonly esito = signal<boolean | undefined>(undefined);
+
+  private readonly CHIUSO = 'Chiuso' as const;
+  private readonly emailService = new Email();
 
   private readonly orari = signal<Orari[]>([
     { id: 0, giorno: 'Lunedì', orariMattina: '9:00 - 12:30', orariPomeriggio: '16:00 - 20:30' },
@@ -67,7 +71,6 @@ export class ContattiComponent {
     { id: 2, tipo: 'email', icona: 'heroEnvelope', titolo: 'Email', informazioni: ['faustini.costruzioni@gmail.it', 'faustini.costruzioni@pec.it'] }
   ]);
 
-  private readonly firestore = inject(Firestore);
   private readonly messaggi$: Observable<Messaggi[]>;
   private collezioneMessaggiRef: CollectionReference<Messaggi>;
 
@@ -97,6 +100,19 @@ export class ContattiComponent {
     this.messaggi$ = collectionData(this.collezioneMessaggiRef, { idField: 'id' }) as Observable<Messaggi[]>;
   }
 
+  public ngOnInit(): void {
+    this.setupSeoForPage();
+  }
+
+  private setupSeoForPage(): void {
+    this.seoService.updateSeo({
+      title: 'Contatti - Faustini Costruzioni',
+      description: 'Contatta Faustini Costruzioni per un preventivo gratuito. Tel: 348 810 7321',
+      url: 'https://faustinicostruzioni.it/contatti',
+      keywords: 'contatti, preventivo, telefono'
+    });
+  }
+
   public readonly emailControl = computed(() => this.formContatti.controls.email);
   public readonly messaggioControl = computed(() => this.formContatti.controls.messaggio);
   public readonly getOrari = computed(() => this.orari());
@@ -108,8 +124,8 @@ export class ContattiComponent {
   public async inviaMessaggio(): Promise<void> {
 
     this.loading.set(true);
-    if (!this.formContatti.valid) { 
-      return; 
+    if (!this.formContatti.valid) {
+      return;
     }
 
     try {
