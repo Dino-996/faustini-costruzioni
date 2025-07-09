@@ -1,7 +1,8 @@
 export interface Certificazioni {
   id: number,
   categoria: string,
-  descrizione: string
+  descrizione: string,
+  pdf: string
 }
 
 export interface Garanzie {

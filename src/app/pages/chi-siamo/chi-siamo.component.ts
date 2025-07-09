@@ -41,13 +41,18 @@ export class ChiSiamoComponent implements OnInit {
     { id: 2, titolo: 'Sostenibilità', descrizione: 'Progettiamo e costruiamo con un occhio attento all\'ambiente, utilizzando soluzioni a basso impatto energetico e materiali eco-compatibili', icona: 'heroGlobeAlt' }
   ]);
 
-  private readonly certificazioni = signal<Certificazioni[]>([
-    { id: 0, categoria: 'OG1', descrizione: 'Edifici civili e industriali' },
-    { id: 1, categoria: 'OG2', descrizione: 'Restauro e tutela di beni immobili' },
-    { id: 2, categoria: 'OG3', descrizione: 'Strade, ponti, ferrovie e metropolitane' },
-    { id: 3, categoria: 'OG6', descrizione: 'Acquedotti, gasdotti, oleodotti, opere di irrigazione e di evacuazione' },
-    { id: 4, categoria: 'OG13', descrizione: 'Opere di ingegneria naturalistica' },
-    { id: 5, categoria: 'OS21', descrizione: 'Opere strutturali speciali' }
+  public readonly certificazioniSOA = signal<Certificazioni[]>([
+    { id: 0, categoria: 'OG1', descrizione: 'Edifici civili e industriali', pdf: 'assets/certificazioni/SOA.pdf' },
+    { id: 1, categoria: 'OG2', descrizione: 'Restauro e tutela di beni immobili', pdf: 'assets/certificazioni/SOA.pdf' },
+    { id: 2, categoria: 'OG3', descrizione: 'Strade, ponti, ferrovie e metropolitane', pdf: 'assets/certificazioni/SOA.pdf' },
+    { id: 3, categoria: 'OG6', descrizione: 'Acquedotti, gasdotti, oleodotti, opere di irrigazione e di evacuazione', pdf: 'assets/certificazioni/SOA.pdf' },
+    { id: 4, categoria: 'OG13', descrizione: 'Opere di ingegneria naturalistica', pdf: 'assets/certificazioni/SOA.pdf' },
+    { id: 5, categoria: 'OS21', descrizione: 'Opere strutturali speciali', pdf: 'assets/certificazioni/SOA.pdf' }
+  ]);
+
+  public readonly certificazioniISO = signal<Certificazioni[]>([
+    { id: 0, categoria: 'ISO 9001:2015', descrizione: 'Manutenzione di edifici civili', pdf: 'assets/certificazioni/ISO_9001.pdf' },
+    { id: 1, categoria: 'ISO 45001:2018', descrizione: 'Sistema di gestione della salute e della sicurezza sul lavoro', pdf: 'assets/certificazioni/ISO_45001.pdf' },
   ]);
 
   private readonly garanzie = signal<Garanzie[]>([
@@ -77,7 +82,6 @@ export class ChiSiamoComponent implements OnInit {
   }
 
   public readonly getValori = computed(() => this.valori());
-  public readonly getCertificazioni = computed(() => this.certificazioni());
   public readonly getGaranzie = computed(() => this.garanzie());
   public readonly getVideoConfig = computed(() => this.videoConfig());
 

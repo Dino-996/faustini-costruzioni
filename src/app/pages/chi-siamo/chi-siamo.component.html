@@ -142,7 +142,7 @@
             </div>
 
             <!-- Contenuto -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
 
                 <!-- Pattern di sfondo -->
                 <div class="absolute inset-0 opacity-10">
@@ -152,17 +152,35 @@
                 </div>
 
                 <!-- Certificazioni -->
-                <div
-                    class="bg-black/100 p-8 rounded-xl shadow-lg text-white transition-transform duration-300 hover:scale-105">
+                <div class="bg-black/100 p-8 rounded-xl shadow-lg text-white z-10">
                     <h3 class="text-xl font-semibold mb-4"><span class="text-[#FF7420]">Certificazioni</span> SOA</h3>
                     <div class="h-1 w-12 bg-[#FF7420] mb-6 rounded"></div>
                     <ul class="space-y-4">
-                        @for(certificazione of getCertificazioni(); track certificazione.id) {
+                        @for(certificazione of certificazioniSOA(); track certificazione.id) {
                         <li class="flex gap-3 items-start">
                             <ng-icon class="shrink-0" name="bootstrapPatchCheckFill" size="18"
                                 color="#FF7420"></ng-icon>
                             <div>
-                                <p class="font-semibold">{{ certificazione.categoria }}</p>
+                                <a [href]="certificazione.pdf" target="_blank" class="font-semibold hover:text-[#FF7420] cursor-pointer">{{
+                                    certificazione.categoria }}</a>
+                                <p class="text-sm text-neutral-300">{{ certificazione.descrizione }}</p>
+                            </div>
+                        </li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- Certificazioni -->
+                <div class="bg-black/100 p-8 rounded-xl shadow-lg text-white z-10">
+                    <h3 class="text-xl font-semibold mb-4"><span class="text-[#FF7420]">Certificazioni</span> ISO</h3>
+                    <div class="h-1 w-12 bg-[#FF7420] mb-6 rounded"></div>
+                    <ul class="space-y-4">
+                        @for(certificazione of certificazioniISO(); track certificazione.id) {
+                        <li class="flex gap-3 items-start">
+                            <ng-icon class="shrink-0" name="bootstrapPatchCheckFill" size="18"
+                                color="#FF7420"></ng-icon>
+                            <div>
+                                <a [href]="certificazione.pdf" target="_blank" class="font-semibold hover:text-[#FF7420] cursor-pointer">{{ certificazione.categoria }}</a>
                                 <p class="text-sm text-neutral-300">{{ certificazione.descrizione }}</p>
                             </div>
                         </li>
@@ -172,7 +190,7 @@
 
                 <!-- Garanzie -->
                 <div
-                    class="bg-black/100 p-8 rounded-xl shadow-lg text-white transition-transform duration-300 hover:scale-105">
+                    class="bg-black/100 p-8 rounded-xl shadow-lg text-white z-10">
                     <h3 class="text-xl font-semibold mb-4"><span class="text-[#FF7420]">Garanzie</span> e Sicurezza</h3>
                     <div class="h-1 w-12 bg-[#FF7420] mb-6 rounded"></div>
                     <ul class="space-y-4">

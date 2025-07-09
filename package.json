@@ -1,8 +1,13 @@
 {
   "name": "faustini-costruzioni",
-  "version": "3.1.7",
+  "version": "3.1.8",
   "description": "Sito ufficiale dell'impresa edile Faustini Costruzioni",
   "license": "UNLICENSED",
+  "author": {
+    "name": "Davide Sabia",
+    "email": "davidesabia22@gmail.com",
+    "url": "https://github.com/Dino-996"
+  },
   "homepage": "https://faustinicostruzioni.it",
   "keywords": [
     "Noleggio Ponteggi e Attrezzature",
