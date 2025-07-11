@@ -52,7 +52,7 @@ SPA per l’impresa edile **Faustini Costruzioni**, specializzata in costruzioni
 | Aspetto         | Stato       | Note |
 |------------------|------------|------|
 | **Caricamento**  | ⚡ Ottimo   | Latenza bassa su Firebase |
-| **SEO**          | 📈 Buono    | Meta dinamici, ma manca attributo `lang="it"` |
+| **SEO**          | 📈 Ottimo    | Meta dinamici |
 | **Accessibilità**| ♿ Discreta | Migliorabile contrasto in alcune parti dell'app |
 | **Responsività** | 📱 Perfetta | Mobile-first e fluida su tutti i dispositivi |
 
