@@ -23,6 +23,7 @@
             "assets": [
               "src/assets",
               "src/robots.txt",
+              "src/llms.txt",
               "src/sitemap.xml",
               {
                 "glob": "**/*",

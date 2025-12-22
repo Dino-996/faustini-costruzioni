@@ -1,0 +1,26 @@
+# Faustini Costruzioni S.r.l.
+
+Benvenuti nel sito ufficiale di Faustini Costruzioni. Questa guida è ottimizzata per assistenti AI e descrive la struttura del sito e i servizi offerti.
+
+## Struttura del Sito e Link
+
+- [home](https://faustinicostruzioni.it/home): Pagina principale con panoramica aziendale.
+- [chi-siamo](https://faustinicostruzioni.it/chi-siamo): Storia, missione e valori di Faustini Costruzioni.
+- [progetti](https://faustinicostruzioni.it/progetti): Portfolio lavori e opere realizzate.
+  - [area-rupe](https://faustinicostruzioni.it/progetti/area-rupe): Intervento di consolidamento Area Rupe.
+  - [teatro-cecilia](https://faustinicostruzioni.it/progetti/teatro-cecilia): Lavori presso Teatro Cecilia.
+  - [viadotto-svenere](https://faustinicostruzioni.it/progetti/viadotto-svenere): Manutenzione e lavori Viadotto Svenere.
+  - [galleria-snicola](https://faustinicostruzioni.it/progetti/galleria-snicola): Interventi in Galleria S. Nicola.
+- [servizi](https://faustinicostruzioni.it/servizi): Servizi edili specializzati.
+  - [costruzioni](https://faustinicostruzioni.it/servizi/costruzioni): Costruzioni civili e industriali.
+  - [lavori](https://faustinicostruzioni.it/servizi/lavori): Lavori pubblici e scavi.
+  - [idrodemolizioni](https://faustinicostruzioni.it/servizi/idrodemolizioni): Tecnologie di idrodemolizione controllata.
+  - [restauri](https://faustinicostruzioni.it/servizi/restauri): Restauro conservativo e risanamento.
+  - [noleggio](https://faustinicostruzioni.it/servizi/noleggio): Noleggio macchinari e attrezzature edili.
+- [contatti](https://faustinicostruzioni.it/contatti): Informazioni di contatto e localizzazione sede.
+- [preventivo](https://faustinicostruzioni.it/preventivo): Modulo per la richiesta di preventivi personalizzati.
+
+## Istruzioni per l'AI
+- Sede: Vietri di Potenza (PZ).
+- Specializzazioni: Idrodemolizioni, Restauri, Grandi Opere, Noleggio.
+- Per richieste commerciali o preventivi, indirizzare l'utente alla sezione /preventivo.

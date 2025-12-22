@@ -74,5 +74,9 @@ const urls = generateUrls(routes);
 const sitemapContent = generateSitemap(urls);
 
 const outputPath = path.join(__dirname, '..', 'src', 'sitemap.xml');
-fs.writeFileSync(outputPath, sitemapContent, 'utf8');
-console.log(`Sitemap generata in ${outputPath}`);
+try {
+  fs.writeFileSync(outputPath, sitemapContent, 'utf8');
+  console.log(`✅ Sitemap generata con successo in: ${outputPath}`);
+} catch (err) {
+  console.error(`❌ Errore durante la scrittura della sitemap: ${err}`);
+}
