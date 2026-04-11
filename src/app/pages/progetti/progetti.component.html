@@ -101,7 +101,7 @@
                         </div>
                         <!-- Placeholder per immagine - in produzione usare [src] per binding Angular -->
                         <div class="relative">
-                            <img [src]="progetto.immagine" [alt]="progetto.titolo" class="w-full h-48 object-cover">
+                            <img [src]="progetto.immagine" [alt]="progetto.titolo" width="400" height="192" loading="lazy" class="w-full h-48 object-cover">
                             @if(isNuovoProgetto(progetto.anno)) {
                             <div title="Progetto recente"
                                 class="absolute top-0 right-0 bg-black text-white text-xs font-bold px-3 py-1 m-1 flex items-center rounded-xl">
