@@ -1,4 +1,5 @@
 import { inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
 export interface SeoConfig {
@@ -13,6 +14,7 @@ export interface SeoConfig {
 export class SeoService {
   private readonly meta = inject(Meta);
   private readonly title = inject(Title);
+  private readonly document = inject(DOCUMENT);
   private readonly defaultImage = 'https://faustinicostruzioni.it/assets/image/logo/logo.webp';
 
   updateSeo(config: SeoConfig): void {
@@ -43,12 +45,12 @@ export class SeoService {
   }
 
   private updateCanonical(url: string): void {
-    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    let link = this.document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     
     if (!link) {
-      link = document.createElement('link');
+      link = this.document.createElement('link');
       link.rel = 'canonical';
-      document.head.appendChild(link);
+      this.document.head.appendChild(link);
     }
     
     link.href = url;

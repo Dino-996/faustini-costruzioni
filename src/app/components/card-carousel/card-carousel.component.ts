@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, Input, ElementRef, HostListener, ViewChild, OnDestroy, inject } from '@angular/core';
+import { AfterViewInit, Component, Input, ElementRef, HostListener, ViewChild, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroArrowLongRight, heroArrowRight, heroArrowRightEndOnRectangle } from '@ng-icons/heroicons/outline';
@@ -27,6 +28,7 @@ interface Card {
 export class CardCarouselComponent implements AfterViewInit, OnDestroy {
 
   public router:Router = inject(Router);
+  private platformId = inject(PLATFORM_ID);
 
   @Input() 
   public cards: Card[] = [];
@@ -44,15 +46,17 @@ export class CardCarouselComponent implements AfterViewInit, OnDestroy {
   resizeObserver: ResizeObserver | null = null;
 
   public ngAfterViewInit() {
-    this.initializeCarousel();
-
-    this.resizeObserver = new ResizeObserver(() => {
+    if (isPlatformBrowser(this.platformId)) {
       this.initializeCarousel();
-      this.navigateToSlide(this.currentSlide, false);
-    });
 
-    if (this.carouselTrack?.nativeElement) {
-      this.resizeObserver.observe(this.carouselTrack.nativeElement.parentElement);
+      this.resizeObserver = new ResizeObserver(() => {
+        this.initializeCarousel();
+        this.navigateToSlide(this.currentSlide, false);
+      });
+
+      if (this.carouselTrack?.nativeElement) {
+        this.resizeObserver.observe(this.carouselTrack.nativeElement.parentElement);
+      }
     }
   }
 
@@ -85,6 +89,7 @@ export class CardCarouselComponent implements AfterViewInit, OnDestroy {
   }
 
   getVisibleSlides(): number {
+    if (!isPlatformBrowser(this.platformId)) return 3; // Default lato server
     if (window.innerWidth < 640) return 1; // mobile
     if (window.innerWidth < 1024) return 2; // tablet
     return 3; // desktop

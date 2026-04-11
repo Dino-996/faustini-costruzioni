@@ -1,5 +1,5 @@
-import { NgClass, NgStyle } from '@angular/common';
-import { Component, HostListener, inject, OnInit } from '@angular/core';
+import { NgClass, NgStyle, isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { Component, HostListener, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { BehaviorSubject, filter } from 'rxjs';
@@ -68,6 +68,8 @@ export class NavbarComponent implements OnInit {
 
   public router: Router = inject(Router);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  private platformId = inject(PLATFORM_ID);
+  private document = inject(DOCUMENT);
 
   public ngOnInit(): void {
     this.router.events
@@ -80,7 +82,9 @@ export class NavbarComponent implements OnInit {
   }
 
   public onTop(): void {
-    window.scroll({top: 0, left: 0, behavior: 'smooth'});
+    if (isPlatformBrowser(this.platformId)) {
+      window.scroll({top: 0, left: 0, behavior: 'smooth'});
+    }
   }
 
   private createBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Array<{ label: string; url: string }> = []): Array<{ label: string; url: string }> {
@@ -125,7 +129,7 @@ export class NavbarComponent implements OnInit {
     item.isSubmenuOpen = !item.isSubmenuOpen;
 
     // Se siamo in mobile e stiamo aprendo un sottomenù, assicuriamoci che il menu principale rimanga aperto
-    if (item.isSubmenuOpen && window.innerWidth < 768) {
+    if (item.isSubmenuOpen && isPlatformBrowser(this.platformId) && window.innerWidth < 768) {
       this.isOpen = true;
     }
   }
@@ -152,8 +156,9 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   public onDocumentClick(event: MouseEvent): void {
+    if (!isPlatformBrowser(this.platformId)) return;
     // Verifica se il click è avvenuto all'esterno del menu
-    const navbarElement = document.querySelector('nav');
+    const navbarElement = this.document.querySelector('nav');
     if (navbarElement && !navbarElement.contains(event.target as Node)) {
       // Chiudi tutti i sottomenù
       this.items.forEach(item => {

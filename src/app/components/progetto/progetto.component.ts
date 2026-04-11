@@ -1,4 +1,4 @@
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, DOCUMENT } from '@angular/common';
 import { Component, inject, Input, OnDestroy, Renderer2 } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { tipoProgetto, materialiPrincipali } from '../../model/progetto';
@@ -22,6 +22,7 @@ import { heroXMark, heroChevronLeft, heroChevronRight } from '@ng-icons/heroicon
 export class ProgettoComponent implements OnDestroy {
 
   public render = inject(Renderer2);
+  private document = inject(DOCUMENT);
 
   public selectedImage: string | null = null;
   public currentImageIndex: number = 0;
@@ -109,13 +110,13 @@ export class ProgettoComponent implements OnDestroy {
   // Apre l'overlay immagini
   public apriOverlay(img: string): void {
     this.selectedImage = img;
-    this.render.addClass(document.body, 'overflow-hidden');
+    this.render.addClass(this.document.body, 'overflow-hidden');
   }
 
   // Chiude l'overlay immagini
   public chiudiOverlay(): void {
     this.selectedImage = null;
-    this.render.removeClass(document.body, 'overflow-hidden');
+    this.render.removeClass(this.document.body, 'overflow-hidden');
   }
 
 }
