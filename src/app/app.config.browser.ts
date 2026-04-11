@@ -30,8 +30,7 @@ const browserFirebaseConfig: ApplicationConfig = {
     })),
     provideAnalytics(() => getAnalytics()),
     ScreenTrackingService,
-    provideFirestore(() => getFirestore()),
-    provideAppCheck(() => getAppCheck()),
+    // Firestore e AppCheck sono stati spostati in app.routes.ts per il lazy loading
   ]
 };
 

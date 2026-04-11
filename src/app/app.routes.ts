@@ -1,4 +1,18 @@
 import { Routes } from '@angular/router';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideAppCheck, initializeAppCheck, ReCaptchaV3Provider } from '@angular/fire/app-check';
+import { getApp } from '@angular/fire/app';
+import { isDevMode } from '@angular/core';
+
+const getAppCheckInstance = () => {
+    if (isDevMode() && typeof window !== 'undefined') {
+        (window as any).FIREBASE_APPCHECK_DEBUG_TOKEN = 'AA63943E-1AC2-4038-A444-48EADE61C7BB';
+    }
+    return initializeAppCheck(getApp(), {
+        provider: new ReCaptchaV3Provider('6Lf683orAAAAAHW10dLEAF9J5PHO3nJpaedBNxyH'),
+        isTokenAutoRefreshEnabled: true,
+    });
+};
 
 export const routes: Routes = [
 
@@ -24,7 +38,24 @@ export const routes: Routes = [
             { path: 'noleggio', loadComponent: () => import('./pages/subpages/noleggi/noleggi.component').then(m => m.NoleggiComponent), data: { breadcrumb: 'Noleggio ponteggie e attrezzature' } },
         ]
     },
-    { path: 'contatti', loadComponent: () => import('./pages/contatti/contatti.component').then(m => m.ContattiComponent), data: { breadcrumb: 'Contatti' } },
-    { path: 'preventivo', loadComponent: () => import('./pages/preventivo/preventivo.component').then(m => m.PreventivoComponent), data: { breadcrumb: 'Preventivo' } },
+    { 
+        path: 'contatti', 
+        loadComponent: () => import('./pages/contatti/contatti.component').then(m => m.ContattiComponent), 
+        data: { breadcrumb: 'Contatti' },
+        providers: [
+            provideFirestore(() => getFirestore()),
+            provideAppCheck(() => getAppCheckInstance())
+        ]
+    },
+    { 
+        path: 'preventivo', 
+        loadComponent: () => import('./pages/preventivo/preventivo.component').then(m => m.PreventivoComponent), 
+        data: { breadcrumb: 'Preventivo' },
+        providers: [
+            provideFirestore(() => getFirestore()),
+            provideAppCheck(() => getAppCheckInstance())
+        ]
+    },
     { path: '**', loadComponent: () => import('./components/pagina-non-trovata/pagina-non-trovata.component').then(m => m.PaginaNonTrovataComponent) }
 ];
+
