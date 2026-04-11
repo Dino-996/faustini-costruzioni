@@ -23,12 +23,12 @@
 </section>
 
 <!-- Servizi -->
-<section class="bg-[#191A19] pt-16 px-4 relative">
+<section class="bg-white pt-16 px-4 relative">
 
     <!-- Pattern di sfondo -->
-    <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0 opacity-5">
         <div class="h-full w-full"
-            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
         </div>
     </div>
 
@@ -40,7 +40,7 @@
             <!-- Servizi -->
             @for(servizio of servizi; track servizio.id) {
             <div
-                class="group bg-black/100 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                class="group bg-[#F8F9FA] border border-gray-100 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
 
                 <!-- Immagine di sfondo del servizio con overlay -->
                 <div class="relative h-48 overflow-hidden">
@@ -61,11 +61,11 @@
 
                 <!-- Contenuto del servizio -->
                 <div class="p-6">
-                    <p class="text-[#F5F5F5] mb-6">{{ servizio.descrizione }}</p>
+                    <p class="text-gray-600 mb-6">{{ servizio.descrizione }}</p>
 
                     <ul class="space-y-2 mb-6">
                         @for(dettaglio of servizio.dettagli; track $index) {
-                        <li class="flex items-center text-[#F5F5F5]">
+                        <li class="flex items-center text-gray-700">
                             <ng-icon name="heroCheckCircle" size="18" class="text-[#FF7420] mr-2 shrink-0" />
                             <span>{{ dettaglio }}</span>
                         </li>

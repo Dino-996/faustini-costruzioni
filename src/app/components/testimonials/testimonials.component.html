@@ -1,39 +1,39 @@
-<div class="relative bg-[#191A19] px-4 py-8 overflow-hidden">
+<div class="relative bg-white border border-gray-100 px-4 py-8 overflow-hidden">
 
   <!-- Pattern di sfondo -->
-  <div class="absolute inset-0 opacity-10">
-    <div class="h-full w-full" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+  <div class="absolute inset-0 opacity-5 pointer-events-none">
+    <div class="h-full w-full" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
     </div>
   </div>
 
   <!-- Header -->
   <div class="container mx-auto px-4 py-8 mb-8">
-    <h2 class="text-white text-4xl lg:text-5xl font-extrabold mb-4 leading-tight"><span
+    <h2 class="text-gray-900 text-4xl lg:text-5xl font-extrabold mb-4 leading-tight"><span
         class="text-[#FF7420] text-center">Cosa</span> dicono i nostri clienti</h2>
     <div class="h-1 w-24 bg-[#FF7420] mb-6 mx-0 rounded"></div>
   </div>
 
   <!-- Contenitore card testimonianza -->
-  <div class="bg-black/100 rounded-2xl p-6 mb-6 relative overflow-hidden z-20">
+  <div class="bg-[#F8F9FA] border border-gray-200 rounded-2xl p-6 mb-6 relative overflow-hidden z-20 shadow-md">
 
     <!-- Segno virgolette decorativo -->
-    <div class="absolute top-4 left-4 text-[#FF7420]/50 text-7xl font-serif">"</div>
+    <div class="absolute top-4 left-4 text-[#FF7420]/20 text-7xl font-serif">"</div>
 
     <!-- Commento -->
     <div class="flex flex-col items-center justify-center mb-4 relative z-10">
-      <span class="text-center px-4 text-white text-lg leading-relaxed">{{ testimonials[currentIndex].comment }}</span>
+      <span class="text-center px-4 text-gray-700 text-lg leading-relaxed font-medium italic">{{ testimonials[currentIndex].comment }}</span>
 
       <div class="mt-6 flex flex-col items-center">
         
         <!-- Avatar -->
         <div
-          class="w-16 h-16 rounded-full overflow-hidden border-2 border-[#FF7420] shadow-lg shadow-orange-500/20 transform transition-transform hover:scale-105 duration-300 mb-3">
+          class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-lg shadow-gray-200 transform transition-transform hover:scale-105 duration-300 mb-3">
           <img [src]="testimonials[currentIndex].avatar" alt="Avatar" class="w-full h-full object-cover" />
         </div>
         
         <!-- Nome -->
-        <span class="text-[#FF7420] font-medium">{{ testimonials[currentIndex].name }}</span>
-        <span class="text-sm text-gray-300 italic">{{ testimonials[currentIndex].role || 'Cliente' }}</span>
+        <span class="text-gray-900 font-bold">{{ testimonials[currentIndex].name }}</span>
+        <span class="text-sm text-gray-500 font-medium">{{ testimonials[currentIndex].role || 'Cliente' }}</span>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@
     
     <!-- Pulsante precedente -->
     <button (click)="prevAvatar()"
-      class="p-2 text-white hover:text-[#FF7420] cursor-pointer transition-all duration-300 transform hover:-translate-x-1 focus:outline-none"
+      class="p-2 text-gray-400 hover:text-[#FF7420] cursor-pointer transition-all duration-300 transform hover:-translate-x-1 focus:outline-none"
       aria-label="Testimonianza precedente">
       <ng-icon name="heroArrowLeftCircle" size="32" />
     </button>
@@ -52,7 +52,7 @@
     <div class="flex justify-center gap-4 cursor-pointer">
       @for(item of testimonials; track item.id; let i = $index) {
       <button
-        [class]="i === currentIndex ? 'w-3 h-3 rounded-full bg-[#FF7420] transform scale-125 transition-all duration-300 relative after:absolute after:-inset-4' : 'w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-300 transition-all duration-300 relative after:absolute after:-inset-4'"
+        [class]="i === currentIndex ? 'w-3 h-3 rounded-full bg-[#FF7420] transform scale-125 transition-all duration-300 relative after:absolute after:-inset-4' : 'w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 relative after:absolute after:-inset-4'"
         (click)="setCurrentIndex(i)"
         [attr.aria-label]="'Vai alla testimonianza ' + (i + 1)">
       </button>
@@ -61,7 +61,7 @@
 
     <!-- Pulsante successivo -->
     <button (click)="nextAvatar()"
-      class="p-2 text-white hover:text-[#FF7420] cursor-pointer transition-all duration-300 transform hover:translate-x-1 focus:outline-none"
+      class="p-2 text-gray-400 hover:text-[#FF7420] cursor-pointer transition-all duration-300 transform hover:translate-x-1 focus:outline-none"
       aria-label="Testimonianza successiva">
       <ng-icon name="heroArrowRightCircle" size="32" />
     </button>

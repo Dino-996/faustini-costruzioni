@@ -18,12 +18,12 @@
     </section>
 
     <!-- Storia aziendale -->
-    <section class="relative py-20 bg-[#191A19] text-white">
+    <section class="relative py-20 bg-white text-gray-800">
 
         <!-- Pattern di sfondo -->
-        <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 opacity-5">
             <div class="h-full w-full"
-                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
             </div>
         </div>
 
@@ -32,23 +32,23 @@
             <div class="flex flex-col-reverse md:flex-row items-center gap-12">
                 <!-- Testo -->
                 <div class="md:w-1/2 text-center md:text-left">
-                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight"><span class="text-[#FF7420]">La
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight text-gray-900"><span class="text-[#FF7420]">La
                             nostra</span> storia</h2>
                     <div class="h-1 w-24 bg-[#FF7420] mb-6 mx-auto md:mx-0 rounded"></div>
-                    <p class="mb-4 text-lg leading-relaxed">
+                    <p class="mb-4 text-lg leading-relaxed text-gray-700">
                         Radicata a Vietri di Potenza, Faustini Costruzioni nasce dall’esperienza artigiana locale e si è
                         evoluta mantenendo immutati valori di affidabilità e integrità. Oggi, grazie a un team altamente
                         qualificato e all’adozione di tecnologie d’avanguardia nella demolizione controllata e nella
                         riqualificazione strutturale, siamo riconosciuti come partner di eccellenza nel settore delle
                         costruzioni.
                     </p>
-                    <p class="mb-4 text-lg leading-relaxed">
+                    <p class="mb-4 text-lg leading-relaxed text-gray-700">
                         I dati di OpenCoesione ci collocano tra i protagonisti di interventi pubblici 2014-2020 per
                         oltre 300 milioni di euro, a dimostrazione del nostro contributo strategico allo sviluppo
                         infrastrutturale e territoriale, sempre nel pieno rispetto delle normative di sicurezza e degli
                         elevati standard qualitativi.
                     </p>
-                    <p class="text-lg leading-relaxed">
+                    <p class="text-lg leading-relaxed text-gray-700">
                         Guardiamo avanti con spirito innovativo: investiamo costantemente nella formazione, nella
                         sicurezza sul lavoro e nella sostenibilità ambientale per realizzare progetti ambiziosi che
                         durino nel tempo e soddisfino pienamente i nostri clienti.
@@ -85,16 +85,16 @@
                 @for(valore of getValori(); track valore.id) {
 
                 <div
-                    class="bg-black/100 text-white p-8 rounded-2xl shadow-xl transition-transform duration-300 hover:scale-105">
+                    class="bg-white text-gray-800 p-8 rounded-2xl shadow-xl transition-transform duration-300 hover:scale-105">
 
                     <div
-                        class="bg-white text-[#191A19] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-md border border-[#FF7420]">
-                        <ng-icon [name]="valore.icona" size="28"></ng-icon>
+                        class="bg-[#F8F9FA] text-[#191A19] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 shadow-sm border border-gray-100">
+                        <ng-icon [name]="valore.icona" size="28" style="color: #FF7420;"></ng-icon>
                     </div>
                     <h3
-                        class="text-[#FF7420] text-xl font-semibold mb-3 transition-colors duration-300 hover:text-white">
+                        class="text-gray-900 text-xl font-semibold mb-3 transition-colors duration-300 hover:text-[#FF7420]">
                         {{ valore.titolo }}</h3>
-                    <p class="text-neutral-300 text-sm leading-relaxed">{{ valore.descrizione }}</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">{{ valore.descrizione }}</p>
 
                 </div>
                 }
@@ -104,21 +104,21 @@
 
 
     <!-- Zona video -->
-    <section class="py-16 md:py-24 bg-[#191A19] min-h-screen flex items-center relative">
+    <section class="py-16 md:py-24 bg-[#F8F9FA] min-h-screen flex items-center relative border-y border-gray-100">
 
         <!-- Pattern di sfondo -->
-        <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
             <div class="h-full w-full"
-                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
             </div>
         </div>
 
-        <div class="container mx-auto px-4 sm:px-6">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white"><span
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900"><span
                         class="text-[#FF7420]">Persone</span> per le Persone</h2>
                 <div class="h-1 w-24 bg-[#FF7420] mx-auto mb-6 rounded-full"></div>
-                <p class="max-w-2xl mx-auto text-white/80 text-lg">Professionalità, passione e impegno: guarda il video
+                <p class="max-w-2xl mx-auto text-gray-600 text-lg">Professionalità, passione e impegno: guarda il video
                     e lasciati ispirare dal nostro modo di lavorare</p>
             </div>
 
@@ -152,8 +152,8 @@
                 </div>
 
                 <!-- Certificazioni -->
-                <div class="bg-black/100 p-8 rounded-xl shadow-lg text-white z-10">
-                    <h3 class="text-xl font-semibold mb-4"><span class="text-[#FF7420]">Certificazioni</span> SOA</h3>
+                <div class="bg-white border border-gray-200 p-8 rounded-xl shadow-xl text-gray-800 z-10">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900"><span class="text-[#FF7420]">Certificazioni</span> SOA</h3>
                     <div class="h-1 w-12 bg-[#FF7420] mb-6 rounded"></div>
                     <ul class="space-y-4">
                         @for(certificazione of certificazioniSOA(); track certificazione.id) {
@@ -161,9 +161,9 @@
                             <ng-icon class="shrink-0" name="bootstrapPatchCheckFill" size="18"
                                 color="#FF7420"></ng-icon>
                             <div>
-                                <a [href]="certificazione.pdf" target="_blank" class="font-semibold hover:text-[#FF7420] cursor-pointer">{{
+                                <a [href]="certificazione.pdf" target="_blank" class="font-semibold text-gray-800 hover:text-[#FF7420] cursor-pointer">{{
                                     certificazione.categoria }}</a>
-                                <p class="text-sm text-neutral-300">{{ certificazione.descrizione }}</p>
+                                <p class="text-sm text-gray-600 mt-1">{{ certificazione.descrizione }}</p>
                             </div>
                         </li>
                         }
@@ -171,8 +171,8 @@
                 </div>
 
                 <!-- Certificazioni -->
-                <div class="bg-black/100 p-8 rounded-xl shadow-lg text-white z-10">
-                    <h3 class="text-xl font-semibold mb-4"><span class="text-[#FF7420]">Certificazioni</span> ISO</h3>
+                <div class="bg-white border border-gray-200 p-8 rounded-xl shadow-xl text-gray-800 z-10">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900"><span class="text-[#FF7420]">Certificazioni</span> ISO</h3>
                     <div class="h-1 w-12 bg-[#FF7420] mb-6 rounded"></div>
                     <ul class="space-y-4">
                         @for(certificazione of certificazioniISO(); track certificazione.id) {
@@ -180,8 +180,8 @@
                             <ng-icon class="shrink-0" name="bootstrapPatchCheckFill" size="18"
                                 color="#FF7420"></ng-icon>
                             <div>
-                                <a [href]="certificazione.pdf" target="_blank" class="font-semibold hover:text-[#FF7420] cursor-pointer">{{ certificazione.categoria }}</a>
-                                <p class="text-sm text-neutral-300">{{ certificazione.descrizione }}</p>
+                                <a [href]="certificazione.pdf" target="_blank" class="font-semibold text-gray-800 hover:text-[#FF7420] cursor-pointer">{{ certificazione.categoria }}</a>
+                                <p class="text-sm text-gray-600 mt-1">{{ certificazione.descrizione }}</p>
                             </div>
                         </li>
                         }
@@ -190,15 +190,15 @@
 
                 <!-- Garanzie -->
                 <div
-                    class="bg-black/100 p-8 rounded-xl shadow-lg text-white z-10">
-                    <h3 class="text-xl font-semibold mb-4"><span class="text-[#FF7420]">Garanzie</span> e Sicurezza</h3>
+                    class="bg-white border border-gray-200 p-8 rounded-xl shadow-xl text-gray-800 z-10">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900"><span class="text-[#FF7420]">Garanzie</span> e Sicurezza</h3>
                     <div class="h-1 w-12 bg-[#FF7420] mb-6 rounded"></div>
                     <ul class="space-y-4">
                         @for(garanzia of getGaranzie(); track garanzia.id) {
                         <li class="flex gap-3 items-start">
                             <ng-icon class="shrink-0" name="bootstrapPatchCheckFill" size="18"
                                 color="#FF7420"></ng-icon>
-                            <p>{{ garanzia.descrizione }}</p>
+                            <p class="text-gray-700">{{ garanzia.descrizione }}</p>
                         </li>
                         }
                     </ul>

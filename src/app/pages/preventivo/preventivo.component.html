@@ -19,9 +19,9 @@
 </section>
 
 <!-- Pattern di sfondo -->
-<div class="absolute inset-0 opacity-10">
+<div class="absolute inset-0 opacity-5 pointer-events-none">
     <div class="h-full w-full"
-        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
     </div>
 </div>
 
@@ -34,13 +34,13 @@
 }
 
 <!-- Card principale -->
-<div class="relative z-10 container mx-auto max-w-6xl bg-black/100 border-2 rounded-2xl py-12 px-8 md:px-16 border-black/100 my-12">
+<div class="relative z-10 container mx-auto max-w-6xl bg-white shadow-2xl rounded-2xl py-12 px-8 md:px-16 border border-gray-100 my-12">
     <div class="my-2 mb-10">
-        <h1 class="text-[#F5F5F5] text-3xl font-bold">
+        <h1 class="text-gray-900 text-3xl font-bold">
             <span> <span class="text-[#FF7420]">Ottieni </span>la tua offerta</span>
             <div class="h-1 w-24 mt-3 bg-[#FF7420] rounded"></div>
         </h1>
-        <p class="text-[#F5F5F5] my-4">
+        <p class="text-gray-600 my-4">
             Inserisci i tuoi dati per ricevere un'offerta personalizzata senza impegno. Valuteremo insieme la soluzione
             più adatta alle tue esigenze!
         </p>
@@ -49,24 +49,24 @@
     <form class="my-5" [formGroup]="formPreventivo" (ngSubmit)="richiestaPreventivo()">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <label for="nome" class="text-[#F5F5F5] font-medium">Nome*</label>
+                <label for="nome" class="text-gray-800 font-medium tracking-wide">Nome*</label>
                 <input type="text" id="nome" formControlName="nome" autocomplete="given-name"
-                    class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:ring-2 focus:ring-[#FF7420] transition-all"
+                    class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:ring-2 outline-none focus:ring-[#FF7420] transition-all"
                     placeholder="Il tuo nome">
             </div>
 
             <div>
-                <label for="cognome" class="text-[#F5F5F5] font-medium">Cognome*</label>
+                <label for="cognome" class="text-gray-800 font-medium tracking-wide">Cognome*</label>
                 <input type="text" id="cognome" formControlName="cognome" autocomplete="family-name"
-                    class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:ring-2 focus:ring-[#FF7420] transition-all"
+                    class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:ring-2 outline-none focus:ring-[#FF7420] transition-all"
                     placeholder="Il tuo cognome">
             </div>
         </div>
 
         <div class="my-4">
-            <label for="email" class="text-[#F5F5F5] font-medium">Email*</label>
+            <label for="email" class="text-gray-800 font-medium tracking-wide">Email*</label>
             <input type="email" id="email" formControlName="email" autocomplete="email"
-                class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:ring-2 focus:ring-[#FF7420] transition-all"
+                class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:ring-2 outline-none focus:ring-[#FF7420] transition-all"
                 placeholder="La tua email">
             @if(email?.invalid && (email?.dirty || email?.touched)) {
             @if(email?.hasError('email')) {
@@ -76,16 +76,16 @@
         </div>
 
         <div class="my-4">
-            <label for="telefono" class="text-[#F5F5F5] font-medium">Telefono</label>
+            <label for="telefono" class="text-gray-800 font-medium tracking-wide">Telefono</label>
             <input type="tel" id="telefono" formControlName="telefono" autocomplete="tel"
-                class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:ring-2 focus:ring-[#FF7420] transition-all"
+                class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:ring-2 outline-none focus:ring-[#FF7420] transition-all"
                 placeholder="Il tuo numero di telefono">
         </div>
 
         <div class="my-4">
-            <label for="servizio" class="text-[#F5F5F5] font-medium">Servizio*</label>
+            <label for="servizio" class="text-gray-800 font-medium tracking-wide">Servizio*</label>
             <select id="servizio" formControlName="servizio"
-                class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:ring-2 focus:ring-[#FF7420] transition-all">
+                class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:ring-2 outline-none focus:ring-[#FF7420] transition-all">
                 <option value="" disabled>Seleziona un servizio</option>
                 <option value="costruzioniGenerali">Costruzioni Generali</option>
                 <option value="lavoriEdili">Lavori Edili e Stradali</option>
@@ -100,9 +100,9 @@
         </div>
 
         <div class="my-4">
-            <label for="dettagli" class="text-[#F5F5F5] font-medium">Dettagli*</label>
+            <label for="dettagli" class="text-gray-800 font-medium tracking-wide">Dettagli*</label>
             <textarea id="dettagli" rows="4" formControlName="dettagli"
-                class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:ring-2 focus:ring-[#FF7420] transition-all"
+                class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:ring-2 outline-none focus:ring-[#FF7420] transition-all"
                 placeholder="Descrivi il progetto per cui hai bisogno di un preventivo"></textarea>
             @if(dettagli?.invalid && (dettagli?.dirty || dettagli?.touched)) {
             @if(dettagli?.hasError('minlength')) {
@@ -117,7 +117,7 @@
         <div class="flex items-start gap-x-3">
             <input type="checkbox" id="privacy" formControlName="privacy_policy"
                 class="h-5 w-5 rounded-full border-2 border-[#FF7420] appearance-none checked:bg-[#FF7420] checked:border-[#FF7420] cursor-pointer">
-            <label for="privacy" class="text-[#F5F5F5] text-sm">
+            <label for="privacy" class="text-gray-700 text-sm">
                 Ho letto e accetto la <a href="https://www.iubenda.com/privacy-policy/86318650" target="_blank"
                     class="text-[#FF7420] hover:underline">Privacy Policy*</a>
             </label>
@@ -126,7 +126,7 @@
         <app-messaggio tipologia="avvertimento" messaggio="Devi accettare la Privacy Policy" />
         }
 
-        <p class="text-xs font-light text-neutral-400 my-4">Tutti i campi contrassegnati con * sono obbligatori</p>
+        <p class="text-xs font-light text-gray-500 my-4">Tutti i campi contrassegnati con * sono obbligatori</p>
 
         @if(loading()) {
         <button type="button" disabled

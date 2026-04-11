@@ -7,7 +7,7 @@
             @for(card of cards; track card.id) {
             <div [class]="getCardWidth()">
                 <div
-                    class="mx-2 sm:mx-3 bg-black/100 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden cursor-grab active:cursor-grabbing transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group">
+                    class="mx-2 sm:mx-3 bg-white border border-gray-100 rounded-xl sm:rounded-2xl shadow-xl overflow-hidden cursor-grab active:cursor-grabbing transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group">
                     <!-- Immagine card -->
                     <div class="relative overflow-hidden">
                         <img [src]="card.imageUrl" [alt]="card.title"
@@ -16,13 +16,13 @@
                     </div>
                     <div class="p-3 sm:p-5">
                         <h3
-                            class="text-white text-lg sm:text-xl font-semibold mb-2 sm:mb-3 select-none transition-colors duration-300">
+                            class="text-gray-900 text-lg sm:text-xl font-bold mb-2 sm:mb-3 select-none transition-colors duration-300">
                             {{ card.title }}</h3>
-                        <p class="text-white/80 select-none mb-3 sm:mb-4 text-sm sm:text-base">{{ card.description }}
+                        <p class="text-gray-600 select-none mb-3 sm:mb-4 text-sm sm:text-base">{{ card.description }}
                         </p>
                         <div class="flex justify-between items-center mt-2 sm:mt-4">
                             <!-- Location -->
-                            <div class="flex items-start text-white/80 text-xs sm:text-sm">
+                            <div class="flex items-start text-gray-500 text-xs sm:text-sm">
                                 <ng-icon name="heroMapPin" size="16" class="shrink-0 mr-1" />
                                 <span>{{ card.location || 'Località' }}</span>
                             </div>
@@ -47,15 +47,15 @@
                 @for(i of getIndicators(); track i) {
                 <button (click)="navigateToSlide(i)"
                     [attr.aria-label]="'Vai alla slide ' + (i + 1)"
-                    [class]="currentSlide === i  ? 'w-12 sm:w-8 h-3 sm:h-2 bg-white rounded-full transition-all duration-300 relative after:absolute after:-inset-4' : 'w-4 h-3 sm:h-2 bg-white/50 rounded-full transition-all duration-300 hover:bg-[#FF7420]/70 cursor-pointer relative after:absolute after:-inset-4'">
+                    [class]="currentSlide === i  ? 'w-12 sm:w-8 h-3 sm:h-2 bg-gray-800 rounded-full transition-all duration-300 relative after:absolute after:-inset-4' : 'w-4 h-3 sm:h-2 bg-gray-300 rounded-full transition-all duration-300 hover:bg-[#FF7420]/70 cursor-pointer relative after:absolute after:-inset-4'">
                 </button>
                 }
             </div>
 
             <div class="order-1 sm:order-2 mb-3 sm:mb-0 w-full sm:w-auto flex justify-center sm:justify-end">
-                <button (click)="onProgetto()" class="flex items-center px-6 py-3 bg-black/100 text-[#F5F5F5] hover:text-[#191A19] rounded-2xl hover:bg-white cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 group">
+                <button (click)="onProgetto()" class="flex items-center px-6 py-3 bg-white text-gray-900 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 rounded-2xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1 group">
                 <span class="text-nowrap font-medium">Esplora tutti i progetti</span>
-                <ng-icon name="heroArrowRightEndOnRectangle" size="18" class="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
+                <ng-icon name="heroArrowRightEndOnRectangle" size="18" class="ml-3 text-[#FF7420] transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             </div>
         </div>

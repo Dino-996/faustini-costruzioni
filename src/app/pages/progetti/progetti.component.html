@@ -1,12 +1,12 @@
 @if(isChildRoute()) {
 <router-outlet></router-outlet>
 } @else {
-<div class="relative bg-[#191A19]">
+<div class="relative bg-white text-gray-800">
 
     <!-- Pattern di sfondo -->
-    <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0 opacity-5">
         <div class="h-full w-full"
-            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
         </div>
     </div>
 
@@ -34,49 +34,49 @@
     <section class="container mx-auto w-full p-4 relative max-w-7xl">
 
         <!-- Pattern di sfondo -->
-        <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
             <div class="h-full w-full"
-                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
             </div>
         </div>
 
         <!-- Campo di ricerca -->
         <div class="relative mb-4">
             <!-- Contenitore dell'icona, posizionato a sinistra -->
-            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-[#F5F5F5]">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-500">
                 <!-- Icona -->
                 <ng-icon name="heroMagnifyingGlass" size="20"></ng-icon>
             </div>
             <!-- Input con padding a sinistra per fare spazio all'icona -->
             <input type="text" [(ngModel)]="termineDiRicerca"
-                class="block w-full pl-12 pr-4 py-3 sm:py-4 text-sm bg-black/100 border border-gray-700 rounded-xl px-4 text-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
+                class="block w-full pl-12 pr-4 py-3 sm:py-4 text-sm bg-white border border-gray-200 rounded-xl px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
                 placeholder="Cerca progetti...">
         </div>
 
         <!-- Bottoni di ordinamento -->
         <div class="relative flex flex-wrap gap-2 sm:gap-3">
             <button (click)="filtraPerData('crescente')"
-                [ngClass]="{'bg-[#191A19] text-white border-[#FF7420]': ordine === 'crescente', 'bg-black/100 text-gray-300 border-gray-700 hover:border-[#FF7420]': ordine !== 'crescente'}"
-                class="cursor-pointer px-3 py-2 sm:px-4 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 border shadow-md">
+                [ngClass]="{'bg-gray-100 text-gray-900 border-[#FF7420]': ordine === 'crescente', 'bg-white text-gray-600 border-gray-200 hover:border-[#FF7420] hover:text-gray-900': ordine !== 'crescente'}"
+                class="cursor-pointer px-3 py-2 sm:px-4 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 border shadow-sm">
                 Anno crescente
                 <ng-icon name="heroArrowLongUp" size="18" class="text-[#FF7420]"></ng-icon>
             </button>
 
             <button (click)="filtraPerData('decrescente')"
-                [ngClass]="{'bg-[#191A19] text-white border-[#FF7420]': ordine === 'decrescente', 'bg-black/100 text-gray-300 border-gray-700 hover:border-[#FF7420]': ordine !== 'decrescente'}"
-                class="cursor-pointer px-3 py-2 sm:px-4 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 border shadow-md">
+                [ngClass]="{'bg-gray-100 text-gray-900 border-[#FF7420]': ordine === 'decrescente', 'bg-white text-gray-600 border-gray-200 hover:border-[#FF7420] hover:text-gray-900': ordine !== 'decrescente'}"
+                class="cursor-pointer px-3 py-2 sm:px-4 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 border shadow-sm">
                 Anno decrescente
                 <ng-icon name="heroArrowLongDown" size="18" class="text-[#FF7420]"></ng-icon>
             </button>
         </div>
     </section>
 
-    <section class="bg-black py-2 px-4 relative">
+    <section class="bg-[#F8F9FA] py-2 px-4 relative border-t border-gray-100">
 
         <!-- Pattern di sfondo -->
-        <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
             <div class="h-full w-full"
-                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
             </div>
         </div>
 
@@ -87,7 +87,7 @@
                 <!-- Servizi -->
                 @for(progetto of progettiFiltrati(); track progetto.id) {
                 <div
-                    class="relative group bg-black/100 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    class="relative group bg-white border border-gray-100 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
 
                     <!-- Immagine di sfondo del servizio con overlay -->
                     <div class="relative h-48 overflow-hidden">
@@ -120,13 +120,13 @@
                     <div class="p-6 relative">
 
                         <ul class="space-y-2 mb-6">
-                            <li class="flex items-center text-[#F5F5F5]">
+                            <li class="flex items-center text-gray-700">
                                 <ng-icon name="heroClock" size="18" class="text-[#FF7420] mr-2" />
                                 <span>{{ progetto.anno }}</span>
                             </li>
                         </ul>
 
-                        <p class="text-[#F5F5F5] mb-6">{{ progetto.descrizione }}</p>
+                        <p class="text-gray-600 mb-6">{{ progetto.descrizione }}</p>
 
                         <button [routerLink]="progetto.link"
                             class="flex items-center px-4 py-2 bg-transparent text-[#FF7420] border border-[#FF7420] rounded-xl hover:bg-[#FF7420] hover:text-white cursor-pointer transition-all duration-300 group mt-auto">
@@ -145,13 +145,13 @@
                     <div class="flex justify-center items-center w-full min-h-[400px]">
 
                         <div
-                            class="flex flex-col justify-center items-center text-center text-white relative max-w-xl mx-auto">
-                            <div class="border-2 border-gray-700 rounded-xl p-8 bg-[#191A19] w-full">
+                            class="flex flex-col justify-center items-center text-center text-gray-900 relative max-w-xl mx-auto">
+                            <div class="border border-gray-200 shadow-xl rounded-xl p-8 bg-white w-full">
 
                                 <!-- Pattern di sfondo -->
-                                <div class="absolute inset-0 opacity-10">
+                                <div class="absolute inset-0 opacity-5 pointer-events-none">
                                     <div class="h-full w-full"
-                                        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+                                        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
                                     </div>
                                 </div>
 
@@ -161,8 +161,8 @@
                                 </div>
 
                                 <!-- Messaggi -->
-                                <h3 class="text-2xl font-bold text-white mb-3">Nessun progetto trovato</h3>
-                                <p class="text-gray-400 mb-8">I criteri di ricerca selezionati non corrispondono a
+                                <h3 class="text-2xl font-bold text-gray-900 mb-3">Nessun progetto trovato</h3>
+                                <p class="text-gray-500 mb-8">I criteri di ricerca selezionati non corrispondono a
                                     nessun
                                     progetto
                                     nel nostro archivio. Prova a modificare i filtri o a reimpostare la ricerca.</p>

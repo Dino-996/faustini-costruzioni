@@ -1,5 +1,5 @@
 <!-- Desktop Navbar -->
-<nav class="bg-black/100 shadow-lg fixed top-0 left-0 w-full z-50 rounded-b-xl">
+<nav class="bg-white/90 backdrop-blur-md shadow-md fixed top-0 left-0 w-full z-50 rounded-b-xl border-b border-gray-100">
 
     <div class="hidden md:block">
         <div class="container mx-auto py-4">
@@ -10,7 +10,7 @@
                     <img class="w-12 h-12 cursor-pointer" routerLink="/home"
                         src="/assets/image/logo/logo.webp"
                         alt="Faustini Costruzioni">
-                    <span class="ml-2 text-white font-semibold text-xl whitespace-nowrap">Faustini Costruzioni</span>
+                    <span class="ml-2 text-gray-900 font-semibold text-xl whitespace-nowrap">Faustini Costruzioni</span>
                 </div>
 
                 <!-- Main Menu -->
@@ -19,11 +19,11 @@
                     <div class="relative group py-2">
                         <div class="flex items-center cursor-pointer" [class.text-[#FF7420]]="isActive(item)">
                             <ng-icon [name]="item.iconName" class="mr-2 shrink-0" size="20"
-                                [style.color]="isActive(item) ? '#FF7420' : '#FFFFFF'" />
+                                [style.color]="isActive(item) ? '#FF7420' : '#374151'" />
 
                             @if(!item.submenu) {
                             <a [routerLink]="item.link" routerLinkActive="text-[#FF7420]" ariaCurrentWhenActive="page"
-                                class="text-white whitespace-nowrap hover:text-[#FF7420] font-medium transition duration-300"
+                                class="text-gray-700 whitespace-nowrap hover:text-[#FF7420] font-medium transition duration-300"
                                 (click)="closeSubmenu(item.isSubmenuOpen)">
                                 {{ item.nome }}
                             </a>
@@ -33,13 +33,13 @@
                             <div class="flex items-center">
                                 <a [routerLink]="item.link" routerLinkActive="text-[#FF7420]"
                                     ariaCurrentWhenActive="page"
-                                    class="text-white whitespace-nowrap hover:text-[#FF7420] font-medium transition duration-300"
+                                    class="text-gray-700 whitespace-nowrap hover:text-[#FF7420] font-medium transition duration-300"
                                     [class.text-[#FF7420]]="isActive(item)" (click)="closeSubmenu(item.isSubmenuOpen)">
                                     {{ item.nome }}
                                 </a>
                                 <ng-icon name="heroChevronRight" class="ml-2 transition-transform duration-300"
                                     [ngClass]="{ 'rotate-90': item.isSubmenuOpen }"
-                                    [style.color]="isActive(item) ? '#FF7420' : '#FFFFFF'"
+                                    [style.color]="isActive(item) ? '#FF7420' : '#374151'"
                                     (click)="toggleSubmenu(item)" />
                             </div>
                             }
@@ -47,14 +47,14 @@
 
                         <!-- Submenu -->
                         @if(item.isSubmenuOpen && item.submenu) {
-                        <div class="absolute left-0 mt-2 w-80 bg-black/100 rounded-lg shadow-xl z-50 overflow-hidden">
+                        <div class="absolute left-0 mt-2 w-80 bg-white border border-gray-100 rounded-lg shadow-xl z-50 overflow-hidden">
                             @for(subitem of item.submenu; track subitem.id) {
-                            <div class="hover:bg-[#191A19] transition duration-200">
-                                <div class="flex items-center px-4 py-3">
+                            <div class="hover:bg-gray-50 transition duration-200">
+                                <div class="flex items-center px-4 py-3 border-b border-gray-50">
                                     <ng-icon [name]="subitem.iconName" class="mr-3 shrink-0" size="20"
                                         style="color: #FF7420" />
                                     <a [routerLink]="subitem.link"
-                                        class="block text-white hover:text-[#FF7420] transition duration-200"
+                                        class="block text-gray-700 hover:text-[#FF7420] transition duration-200"
                                         routerLinkActive="text-[#FF7420]" (click)="item.isSubmenuOpen=false">
                                         {{ subitem.nome }}
                                     </a>
@@ -112,7 +112,7 @@
     </div>
 
     <!-- Mobile navbar -->
-    <div class="relative block md:hidden bg-black/100">
+    <div class="relative block md:hidden bg-transparent">
         <div class="px-4 py-3">
             <div class="flex justify-between items-center">
 
@@ -126,12 +126,12 @@
 
                     <!-- Whatsapp -->
                     <a href="https://wa.me/393488107321?text=Faustini Costruzioni, trasforma i tuoi progetti in realtà, garantendo massima qualità, attenzione ai dettagli e soluzioni personalizzate. Contattaci oggi stesso per un preventivo gratuito o per scoprire come possiamo realizzare il tuo progetto con precisione e professionalità!"
-                        target="_blank" aria-label="Contattaci su Whatsapp" class="text-white cursor-pointer transition duration-300 hover:opacity-80 shrink-0 shadow-md hover:shadow-lg transform hover:-translate-y-1 group mr-4 w-12 h-12 flex items-center justify-center rounded-full">
+                        target="_blank" aria-label="Contattaci su Whatsapp" class="text-[#27B43E] cursor-pointer transition duration-300 hover:opacity-80 shrink-0 shadow-md hover:shadow-lg transform hover:-translate-y-1 group mr-4 w-12 h-12 flex items-center justify-center rounded-full bg-white">
                         <ng-icon name="bootstrapWhatsapp" size="24"></ng-icon>
                     </a>
 
                     <!-- Toggle Button -->
-                    <button class="p-2 rounded-xl text-white cursor-pointer hover:bg-[#FF7420] transition duration-300 w-12 h-12 flex items-center justify-center" (click)="toggleMenu()" aria-label="Menu">
+                    <button class="p-2 rounded-xl text-gray-900 cursor-pointer hover:bg-gray-100 transition duration-300 w-12 h-12 flex items-center justify-center" (click)="toggleMenu()" aria-label="Menu">
                         @if(!isOpen) {
                         <ng-icon name="heroBars3" size="24" />
                         }
@@ -149,13 +149,13 @@
 
                 <div class="flex flex-col space-y-4 pt-4">
                     @for(item of items; track item.id) {
-                    <div class="border-b border-gray-700 pb-2">
+                    <div class="border-b border-gray-200 pb-2">
                         <div class="flex items-center">
                             <ng-icon [name]="item.iconName" class="mr-3 shrink-0" size="20" style="color: #FF7420;" />
 
                             @if(!item.submenu) {
                             <a [routerLink]="item.link" routerLinkActive="text-[#FF7420]" ariaCurrentWhenActive="page"
-                                class="text-white hover:text-[#FF7420] font-medium transition duration-300"
+                                class="text-gray-800 hover:text-[#FF7420] font-medium transition duration-300"
                                 (click)="toggleMenu(); closeSubmenu(item)">
                                 {{ item.nome }}
                             </a>
@@ -166,7 +166,7 @@
 
                                 <a [routerLink]="item.link" routerLinkActive="text-[#FF7420]"
                                     ariaCurrentWhenActive="page"
-                                    class="text-white hover:text-[#FF7420] font-medium transition duration-300"
+                                    class="text-gray-800 hover:text-[#FF7420] font-medium transition duration-300"
                                     [class.text-[#FF7420]]="isActive(item)" (click)="toggleMenu()">
                                     {{ item.nome }}
                                 </a>
@@ -185,14 +185,14 @@
                             'max-h-96 opacity-100 scale-y-100 translate-y-0': item.isSubmenuOpen,
                             'max-h-0 opacity-0 scale-y-95 -translate-y-2': !item.isSubmenuOpen
                         }">
-                            <div class="bg-black/100 mt-2 ml-8 pl-4 py-2 space-y-3 rounded-md">
+                            <div class="bg-gray-50 mt-2 ml-8 pl-4 py-2 space-y-3 rounded-md">
                                 @for(subitem of item.submenu; track subitem.id) {
                                 <div
-                                    class="flex items-center py-2 hover:bg-gray-900/50 px-3 rounded-lg transition-all duration-200">
+                                    class="flex items-center py-2 hover:bg-gray-100 px-3 rounded-lg transition-all duration-200">
                                     <ng-icon [name]="subitem.iconName" class="mr-3 shrink-0" size="20"
                                         style="color: #FF7420" />
                                     <a [routerLink]="subitem.link"
-                                        class="text-white hover:text-[#FF7420] transition duration-300 w-full"
+                                        class="text-gray-700 hover:text-[#FF7420] transition duration-300 w-full"
                                         routerLinkActive="text-[#FF7420]" (click)="toggleMenu()">
                                         {{ subitem.nome }}
                                     </a>
@@ -204,7 +204,7 @@
                     }
 
                     <!-- Mobile Call to Action -->
-                    <div class="flex flex-col space-y-3 mt-4 pt-2 px-2 border-gray-700">
+                    <div class="flex flex-col space-y-3 mt-4 pt-2 px-2 border-gray-200">
                         <button routerLink="preventivo" (click)="toggleMenu()"
                             class="flex justify-center items-center px-3 py-2 bg-[#FF7420] text-[#191A19] rounded-xl hover:bg-orange-600 cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 group">
                             <span class="text-nowrap font-medium">Preventivo</span>
@@ -218,18 +218,18 @@
     </div>
 
     <!-- Breadcrumbs -->
-    <div class="relative hidden md:block bg-black/100 rounded-xl">
+    <div class="relative hidden md:block bg-[#F8F9FA] rounded-xl border-t border-gray-100">
         <div class="container mx-auto py-2 px-4">
             <div class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1">
                     @for (crumb of breadcrumbs; track $index; let last = $last) {
-                    <li class="inline-flex items-center text-[#F5F5F5]">
+                    <li class="inline-flex items-center text-gray-800">
                         @if($index != 0) {
                         <ng-icon name="heroChevronRight" size="14" class="text-gray-400 mx-2"></ng-icon>
                         }
                         @if(!last) {
                         <a [routerLink]="crumb.url"
-                            class="text-sm text-gray-300 hover:text-[#FF7420] transition duration-300">
+                            class="text-sm text-gray-600 hover:text-[#FF7420] transition duration-300">
                             {{ crumb.label }}
                         </a>
                         }

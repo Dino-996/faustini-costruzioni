@@ -1,16 +1,16 @@
-<section class="bg-[#191A19] min-h-screen py-32 px-4 sm:px-6 lg:px-8 relative">
+<section class="bg-[#F8F9FA] min-h-screen py-32 px-4 sm:px-6 lg:px-8 relative">
 
     <!-- Pattern di sfondo -->
-    <div class="absolute inset-0 opacity-10 pointer-events-none z-0">
+    <div class="absolute inset-0 opacity-5 pointer-events-none z-0">
         <div class="h-full w-full"
-            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
         </div>
     </div>
 
     <div class="max-w-7xl mx-auto relative z-10">
 
         <!-- Header del progetto -->
-        <div class="bg-black/100 shadow-xl rounded-lg overflow-hidden">
+        <div class="bg-white shadow-xl rounded-lg overflow-hidden border border-gray-200">
 
             <!-- Immagine copertina -->
             <div class="h-64 md:h-96 overflow-hidden">
@@ -21,40 +21,40 @@
             <div class="p-6 md:p-8">
                 <div class="flex flex-col xl:flex-row justify-between gap-4">
                     <div>
-                        <h1 class="text-3xl md:text-4xl font-bold text-[#F5F5F5] mb-2">{{ titolo }}</h1>
+                        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{{ titolo }}</h1>
                         <span
-                            class="inline-block bg-[#FF7420] text-[#191A19] px-3 py-1 rounded-full text-sm font-medium my-2">
+                            class="inline-block bg-[#FF7420] text-white px-3 py-1 rounded-full text-sm font-medium my-2 shadow-sm">
                             {{ tipo }}
                         </span>
-                        <p class="text-gray-300">{{ descrizioneBreve }}</p>
+                        <p class="text-gray-600 mt-2">{{ descrizioneBreve }}</p>
                         @if(linkAltriDettagli) {
-                        <span class="text-gray-300">Dettagli:
-                            <a class="text-[#F5F5F5] hover:text-[#FF7420] underline" [href]="linkAltriDettagli"
+                        <span class="text-gray-600 block mt-2 text-sm">Dettagli:
+                            <a class="text-gray-800 hover:text-[#FF7420] underline transition" [href]="linkAltriDettagli"
                                 target="_blank">{{ linkAltriDettagli }}</a>
                         </span>
                         }
                     </div>
-                    <div class="bg-black/100 p-4 rounded-lg xl:w-1/3 border border-[#FF7420]">
+                    <div class="bg-[#F8F9FA] p-4 rounded-lg xl:w-1/3 border border-[#FF7420] shadow-sm">
                         <ul class="gap-y-2">
-                            <li class="flex justify-between">
-                                <span class="text-[#F5F5F5]">Cliente:</span>
-                                <span class="text-gray-300 font-medium">{{ cliente }}</span>
+                            <li class="flex justify-between py-1 border-b border-gray-200 last:border-0">
+                                <span class="text-gray-600">Cliente:</span>
+                                <span class="text-gray-900 font-medium">{{ cliente }}</span>
                             </li>
-                            <li class="flex justify-between">
-                                <span class="text-[#F5F5F5]">Ubicazione:</span>
-                                <span class="text-gray-300 font-medium">{{ ubicazione }}</span>
+                            <li class="flex justify-between py-1 border-b border-gray-200 last:border-0">
+                                <span class="text-gray-600">Ubicazione:</span>
+                                <span class="text-gray-900 font-medium">{{ ubicazione }}</span>
                             </li>
-                            <li class="flex justify-between">
-                                <span class="text-[#F5F5F5]">Inizio lavori:</span>
-                                <span class="text-gray-300 font-medium">{{ anno }}</span>
+                            <li class="flex justify-between py-1 border-b border-gray-200 last:border-0">
+                                <span class="text-gray-600">Inizio lavori:</span>
+                                <span class="text-gray-900 font-medium">{{ anno }}</span>
                             </li>
-                            <li class="flex justify-between">
-                                <span class="text-[#F5F5F5]">Tempo:</span>
-                                <span class="text-gray-300 font-medium">{{ tempoRealizzazione }}</span>
+                            <li class="flex justify-between py-1 border-b border-gray-200 last:border-0">
+                                <span class="text-gray-600">Tempo:</span>
+                                <span class="text-gray-900 font-medium">{{ tempoRealizzazione }}</span>
                             </li>
-                            <li class="flex justify-between">
-                                <span class="text-[#F5F5F5]">Budget:</span>
-                                <span class="text-gray-300 font-medium">{{ costoTotale | currency: 'EUR' : 'symbol' :
+                            <li class="flex justify-between py-1 border-b border-gray-200 last:border-0">
+                                <span class="text-gray-600">Budget:</span>
+                                <span class="text-gray-900 font-medium">{{ costoTotale | currency: 'EUR' : 'symbol' :
                                     '1.0-2' }}</span>
                             </li>
                         </ul>
@@ -67,9 +67,9 @@
         <div class="relative">
 
             <!-- Pattern di sfondo solo sotto le card -->
-            <div class="absolute inset-0 opacity-10 z-0">
+            <div class="absolute inset-0 opacity-5 z-0">
                 <div class="h-full w-full"
-                    style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E'); background-repeat: repeat;">
+                    style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E'); background-repeat: repeat;">
                 </div>
             </div>
 
@@ -80,19 +80,19 @@
                 <div class="lg:col-span-2 my-8 gap-y-8">
 
                     <!-- Descrizione completa -->
-                    <div class="bg-black/100 p-6 md:p-8 rounded-xl shadow-md">
-                        <h2 class="text-2xl font-bold text-white mb-2 pb-2">
+                    <div class="bg-white border border-gray-200 p-6 md:p-8 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2 pb-2">
                             <span class="text-[#FF7420]">Descrizione</span> del Progetto
                         </h2>
                         <div class="h-1 w-24 bg-[#FF7420] mb-6 rounded"></div>
-                        <div class="prose prose-lg text-gray-300">
+                        <div class="prose prose-lg text-gray-700">
                             <p>{{ descrizioneCompleta }}</p>
                         </div>
                     </div>
 
                     <!-- Galleria immagini con slider -->
-                    <div class="relative bg-black/100 p-6 md:p-8 rounded-xl shadow-md mt-8">
-                        <h2 class="text-2xl font-bold text-[#F5F5F5] mb-2 pb-2">
+                    <div class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-xl shadow-md mt-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2 pb-2">
                             <span class="text-[#FF7420]">Galleria</span>
                         </h2>
                         <div class="h-1 w-24 bg-[#FF7420] mb-6 rounded"></div>
@@ -100,7 +100,7 @@
                         <!-- Slider container -->
                         <div class="relative">
                             <!-- Immagine principale del slider -->
-                            <div class="overflow-hidden rounded-lg shadow-md">
+                            <div class="overflow-hidden rounded-lg shadow-md border border-gray-200">
                                 <img [src]="galleria[currentImageIndex]"
                                     [alt]="'Foto cantiere ' + (currentImageIndex + 1)"
                                     class="w-full h-64 md:h-96 object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
@@ -112,13 +112,13 @@
                                 <!-- Bottone precedente -->
                                 <button (click)="immaginePrecedente()" [disabled]="currentImageIndex === 0"
                                     aria-label="Immagine precedente"
-                                    class="flex items-center justify-center w-12 h-12 bg-[#FF7420] hover:bg-[#FF7420]/80 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110">
+                                    class="flex items-center justify-center w-12 h-12 bg-white text-gray-800 border border-gray-200 hover:text-[#FF7420] disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed rounded-full shadow-sm transition-all duration-300 hover:scale-110">
                                     <ng-icon name="heroChevronLeft" size="20"></ng-icon>
                                 </button>
 
                                 <!-- Indicatori di posizione -->
                                 <div class="flex items-center space-x-2">
-                                    <span class="text-[#F5F5F5] text-sm">
+                                    <span class="text-gray-600 text-sm font-medium">
                                         {{ currentImageIndex + 1 }} di {{ galleria.length }}
                                     </span>
                                 </div>
@@ -127,7 +127,7 @@
                                 <button (click)="immagineSuccessiva()"
                                     [disabled]="currentImageIndex === galleria.length - 1"
                                     aria-label="Immagine successiva"
-                                    class="flex items-center justify-center w-12 h-12 bg-[#FF7420] hover:bg-[#FF7420]/80 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110">
+                                    class="flex items-center justify-center w-12 h-12 bg-white text-gray-800 border border-gray-200 hover:text-[#FF7420] disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed rounded-full shadow-sm transition-all duration-300 hover:scale-110">
                                     <ng-icon name="heroChevronRight" size="20"></ng-icon>
                                 </button>
                             </div>
@@ -138,7 +138,7 @@
                                 <button (click)="restituisciImmagine(i)"
                                     [attr.aria-label]="'Vai all\'immagine ' + (i + 1)"
                                     [class]="'flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ' + 
-                                            (i === currentImageIndex ? 'border-[#FF7420] opacity-100' : 'border-gray-600 opacity-60 hover:opacity-80')">
+                                            (i === currentImageIndex ? 'border-[#FF7420] shadow-sm opacity-100' : 'border-gray-200 opacity-60 hover:opacity-100')">
                                     <img [src]="img" [alt]="'Thumbnail ' + (i + 1)"
                                         class="w-full h-full object-cover" />
                                 </button>
@@ -148,13 +148,13 @@
 
                         <!-- Overlay per immagine ingrandita -->
                         @if (selectedImage) {
-                        <div class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-2 pt-24 sm:pt-8">
+                        <div class="fixed inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center z-50 p-2 pt-24 sm:pt-8">
                             <div class="relative top-10">
                                 <img [src]="selectedImage" alt="Immagine grande"
-                                    class="max-h-[80vh] max-w-[90vw] object-contain rounded-xl" />
+                                    class="max-h-[80vh] max-w-[90vw] object-contain rounded-xl shadow-2xl" />
                                 <button (click)="chiudiOverlay()"
                                     aria-label="Chiudi overlay"
-                                    class="absolute top-4 right-4 sm:top-2 sm:right-2 bg-white/90 hover:bg-[#FF7420] text-black rounded-full w-12 h-12 flex items-center justify-center shadow-lg cursor-pointer transition-transform hover:scale-110 z-10">
+                                    class="absolute top-4 right-4 sm:top-2 sm:right-2 bg-gray-900 shadow-xl hover:bg-[#FF7420] text-white rounded-full w-12 h-12 flex items-center justify-center cursor-pointer transition-transform hover:scale-110 z-10">
                                     <ng-icon name="heroXMark" size="18"></ng-icon>
                                 </button>
                             </div>
@@ -167,8 +167,8 @@
                 <div class="lg:my-8 my-0">
 
                     <!-- Materiali utilizzati -->
-                    <div class="bg-black/100 p-4 md:p-6 rounded-xl shadow-md">
-                        <h2 class="text-2xl font-bold text-[#F5F5F5] mb-1 pb-1">
+                    <div class="bg-white border border-gray-200 p-4 md:p-6 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-1 pb-1">
                             <span class="text-[#FF7420]">Materiali</span> Principali
                         </h2>
                         <div class="h-1 w-24 bg-[#FF7420] mb-4 rounded"></div>
@@ -176,12 +176,12 @@
                             @for (materiale of materialiPrincipali; track $index) {
                             <li class="flex items-start">
                                 <div>
-                                    <h3 class="font-medium text-[#F5F5F5]">{{ materiale.nome }}</h3>
+                                    <h3 class="font-medium text-gray-800">{{ materiale.nome }}</h3>
                                     @if (materiale.quantita) {
-                                    <p class="text-sm text-gray-300">{{ materiale.quantita }} m<sup>3</sup></p>
+                                    <p class="text-sm text-gray-600">{{ materiale.quantita }} m<sup>3</sup></p>
                                     }
                                     @if (materiale.fornitore) {
-                                    <p class="text-xs text-gray-300">Fornitore: {{ materiale.fornitore }}</p>
+                                    <p class="text-xs text-gray-500">Fornitore: {{ materiale.fornitore }}</p>
                                     }
                                 </div>
                             </li>
@@ -190,33 +190,33 @@
                     </div>
 
                     <!-- Team e certificazioni -->
-                    <div class="bg-black/100 p-6 md:p-8 rounded-xl shadow-md mt-8">
-                        <h2 class="text-2xl font-bold text-[#F5F5F5] mb-2 pb-2"><span class="text-[#FF7420]">Team</span>
+                    <div class="bg-white border border-gray-200 p-6 md:p-8 rounded-xl shadow-md mt-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2 pb-2"><span class="text-[#FF7420]">Team</span>
                             & Certificazioni</h2>
                         <div class="h-1 w-24 bg-[#FF7420] mb-6 rounded"></div>
                         <ul class="space-y-4">
                             @if(architetti.length > 0) { 
                                 <li class="flex items-center">
-                                    <span class="text-[#F5F5F5]">{{architetti.length > 1 ? "Architetti: " : "Architetto: "}}
-                                        <strong>{{ architetti.join(', ')}}</strong>
+                                    <span class="text-gray-700">{{architetti.length > 1 ? "Architetti: " : "Architetto: "}}
+                                        <strong class="text-gray-900">{{ architetti.join(', ')}}</strong>
                                     </span>
                                 </li>
                                 }
                                  @if(ingegneri.length > 0) {
                                     <li class="flex items-center">
-                                    <span class="text-[#F5F5F5]">{{ingegneri.length > 1 ? "Ingegneri: " : "Ingegnere: "}}
-                                        <strong>{{ ingegneri.join(', ')}}</strong>
+                                    <span class="text-gray-700">{{ingegneri.length > 1 ? "Ingegneri: " : "Ingegnere: "}}
+                                        <strong class="text-gray-900">{{ ingegneri.join(', ')}}</strong>
                                     </span>
                                 </li>
                                 }  
                                 <li class="flex items-center">
-                                    <span class="text-[#F5F5F5]">Impresa: <strong>{{ impresaAppaltatrice}}</strong></span>
+                                    <span class="text-gray-700">Impresa: <strong class="text-gray-900">{{ impresaAppaltatrice}}</strong></span>
                                 </li> 
                                 @if (certificazioni && certificazioni.length > 0) {
                                 <li class="flex items-start">
                                     <div>
-                                        <span class="block text-[#F5F5F5] font-medium mb-1">Certificazioni:</span>
-                                        <ul class="list-disc pl-5 text-gray-300">
+                                        <span class="block text-gray-900 font-medium mb-1">Certificazioni:</span>
+                                        <ul class="list-disc pl-5 text-gray-700">
                                             @for (cert of certificazioni; track $index) {
                                             <li>{{ cert }}</li>
                                             }
@@ -229,15 +229,15 @@
 
                     <!-- Planimetrie (se presenti) -->
                     @if (planimetrie && planimetrie.length > 0) {
-                    <div class="relative bg-black/100 p-6 md:p-8 rounded-xl shadow-md mt-8">
+                    <div class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-xl shadow-md mt-8">
                         <h2 class="text-2xl font-bold text-[#FF7420] mb-2 pb-2">Planimetrie</h2>
                         <div class="h-1 w-24 bg-[#FF7420] mb-6 rounded"></div>
                         <div class="space-y-4">
-                            <ul class="list-disc pl-5 text-gray-300">
+                            <ul class="list-disc pl-5 text-gray-700">
                                 @for (planimetria of planimetrie; track $index) {
                                 <li>
                                     <a [href]="planimetria" target="_blank" rel="noopener noreferrer"
-                                        class="flex items-center text-[#F5F5F5] hover:text-[#FF7420]">
+                                        class="flex items-center text-gray-800 hover:text-[#FF7420]">
                                         <span>Visualizza {{ planimetria.split('/').pop() }}</span>
                                     </a>
                                 </li>

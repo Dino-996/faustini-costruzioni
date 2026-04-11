@@ -18,19 +18,19 @@
 </section>
 
 <!-- Contatti -->
-<section class="relative bg-black py-16 px-4">
+<section class="relative bg-[#F8F9FA] py-16 px-4">
   <div class="container mx-auto max-w-6xl">
     <!-- Pattern di sfondo -->
-    <div class="absolute inset-0 opacity-10 z-0">
+    <div class="absolute inset-0 opacity-5 z-0 pointer-events-none">
       <div class="h-full w-full"
-        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
+        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E')">
       </div>
     </div>
 
     <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
       <!-- Colonna sinistra: Form di contatto -->
-      <div class="bg-black/100 rounded-2xl p-6 border-2 md:p-8">
-        <h3 class="text-[#F5F5F5] text-2xl font-bold mb-6">
+      <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 md:p-8">
+        <h3 class="text-gray-900 text-2xl font-bold mb-6">
           <span class="text-[#FF7420]">Inviaci</span> un messaggio
         </h3>
         <div class="h-1 w-24 bg-[#FF7420] mb-6 mx-0 rounded"></div>
@@ -40,25 +40,25 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
             <div>
-              <label for="nome" class="text-[#F5F5F5] block font-medium">Nome*</label>
+              <label for="nome" class="text-gray-800 block font-medium">Nome*</label>
               <input type="text" id="nome" name="nome" formControlName="nome"
-                class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
+                class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
                 placeholder="Il tuo nome" autocomplete="given-name">
             </div>
 
             <div>
-              <label for="cognome" class="text-[#F5F5F5] block font-medium">Cognome*</label>
+              <label for="cognome" class="text-gray-800 block font-medium">Cognome*</label>
               <input type="text" id="cognome" name="cognome" formControlName="cognome"
-                class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
+                class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
                 placeholder="Il tuo cognome" autocomplete="family-name">
             </div>
 
           </div>
 
           <div class="mt-4">
-            <label for="email" class="text-[#F5F5F5] block font-medium">Email*</label>
+            <label for="email" class="text-gray-800 block font-medium">Email*</label>
             <input type="email" id="email" name="email" formControlName="email"
-              class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
+              class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
               placeholder="La tua email" autocomplete="on">
             @if(emailControl().invalid && (emailControl().dirty || emailControl().touched)) {
             @if(emailControl().hasError('email')) {
@@ -68,16 +68,16 @@
           </div>
 
           <div class="mt-4">
-            <label for="telefono" class="text-[#F5F5F5] block font-medium">Telefono</label>
+            <label for="telefono" class="text-gray-800 block font-medium">Telefono</label>
             <input type="tel" id="telefono" name="telefono" formControlName="telefono"
-              class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
+              class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
               placeholder="Il tuo numero di telefono">
           </div>
 
           <div class="mt-4">
-            <label for="oggetto" class="text-[#F5F5F5] block font-medium">Oggetto*</label>
+            <label for="oggetto" class="text-gray-800 block font-medium">Oggetto*</label>
             <select id="oggetto" name="oggetto" formControlName="oggetto"
-              class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300">
+              class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300">
               <option value="" disabled selected>Seleziona un'opzione</option>
               @for(opzione of getOpzioniOggetto(); track opzione.value) {
               <option [value]="opzione.value">{{ opzione.label }}</option>
@@ -86,9 +86,9 @@
           </div>
 
           <div class="mt-4">
-            <label for="messaggio" class="text-[#F5F5F5] block font-medium">Messaggio*</label>
+            <label for="messaggio" class="text-gray-800 block font-medium">Messaggio*</label>
             <textarea id="messaggio" name="messaggio" rows="4" formControlName="messaggio"
-              class="w-full bg-[#191A19] border border-gray-700 rounded-lg px-4 py-3 text-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
+              class="w-full bg-[#F8F9FA] border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF7420] transition-all duration-300"
               placeholder="Scrivi qui il tuo messaggio"></textarea>
             @if(messaggioControl().invalid && (messaggioControl().dirty || messaggioControl().touched)) {
             @if(messaggioControl().hasError('minlength')) {
@@ -103,13 +103,13 @@
           <div class="flex items-center">
             <input type="checkbox" id="privacy" name="privacy" formControlName="privacy_policy"
               class="my-2 mr-3 h-5 w-5 rounded-full border-2 border-[#FF7420] appearance-none checked:bg-[#FF7420] checked:border-[#FF7420] cursor-pointer">
-            <label for="privacy" class="text-[#F5F5F5] text-sm">
+            <label for="privacy" class="text-gray-700 text-sm">
               Ho letto e accetto la <a href="https://www.iubenda.com/privacy-policy/86318650" target="_blank"
                 class="text-[#FF7420] hover:underline">Privacy Policy*</a>
             </label>
           </div>
 
-          <p class="text-xs font-light text-neutral-400 my-4">
+          <p class="text-xs font-light text-gray-500 my-4">
             Tutti i campi contrassegnati con * sono obbligatori
           </p>
 
@@ -142,8 +142,8 @@
       <!-- Colonna destra: Informazioni di contatto e mappa -->
       <div class="relative">
         <!-- Box informazioni di contatto -->
-        <div class="bg-black/100 rounded-2xl p-6 md:p-8">
-          <h3 class="text-[#F5F5F5] text-2xl font-bold mb-6">
+        <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200 md:p-8">
+          <h3 class="text-gray-900 text-2xl font-bold mb-6">
             <span class="text-[#FF7420]">Informazioni</span> di contatto
           </h3>
           <!-- Divisore -->
@@ -152,27 +152,27 @@
           <div class="my-6 space-y-6">
             @for(contatto of getInformazioniContatto(); track contatto.tipo) {
             <div class="flex items-start">
-              <div class="flex items-center bg-white border-1 border-[#FF7420] p-3 rounded-full mr-4 flex-shrink-0">
-                <ng-icon [name]="contatto.icona" size="20" />
+              <div class="flex items-center bg-[#F8F9FA] shadow-sm border border-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
+                <ng-icon [name]="contatto.icona" size="20" style="color: #FF7420;" />
               </div>
               <div class="min-w-0 flex-1">
-                <h4 class="text-[#FF7420] font-bold">{{ contatto.titolo }}</h4>
+                <h4 class="text-gray-900 font-bold">{{ contatto.titolo }}</h4>
                 @if(contatto.tipo === 'email') {
                 @for(info of contatto.informazioni; track $index) {
                 <a [href]="'mailto:'.concat(info)" target="_blank"
-                  class="text-[#F5F5F5] hover:text-[#FF7420] transition break-words cursor-pointer">{{ info }}</a>
+                  class="text-gray-600 hover:text-[#FF7420] transition break-words cursor-pointer">{{ info }}</a>
                 <br>
                 }
                 } @else if(contatto.tipo ==='telefono') {
                 @for(info of contatto.informazioni; track $index) {
                 <a [href]="'tel:'.concat(info).replaceAll(' ', '')" target="_blank"
-                  class="text-[#F5F5F5] hover:text-[#FF7420] transition break-words cursor-pointer">{{
+                  class="text-gray-600 hover:text-[#FF7420] transition break-words cursor-pointer">{{
                   info.replace("+39", "") }}</a>
                 <br>
                 }
                 } @else {
                 @for(info of contatto.informazioni; track $index) {
-                <p class="text-[#F5F5F5] break-words">{{ info }}</p>
+                <p class="text-gray-600 break-words">{{ info }}</p>
                 }
                 }
               </div>
@@ -181,23 +181,23 @@
 
             <!-- Orari di lavoro -->
             <div class="flex items-start">
-              <div class="flex items-center bg-white border-1 border-[#FF7420] p-3 rounded-full mr-4 flex-shrink-0">
-                <ng-icon name="heroClock" size="20" class="text-[#F5F5F5]" />
+              <div class="flex items-center bg-[#FF7420] shadow-sm border border-transparent p-3 rounded-full mr-4 flex-shrink-0">
+                <ng-icon name="heroClock" size="20" class="text-white" />
               </div>
               <div class="min-w-0 flex-1">
-                <h4 class="text-[#FF7420] font-bold">Orari</h4>
+                <h4 class="text-gray-900 font-bold">Orari</h4>
 
                 <!-- Tabella desktop -->
                 <div class="hidden md:block">
-                  <table class="table-auto w-full rounded-lg border-2 border-white text-[#F5F5F5] mt-3 overflow-hidden">
+                  <table class="table-auto w-full rounded-lg border border-gray-200 text-gray-800 mt-3 overflow-hidden">
                     <thead>
-                      <tr class="bg-white/10">
+                      <tr class="bg-gray-50">
                         <th class="px-4 py-3 text-left font-semibold text-[#FF7420]">Giorno</th>
                         <th class="px-4 py-3 text-left font-semibold text-[#FF7420]">Mattina</th>
                         <th class="px-4 py-3 text-left font-semibold text-[#FF7420]">Pomeriggio</th>
                       </tr>
                     </thead>
-                    <tbody class="divide-y divide-white/20">
+                    <tbody class="divide-y divide-gray-200">
                       @for(orario of getOrari(); track orario.id) {
                       <tr>
                         <td class="px-4 py-2 font-medium">{{ orario.giorno }}</td>
@@ -216,18 +216,18 @@
                 <!-- Layout mobile -->
                 <div class="md:hidden mt-3 space-y-3">
                   @for(orario of getOrari(); track orario.id) {
-                  <div class="bg-white/5 rounded-lg p-3 border border-white/20">
+                  <div class="bg-gray-50 rounded-lg p-3 border border-gray-100">
                     <div class="font-semibold text-[#FF7420] mb-2">{{ orario.giorno }}</div>
                     <div class="grid grid-cols-2 gap-2 text-sm">
                       <div>
-                        <span class="text-white/70">Mattina</span>
-                        <div [class]="getMobileTextClasses(orario.orariMattina)">
+                        <span class="text-gray-500">Mattina</span>
+                        <div [class]="getMobileTextClasses(orario.orariMattina).replace('text-neutral-500', 'text-gray-700')">
                           {{ orario.orariMattina }}
                         </div>
                       </div>
                       <div>
-                        <span class="text-white/70">Pomeriggio</span>
-                        <div [class]="getMobileTextClasses(orario.orariPomeriggio)">
+                        <span class="text-gray-500">Pomeriggio</span>
+                        <div [class]="getMobileTextClasses(orario.orariPomeriggio).replace('text-neutral-500', 'text-gray-700')">
                           {{ orario.orariPomeriggio }}
                         </div>
                       </div>
@@ -243,7 +243,7 @@
     </div>
     <div class="relative">
       <!-- Mappa -->
-      <div class="bg-[#191A19] rounded-2xl mt-8 overflow-hidden shadow-lg">
+      <div class="bg-white rounded-2xl mt-8 border border-gray-200 overflow-hidden shadow-xl">
 
         <div class="relative w-full bg-gray-800" style="height: 450px;">
           <!-- Iframe -->
