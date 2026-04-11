@@ -9,7 +9,7 @@
   <!-- Header -->
   <div class="container mx-auto px-4 py-8 mb-8">
     <h2 class="text-gray-900 text-4xl lg:text-5xl font-extrabold mb-4 leading-tight"><span
-        class="text-[#FF7420] text-center">Cosa</span> dicono i nostri clienti</h2>
+        class="text-[#C2410C] text-center">Cosa</span> dicono i nostri clienti</h2>
     <div class="h-1 w-24 bg-[#FF7420] mb-6 mx-0 rounded"></div>
   </div>
 
@@ -33,7 +33,7 @@
         
         <!-- Nome -->
         <span class="text-gray-900 font-bold">{{ testimonials[currentIndex].name }}</span>
-        <span class="text-sm text-gray-500 font-medium">{{ testimonials[currentIndex].role || 'Cliente' }}</span>
+        <span class="text-sm text-gray-700 font-semibold">{{ testimonials[currentIndex].role || 'Cliente' }}</span>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@
     
     <!-- Pulsante precedente -->
     <button (click)="prevAvatar()"
-      class="p-2 text-gray-400 hover:text-[#FF7420] cursor-pointer transition-all duration-300 transform hover:-translate-x-1 focus:outline-none"
+      class="p-2 text-gray-600 hover:text-[#C2410C] cursor-pointer transition-all duration-300 transform hover:-translate-x-1 focus:outline-none"
       aria-label="Testimonianza precedente">
       <ng-icon name="heroArrowLeftCircle" size="32" />
     </button>
@@ -52,7 +52,7 @@
     <div class="flex justify-center gap-4 cursor-pointer">
       @for(item of testimonials; track item.id; let i = $index) {
       <button
-        [class]="i === currentIndex ? 'w-3 h-3 rounded-full bg-[#FF7420] transform scale-125 transition-all duration-300 relative after:absolute after:-inset-4' : 'w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 relative after:absolute after:-inset-4'"
+        [class]="i === currentIndex ? 'w-3 h-3 rounded-full bg-[#C2410C] transform scale-125 transition-all duration-300 relative after:absolute after:-inset-4' : 'w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 relative after:absolute after:-inset-4'"
         (click)="setCurrentIndex(i)"
         [attr.aria-label]="'Vai alla testimonianza ' + (i + 1)">
       </button>
@@ -61,7 +61,7 @@
 
     <!-- Pulsante successivo -->
     <button (click)="nextAvatar()"
-      class="p-2 text-gray-400 hover:text-[#FF7420] cursor-pointer transition-all duration-300 transform hover:translate-x-1 focus:outline-none"
+      class="p-2 text-gray-600 hover:text-[#C2410C] cursor-pointer transition-all duration-300 transform hover:translate-x-1 focus:outline-none"
       aria-label="Testimonianza successiva">
       <ng-icon name="heroArrowRightCircle" size="32" />
     </button>
