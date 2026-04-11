@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     { id: 7, url: '/assets/image/hero/hero-8.webp' },
     { id: 8, url: '/assets/image/hero/hero-1.webp' },
   ]
-  public idCorrente: number | null = null;
+  public idCorrente: number = 0;
   public idImmagineAttiva: number = this.bgImmagini[0].id;
   public intervalloImmaginiSfondo: any;
 
@@ -83,7 +83,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
 
   public ngOnInit(): void {
-    this.intervalloImmaginiSfondo = setInterval(() => this.cambiaImmagine(), 5000);
+    // Ritardo avvio slideshow per non competere con il LCP
+    setTimeout(() => {
+      this.intervalloImmaginiSfondo = setInterval(() => this.cambiaImmagine(), 5000);
+    }, 2000);
     this.setupSeoForPage();
   }
 

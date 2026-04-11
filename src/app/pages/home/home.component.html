@@ -3,21 +3,14 @@
 
     <!-- Immagini di sfondo -->
     <div class="absolute inset-0">
-        @if(idCorrente !== undefined) {
-        @for (bgImmagine of bgImmagini; track bgImmagine.id) {
-        <img [ngSrc]="bgImmagine.url" alt="Immagine di sfondo" fill priority
+        @for (bgImmagine of bgImmagini; track bgImmagine.id; let first = $first) {
+        <img [ngSrc]="bgImmagine.url" alt="Immagine di sfondo" fill
+            [priority]="first"
+            [attr.fetchpriority]="first ? 'high' : 'low'"
+            [attr.loading]="first ? 'eager' : 'lazy'"
             class="w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out"
             [class.opacity-100]="bgImmagine.id === idImmagineAttiva"
             [class.opacity-0]="bgImmagine.id !== idImmagineAttiva" />
-        }
-        } @else {
-        <div class="absolute inset-0 flex items-center justify-center">
-            <span class="relative flex size-18">
-                <span
-                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF7420] opacity-75"></span>
-                <span class="relative inline-flex size-18 rounded-full bg-[#FF7420]"></span>
-            </span>
-        </div>
         }
         <div class="absolute inset-0 bg-black/70"></div>
     </div>
