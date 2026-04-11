@@ -18,3 +18,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FAUSTINICOSTRUZIONI_B5930 }}
           channelId: live
           projectId: faustinicostruzioni-b5930
+          firebaseToolsVersion: 14.27.0
