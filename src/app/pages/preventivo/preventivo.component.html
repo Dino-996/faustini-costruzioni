@@ -130,7 +130,7 @@
 
         @if(loading()) {
         <button type="button" disabled
-            class="flex items-center justify-center w-full px-6 py-4 bg-[#FF7420] text-[#F5F5F5] rounded-xl">
+            class="flex items-center justify-center w-full px-6 py-4 bg-[#FF7420] text-[#191A19] rounded-xl">
             Invio il preventivo...
             <ng-icon name="heroArrowPath" size="18"
                 class="ml-3 group-hover:translate-x-1 transition-transform duration-300 animate-spin" />
@@ -138,8 +138,8 @@
         } @else {
         <button type="submit" [disabled]="!formPreventivo.valid || !isTempoScaduto()"
             [class]="!formPreventivo.valid || !isTempoScaduto() 
-                    ? 'flex items-center justify-center w-full px-6 py-4 bg-gray-400 text-[#F5F5F5] rounded-xl cursor-not-allowed transition-all duration-300' 
-                    : 'flex items-center justify-center w-full px-6 py-4 bg-[#FF7420] text-[#F5F5F5] rounded-xl cursor-pointer hover:bg-orange-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group font-medium'">
+                    ? 'flex items-center justify-center w-full px-6 py-4 bg-gray-400 text-[#191A19] rounded-xl cursor-not-allowed transition-all duration-300' 
+                    : 'flex items-center justify-center w-full px-6 py-4 bg-[#FF7420] text-[#191A19] rounded-xl cursor-pointer hover:bg-orange-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group font-medium'">
             Richiedi preventivo
             <ng-icon name="heroCalculator" size="18"
                 class="ml-3 group-hover:translate-x-1 transition-transform duration-300" />

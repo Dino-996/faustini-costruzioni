@@ -2,7 +2,7 @@
     <div class="relative flex justify-between items-end">
         <!-- Linea di connessione con gradiente -->
         <div
-            class="absolute h-[3px] bg-gradient-to-r from-white/40 via-white to-white/40 left-0 right-0 bottom-4 rounded-full">
+            class="absolute h-[3px] bg-gradient-to-r from-black/20 via-black/60 to-black/20 left-0 right-0 bottom-4 rounded-full">
         </div>
 
         <!-- Steps -->
@@ -11,19 +11,19 @@
             [attr.aria-label]="'Step ' + (step.id + 1) + ': ' + step.description" role="button" tabindex="0">
 
             <!-- Descrizione -->
-            <span class="text-xs md:text-sm text-center text-white font-medium mb-2 px-1">
+            <span class="text-xs md:text-sm text-center text-[#191A19] font-bold mb-2 px-1">
                 {{ step.description }}
             </span>
 
             <!-- Punto con animazione -->
             <div class="relative mb-2">
-                <div class="h-4 w-4 bg-transparent border-2 border-white rounded-full shadow-lg"></div>
-                <div class="absolute top-0 left-0 h-4 w-4 border-2 border-white rounded-full animate-ping opacity-50">
+                <div class="h-4 w-4 bg-[#FF7420] border-2 border-[#191A19] rounded-full shadow-lg"></div>
+                <div class="absolute top-0 left-0 h-4 w-4 border-2 border-[#191A19] rounded-full animate-ping opacity-50">
                 </div>
             </div>
 
             <!-- Titolo -->
-            <span class="text-xs font-bold text-[#191A19] bg-white/80 px-2 py-1 rounded-full">
+            <span class="text-xs font-bold text-[#FF7420] bg-[#191A19] px-2 py-1 rounded-full">
                 Step {{ step.id + 1 }}
             </span>
         </div>

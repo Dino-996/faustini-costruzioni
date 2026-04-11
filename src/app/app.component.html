@@ -12,9 +12,9 @@
     </div>
     }
 
-    <div class="transition-all duration-300 ease-out" [class.opacity-0]="isCaricamento" [class.translate-y-5]="isCaricamento">
+    <main class="transition-all duration-300 ease-out" [class.opacity-0]="isCaricamento" [class.translate-y-5]="isCaricamento">
         <router-outlet (activate)="onAttivato()" (deactivate)="onDisattivo()" />
-    </div>
+    </main>
     
 </div>
 

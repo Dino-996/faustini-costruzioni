@@ -15,7 +15,7 @@
 
         <!-- Poster/Thumbnail con Play Button -->
         @if (!playingState() && !errorState()) {
-        <div class="absolute inset-0 cursor-pointer flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300" (click)="playVideo(videoElement)">
+        <div role="button" tabindex="0" aria-label="Riproduci video" class="absolute inset-0 cursor-pointer flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300" (click)="playVideo(videoElement)" (keydown.enter)="playVideo(videoElement)">
 
             <!-- Play Button -->
             <div class="relative z-10 bg-[#FF7420] rounded-full p-6 shadow-2xl transform group-hover:scale-110 transition-transform duration-300">

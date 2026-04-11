@@ -49,12 +49,13 @@
     </button>
 
     <!-- Indicatori -->
-    <div class="flex justify-center gap-3 cursor-pointer">
+    <div class="flex justify-center gap-4 cursor-pointer">
       @for(item of testimonials; track item.id; let i = $index) {
-      <div
-        [class]="i === currentIndex ? 'w-3 h-3 rounded-full bg-[#FF7420] transform scale-125 transition-all duration-300' : 'w-3 h-3 rounded-full bg-gray-500 hover:bg-gray-400 transition-all duration-300'"
-        (click)="setCurrentIndex(i)">
-      </div>
+      <button
+        [class]="i === currentIndex ? 'w-3 h-3 rounded-full bg-[#FF7420] transform scale-125 transition-all duration-300 relative after:absolute after:-inset-4' : 'w-3 h-3 rounded-full bg-gray-400 hover:bg-gray-300 transition-all duration-300 relative after:absolute after:-inset-4'"
+        (click)="setCurrentIndex(i)"
+        [attr.aria-label]="'Vai alla testimonianza ' + (i + 1)">
+      </button>
       }
     </div>
 

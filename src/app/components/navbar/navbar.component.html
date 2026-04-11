@@ -100,7 +100,7 @@
                             </svg>
                         </a>
                         <button routerLink="preventivo"
-                            class="flex justify-center items-center px-3 py-2 bg-[#FF7420] text-[#F5F5F5] rounded-xl hover:bg-orange-600 cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 group">
+                            class="flex justify-center items-center px-3 py-2 bg-[#FF7420] text-[#191A19] rounded-xl hover:bg-orange-600 cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 group">
                             <span class="text-nowrap font-medium">Preventivo</span>
                             <ng-icon name="heroArrowTopRightOnSquare" size="18"
                                 class="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
@@ -126,12 +126,12 @@
 
                     <!-- Whatsapp -->
                     <a href="https://wa.me/393488107321?text=Faustini Costruzioni, trasforma i tuoi progetti in realtà, garantendo massima qualità, attenzione ai dettagli e soluzioni personalizzate. Contattaci oggi stesso per un preventivo gratuito o per scoprire come possiamo realizzare il tuo progetto con precisione e professionalità!"
-                        target="_blank" class="text-white cursor-pointer transition duration-300 hover:opacity-80 shrink-0 shadow-md hover:shadow-lg transform hover:-translate-y-1 group mr-6">
-                        <ng-icon name="bootstrapWhatsapp" size="24" aria-label="Contattaci su Whatsapp"></ng-icon>
+                        target="_blank" aria-label="Contattaci su Whatsapp" class="text-white cursor-pointer transition duration-300 hover:opacity-80 shrink-0 shadow-md hover:shadow-lg transform hover:-translate-y-1 group mr-4 w-12 h-12 flex items-center justify-center rounded-full">
+                        <ng-icon name="bootstrapWhatsapp" size="24"></ng-icon>
                     </a>
 
                     <!-- Toggle Button -->
-                    <button class="p-2 rounded-xl text-white cursor-pointer hover:bg-[#FF7420] transition duration-300 w-10 h-10" (click)="toggleMenu()" aria-label="Menu">
+                    <button class="p-2 rounded-xl text-white cursor-pointer hover:bg-[#FF7420] transition duration-300 w-12 h-12 flex items-center justify-center" (click)="toggleMenu()" aria-label="Menu">
                         @if(!isOpen) {
                         <ng-icon name="heroBars3" size="24" />
                         }
@@ -206,7 +206,7 @@
                     <!-- Mobile Call to Action -->
                     <div class="flex flex-col space-y-3 mt-4 pt-2 px-2 border-gray-700">
                         <button routerLink="preventivo" (click)="toggleMenu()"
-                            class="flex justify-center items-center px-3 py-2 bg-[#FF7420] text-[#F5F5F5] rounded-xl hover:bg-orange-600 cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 group">
+                            class="flex justify-center items-center px-3 py-2 bg-[#FF7420] text-[#191A19] rounded-xl hover:bg-orange-600 cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 group">
                             <span class="text-nowrap font-medium">Preventivo</span>
                             <ng-icon name="heroArrowTopRightOnSquare" size="18"
                                 class="ml-3 transition-transform duration-300 group-hover:translate-x-1" />
@@ -225,11 +225,11 @@
                     @for (crumb of breadcrumbs; track $index; let last = $last) {
                     <li class="inline-flex items-center text-[#F5F5F5]">
                         @if($index != 0) {
-                        <ng-icon name="heroChevronRight" size="14" class="text-gray-500 mx-2"></ng-icon>
+                        <ng-icon name="heroChevronRight" size="14" class="text-gray-400 mx-2"></ng-icon>
                         }
                         @if(!last) {
                         <a [routerLink]="crumb.url"
-                            class="text-sm text-gray-400 hover:text-[#FF7420] transition duration-300">
+                            class="text-sm text-gray-300 hover:text-[#FF7420] transition duration-300">
                             {{ crumb.label }}
                         </a>
                         }
