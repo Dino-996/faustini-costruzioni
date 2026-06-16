@@ -71,7 +71,7 @@
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
-    "firebase-tools": "^14.27.0",
+    "firebase-tools": "^15.20.0",
     "glob": "^13.0.6",
     "jasmine-core": "~5.5.0",
     "karma": "~6.4.0",
