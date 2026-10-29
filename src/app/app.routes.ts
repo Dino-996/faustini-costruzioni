@@ -35,7 +35,7 @@ export const routes: Routes = [
             { path: 'lavori', loadComponent: () => import('./pages/subpages/lavori/lavori.component').then(m => m.LavoriComponent), data: { breadcrumb: 'Lavori edili e stradali' } },
             { path: 'idrodemolizioni', loadComponent: () => import('./pages/subpages/idrodemolizioni/idrodemolizioni.component').then(m => m.IdrodemolizioniComponent), data: { breadcrumb: 'Idrodemolizioni' } },
             { path: 'restauri', loadComponent: () => import('./pages/subpages/restauri/restauri.component').then(m => m.RestauriComponent), data: { breadcrumb: 'Restauro conservativo' } },
-            { path: 'noleggio', loadComponent: () => import('./pages/subpages/noleggi/noleggi.component').then(m => m.NoleggiComponent), data: { breadcrumb: 'Noleggio ponteggie e attrezzature' } },
+            { path: 'noleggio', loadComponent: () => import('./pages/subpages/noleggi/noleggi.component').then(m => m.NoleggiComponent), data: { breadcrumb: 'Noleggio ponteggi e attrezzature' } },
         ]
     },
     { 

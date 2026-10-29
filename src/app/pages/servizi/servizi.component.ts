@@ -87,9 +87,9 @@ export class ServiziComponent implements OnInit {
   private setupSeoForPage(): void {
     this.seoService.updateSeo({
       title: 'Servizi - Faustini Costruzioni',
-      description: 'Vieni a scoprire tutti i progetti che ci contrddistinguono',
-      url: 'https://faustinicostruzioni.it/progetti',
-      keywords: 'servizi, noleggio ponteggi, opere di riqualificazione'
+      description: 'Scopri i servizi di Faustini Costruzioni: costruzioni generali, lavori edili e stradali, restauro conservativo, idrodemolizioni e noleggio ponteggi.',
+      url: 'https://faustinicostruzioni.it/servizi',
+      keywords: 'servizi, costruzioni, lavori stradali, restauro, idrodemolizioni, noleggio ponteggi'
     });
   }
 

@@ -68,7 +68,7 @@ export class ContattiComponent implements OnInit {
   private readonly informazioniContatto = signal<InformazioniContatto[]>([
     { id: 0, tipo: 'indirizzo', icona: 'heroMapPin', titolo: 'Indirizzo', informazioni: ['Corso Garibaldi, 82, 85058 Vietri di Potenza PZ'] },
     { id: 1, tipo: 'telefono', icona: 'heroPhone', titolo: 'Telefono', informazioni: ['0971 71 87 45', '+39 348 81 07 321'] },
-    { id: 2, tipo: 'email', icona: 'heroEnvelope', titolo: 'Email', informazioni: ['faustini.costruzioni@gmail.it', 'faustini.costruzioni@pec.it'] }
+    { id: 2, tipo: 'email', icona: 'heroEnvelope', titolo: 'Email', informazioni: ['faustini.costruzioni@gmail.com', 'faustini.costruzioni@pec.it'] }
   ]);
 
   private readonly messaggi$: Observable<Messaggi[]>;

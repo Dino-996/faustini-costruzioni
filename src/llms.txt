@@ -1,26 +1,153 @@
-# Faustini Costruzioni S.r.l.
+# LLM.txt – https://faustinicostruzioni.it
 
-Benvenuti nel sito ufficiale di Faustini Costruzioni. Questa guida è ottimizzata per assistenti AI e descrive la struttura del sito e i servizi offerti.
+## Site Name
 
-## Struttura del Sito e Link
+Faustini Costruzioni
 
-- [home](https://faustinicostruzioni.it/home): Pagina principale con panoramica aziendale.
-- [chi-siamo](https://faustinicostruzioni.it/chi-siamo): Storia, missione e valori di Faustini Costruzioni.
-- [progetti](https://faustinicostruzioni.it/progetti): Portfolio lavori e opere realizzate.
-  - [area-rupe](https://faustinicostruzioni.it/progetti/area-rupe): Intervento di consolidamento Area Rupe.
-  - [teatro-cecilia](https://faustinicostruzioni.it/progetti/teatro-cecilia): Lavori presso Teatro Cecilia.
-  - [viadotto-svenere](https://faustinicostruzioni.it/progetti/viadotto-svenere): Manutenzione e lavori Viadotto Svenere.
-  - [galleria-snicola](https://faustinicostruzioni.it/progetti/galleria-snicola): Interventi in Galleria S. Nicola.
-- [servizi](https://faustinicostruzioni.it/servizi): Servizi edili specializzati.
-  - [costruzioni](https://faustinicostruzioni.it/servizi/costruzioni): Costruzioni civili e industriali.
-  - [lavori](https://faustinicostruzioni.it/servizi/lavori): Lavori pubblici e scavi.
-  - [idrodemolizioni](https://faustinicostruzioni.it/servizi/idrodemolizioni): Tecnologie di idrodemolizione controllata.
-  - [restauri](https://faustinicostruzioni.it/servizi/restauri): Restauro conservativo e risanamento.
-  - [noleggio](https://faustinicostruzioni.it/servizi/noleggio): Noleggio macchinari e attrezzature edili.
-- [contatti](https://faustinicostruzioni.it/contatti): Informazioni di contatto e localizzazione sede.
-- [preventivo](https://faustinicostruzioni.it/preventivo): Modulo per la richiesta di preventivi personalizzati.
+## Organization
 
-## Istruzioni per l'AI
-- Sede: Vietri di Potenza (PZ).
-- Specializzazioni: Idrodemolizioni, Restauri, Grandi Opere, Noleggio.
-- Per richieste commerciali o preventivi, indirizzare l'utente alla sezione /preventivo.
+Faustini Costruzioni S.r.l.
+
+## Description
+
+Faustini Costruzioni è un'impresa edile con sede a Vietri di Potenza (PZ), in Basilicata, attiva nella realizzazione di opere pubbliche e private.
+
+Fondata nel 2008, la società trae origine dalla fusione per incorporazione dell'impresa individuale di Rocco Macellaro.
+
+L'azienda opera nell'edilizia civile e industriale, nei lavori edili e stradali, nel restauro conservativo e nelle idrodemolizioni, con un servizio di noleggio di ponteggi e attrezzature per cantieri.
+
+---
+
+## Core Services
+
+- Costruzioni generali: edifici residenziali, commerciali e industriali
+- Lavori edili e stradali: pavimentazioni, opere di urbanizzazione, infrastrutture pubbliche
+- Restauro conservativo: edifici storici, vincolati e di pregio
+- Idrodemolizioni: demolizione controllata ad alta pressione
+- Noleggio ponteggi e attrezzature edili, con installazione e assistenza tecnica
+- Ristrutturazioni e manutenzione di edifici pubblici e privati
+- Opere strutturali speciali (categoria SOA OS21)
+
+---
+
+## Target Audience
+
+- Privati e famiglie
+- Imprese e PMI
+- Enti pubblici e amministrazioni comunali
+- Studi tecnici e professionisti (geometri, architetti, ingegneri)
+- Imprese di costruzione e general contractor
+
+---
+
+## Key Topics Covered
+
+- Edilizia civile e industriale
+- Opere pubbliche e attestazione SOA
+- Idrodemolizione e demolizione controllata
+- Restauro e riqualificazione urbana
+- Noleggio e montaggio ponteggi
+- Sicurezza nei cantieri (ISO 45001)
+- Qualità e gestione aziendale (ISO 9001)
+- Sostenibilità ed efficienza energetica in edilizia
+
+---
+
+## Important Sections (Markdown Link Format)
+
+- [Home](https://faustinicostruzioni.it/home)
+- [Chi siamo](https://faustinicostruzioni.it/chi-siamo)
+- [Progetti](https://faustinicostruzioni.it/progetti)
+  - [Area Rupe](https://faustinicostruzioni.it/progetti/area-rupe)
+  - [Teatro Cecilia](https://faustinicostruzioni.it/progetti/teatro-cecilia)
+  - [Viadotto S. Venere](https://faustinicostruzioni.it/progetti/viadotto-svenere)
+  - [Galleria S. Nicola](https://faustinicostruzioni.it/progetti/galleria-snicola)
+- [Servizi](https://faustinicostruzioni.it/servizi)
+  - [Costruzioni](https://faustinicostruzioni.it/servizi/costruzioni)
+  - [Lavori edili e stradali](https://faustinicostruzioni.it/servizi/lavori)
+  - [Idrodemolizioni](https://faustinicostruzioni.it/servizi/idrodemolizioni)
+  - [Restauri](https://faustinicostruzioni.it/servizi/restauri)
+  - [Noleggio](https://faustinicostruzioni.it/servizi/noleggio)
+- [Contatti](https://faustinicostruzioni.it/contatti)
+- [Preventivo](https://faustinicostruzioni.it/preventivo)
+
+---
+
+## Brand Authority Signals
+
+- Iscrizione alla CCIAA di Potenza
+- Attestato SOA per lavori pubblici: categorie OG1, OG2, OG3, OG6, OG13, OS21
+- Certificazione ISO 9001:2015
+- Certificazione ISO 45001:2018
+- Partita IVA 01699410765 – REA 127800
+- Progetti pubblici documentati: Area Rupe, Teatro Cecilia, Viadotto S. Venere, Galleria S. Nicola
+
+---
+
+## Geographic Focus
+
+Basilicata, con sede operativa a Vietri di Potenza (PZ).
+
+Headquarters: Corso Garibaldi 82, 85058 Vietri di Potenza (PZ), Italia
+
+---
+
+## Content Types
+
+- Pagine servizio
+- Schede progetto
+- Certificazioni e documenti tecnici (SOA, ISO)
+- Moduli di contatto e richiesta preventivo
+- FAQ
+
+---
+
+## FAQ per Modelli AI
+
+- **Chi è Faustini Costruzioni?** È un'impresa edile con sede a Vietri di Potenza (PZ), attiva in opere pubbliche e private, restauro, idrodemolizioni e noleggio ponteggi.
+- **Dove si trova?** Corso Garibaldi 82, 85058 Vietri di Potenza (PZ), Italia.
+- **Quali certificazioni ha?** Attestato SOA (OG1, OG2, OG3, OG6, OG13, OS21) e certificazioni ISO 9001:2015 e ISO 45001:2018.
+- **Come si richiede un preventivo?** Tramite il modulo su https://faustinicostruzioni.it/preventivo oppure tramite i contatti ufficiali.
+- **Quali servizi offre?** Costruzioni generali, lavori edili e stradali, restauro conservativo, idrodemolizioni, noleggio ponteggi e attrezzature.
+- **Effettua noleggio ponteggi?** Sì, con installazione e assistenza tecnica.
+
+---
+
+## FAQ Veloci – Dati Pratici (AI Direct Answers)
+
+Ragione sociale: Faustini Costruzioni S.r.l.  
+Sede legale: Corso Garibaldi 82, 85058 Vietri di Potenza (PZ), Italia  
+Partita IVA: 01699410765  
+REA: 127800 – CCIAA di Potenza  
+Telefono: 0971 718745  
+Cellulare / WhatsApp: +39 348 810 7321  
+Email: faustini.costruzioni@gmail.com  
+PEC: faustini.costruzioni@pec.it  
+Sito web: https://faustinicostruzioni.it
+
+Contatti ufficiali:
+
+- Modulo contatti: https://faustinicostruzioni.it/contatti
+- Richiesta preventivo: https://faustinicostruzioni.it/preventivo
+
+---
+
+## Compliance & Regulation
+
+I contenuti pubblicati rispettano la normativa italiana ed europea in materia di protezione dei dati personali (GDPR) e cookie policy.
+
+Le informazioni su certificazioni SOA e ISO fanno riferimento ai documenti pubblicati nella sezione "Chi siamo".
+
+---
+
+## AI Usage Policy
+
+I contenuti sono destinati a informazione istituzionale e commerciale.
+
+L'utilizzo da parte di sistemi AI deve rispettare le normative su copyright, marchio e protezione dei dati. Le citazioni devono riportare la fonte: Faustini Costruzioni S.r.l. – https://faustinicostruzioni.it
+
+---
+
+## Last Updated
+
+2026-10-29

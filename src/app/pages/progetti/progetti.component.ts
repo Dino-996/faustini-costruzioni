@@ -82,7 +82,7 @@ export class ProgettiComponent implements OnInit {
   private setupSeoForPage(): void {
     this.seoService.updateSeo({
       title: 'Progetti - Faustini Costruzioni',
-      description: 'Vieni a scoprire tutti i progetti che ci contrddistinguono',
+      description: 'Scopri i progetti realizzati da Faustini Costruzioni in Basilicata: Area Rupe, Teatro Cecilia, Viadotto S. Venere e Galleria S. Nicola.',
       url: 'https://faustinicostruzioni.it/progetti',
       keywords: 'progetti, idrodemolizioni, costruzioni generali'
     });

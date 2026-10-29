@@ -25,8 +25,8 @@ const routes = [
     ]
   },
   { path: 'contatti' },
-  { path: 'preventivo' },
-  { path: 'pagina-non-trovata' }
+  { path: 'preventivo' }
+  // La pagina 404 (pagina-non-trovata) è volutamente esclusa dalla sitemap
 ];
 
 // Helper: genera array di URL da routes annidate
